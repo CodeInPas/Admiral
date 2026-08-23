@@ -36,7 +36,6 @@
 
 ### 📊 Data Analysis & Advanced Tooling
 * **Visual Chart & BI:** Transform tabular query outputs into dynamic bar, line, and pie charts.
-* **Interactive CLI Terminal:** Integrated full-featured interactive database terminal emulator.
 * **Schema Difference & Transfer:** Compare schemas across multiple connections and transfer tables safely.
 * **Two-Way Visual ERD Modeler:** Generate canvas diagrams from active databases and reverse/forward engineer schemas.
 * **Safe Mode Guardrails:** Prevents accidental catastrophic executions (`DROP`, unconditional `DELETE`/`UPDATE`) with confirmation dialogues.

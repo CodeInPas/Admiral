@@ -1,4 +1,6 @@
-# ⚓ Admiral — Multi-Database Administration & Geospatial Tool
+# ⚓ Admiral — Multi-Database Administration 
+
+<img width="818" height="432" alt="image" src="https://github.com/user-attachments/assets/7b5b8f25-7245-4a3f-aaf8-9b66158136d1" />
 
 [![Lazarus](https://img.shields.io/badge/Built%20with-Lazarus%20%2F%20FPC-blue.svg)](https://www.lazarus-ide.org/)
 [![Database](https://img.shields.io/badge/Databases-MySQL%20%7C%20PostgreSQL%20%7C%20SQLite%20%7C%20MariaDB%20%7C%20Firebird-teal.svg)](#supported-databases)
@@ -59,3 +61,6 @@
    ```bash
    git clone [https://github.com/your-username/admiral.git](https://github.com/your-username/admiral.git)
    cd admiral
+---
+
+

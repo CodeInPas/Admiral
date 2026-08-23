@@ -1,0 +1,411 @@
+object FormAIDiagnostic: TFormAIDiagnostic
+  Left = 310
+  Height = 548
+  Top = 120
+  Width = 823
+  Caption = 'Smart SQL Error Diagnostics & Auto-Fix'
+  ClientHeight = 548
+  ClientWidth = 823
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 60
+    Top = 0
+    Width = 823
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 60
+    ClientWidth = 823
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 20
+      Top = 10
+      Width = 305
+      Caption = '🤖 Smart SQL Error Diagnostics && Auto-Fix'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 16
+      Height = 13
+      Top = 34
+      Width = 318
+      Caption = 'Database Runtime Exception Analysis & Correction Suggestions'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblElapsed: TLabel
+      Left = 720
+      Height = 13
+      Top = 14
+      Width = 83
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      Caption = 'Waktu respon: -'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object prgLoading: TProgressBar
+      Left = 16
+      Height = 4
+      Top = 54
+      Width = 791
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+    end
+  end
+  object pgcMain: TPageControl
+    Left = 5
+    Height = 414
+    Top = 77
+    Width = 813
+    ActivePage = tabAnalysis
+    Align = alClient
+    BorderSpacing.Top = 12
+    BorderSpacing.Around = 5
+    TabIndex = 0
+    TabOrder = 1
+    object tabAnalysis: TTabSheet
+      Caption = '💡 Root Cause Analysis'
+      ClientHeight = 386
+      ClientWidth = 805
+      object memAnalysis: TMemo
+        Left = 3
+        Height = 380
+        Top = 3
+        Width = 799
+        Align = alClient
+        BorderSpacing.Around = 3
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+      end
+    end
+    object tabFixedSQL: TTabSheet
+      Caption = '⚡ Auto-Fixed Query'
+      ClientHeight = 386
+      ClientWidth = 805
+      object pnlFixedToolbar: TPanel
+        Left = 0
+        Height = 32
+        Top = 0
+        Width = 805
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 32
+        ClientWidth = 805
+        TabOrder = 0
+        object lblFixedInfo: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 184
+          Caption = 'Suggested query to fix the error:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object btnCopyFixedSQL: TSpeedButton
+          Left = 693
+          Height = 24
+          Top = 4
+          Width = 100
+          Anchors = [akTop, akRight]
+          Caption = '📋 Copy SQL'
+          OnClick = btnCopyFixedSQLClick
+        end
+      end
+      inline synFixedSQL: TSynEdit
+        Left = 3
+        Height = 348
+        Top = 35
+        Width = 799
+        Align = alClient
+        BorderSpacing.Around = 3
+        Font.Height = -13
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        Gutter.Width = 57
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Highlighter = synSQLSyn
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 17
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+    object tabOriginalError: TTabSheet
+      Caption = 'Error Details & Original SQL '
+      ClientHeight = 386
+      ClientWidth = 805
+      object pnlOrigTop: TPanel
+        Left = 0
+        Height = 120
+        Top = 0
+        Width = 805
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 120
+        ClientWidth = 805
+        TabOrder = 0
+        object lblOrigErrorTitle: TLabel
+          Left = 8
+          Height = 15
+          Top = 6
+          Width = 136
+          Caption = 'Runtime Error Message :'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object memErrorMessage: TMemo
+          Left = 8
+          Height = 90
+          Top = 24
+          Width = 789
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          Color = 16119285
+          Font.Color = clMaroon
+          Font.Height = -12
+          Font.Name = 'Courier New'
+          ParentFont = False
+          ReadOnly = True
+          ScrollBars = ssAutoVertical
+          TabOrder = 0
+        end
+      end
+      object lblOrigSQLTitle: TLabel
+        Left = 8
+        Height = 15
+        Top = 126
+        Width = 111
+        Caption = 'Original SQL Query :'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      inline synOriginalSQL: TSynEdit
+        Left = 3
+        Height = 237
+        Top = 146
+        Width = 799
+        Align = alBottom
+        BorderSpacing.Around = 3
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        Gutter.Width = 55
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Highlighter = synSQLSyn
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 15
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 52
+    Top = 496
+    Width = 823
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 52
+    ClientWidth = 823
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object btnApplyToEditor: TBitBtn
+      Left = 16
+      Height = 34
+      Top = 9
+      Width = 210
+      Caption = '✔ Apply Correction to Editor'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnApplyToEditorClick
+    end
+    object btnReanalyze: TBitBtn
+      Left = 236
+      Height = 34
+      Top = 9
+      Width = 140
+      Caption = '🔄 Re-analize'
+      TabOrder = 1
+      OnClick = btnReanalyzeClick
+    end
+    object btnClose: TBitBtn
+      Left = 727
+      Height = 34
+      Top = 9
+      Width = 80
+      Anchors = [akTop, akRight]
+      Caption = 'Close'
+      TabOrder = 2
+      OnClick = btnCloseClick
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
+    SQLDialect = sqlSybase
+    Left = 704
+    Top = 48
+  end
+end

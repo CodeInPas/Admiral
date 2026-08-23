@@ -1,0 +1,385 @@
+object FormAIExplainer: TFormAIExplainer
+  Left = 280
+  Height = 527
+  Top = 110
+  Width = 826
+  Caption = 'SQL Explainer & Documentation Generator'
+  ClientHeight = 527
+  ClientWidth = 826
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 60
+    Top = 0
+    Width = 826
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 60
+    ClientWidth = 826
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 20
+      Top = 10
+      Width = 326
+      Caption = '📖 SQL Explainer && Documentation Generator'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 16
+      Height = 13
+      Top = 34
+      Width = 398
+      Caption = 'Query Logic Flow Explanation, Header Docstring, & Inline Comments Generator'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblElapsed: TLabel
+      Left = 728
+      Height = 13
+      Top = 14
+      Width = 78
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      Caption = 'Time Respon : -'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object prgLoading: TProgressBar
+      Left = 16
+      Height = 4
+      Top = 54
+      Width = 794
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+    end
+  end
+  object pgcMain: TPageControl
+    Left = 5
+    Height = 393
+    Top = 77
+    Width = 816
+    ActivePage = tabOriginalSQL
+    Align = alClient
+    BorderSpacing.Top = 12
+    BorderSpacing.Around = 5
+    TabIndex = 2
+    TabOrder = 1
+    object tabExplanation: TTabSheet
+      Caption = '💡 Logic Flow Explanation'
+      ClientHeight = 365
+      ClientWidth = 808
+      object memExplanation: TMemo
+        Left = 3
+        Height = 359
+        Top = 3
+        Width = 802
+        Align = alClient
+        BorderSpacing.Around = 3
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+      end
+    end
+    object tabAnnotatedSQL: TTabSheet
+      Caption = '📝 Annotated Query (Docstring / Comments)'
+      ClientHeight = 365
+      ClientWidth = 808
+      object pnlAnnotatedToolbar: TPanel
+        Left = 0
+        Height = 32
+        Top = 0
+        Width = 808
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 32
+        ClientWidth = 808
+        TabOrder = 0
+        object lblAnnotatedInfo: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 243
+          Caption = 'Kueri lengkap dengan komentar penjelasan:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object btnCopyAnnotatedSQL: TSpeedButton
+          Left = 676
+          Height = 24
+          Top = 4
+          Width = 120
+          Anchors = [akTop, akRight]
+          Caption = '📋 Salin SQL'
+          OnClick = btnCopyAnnotatedSQLClick
+        end
+      end
+      inline synAnnotatedSQL: TSynEdit
+        Left = 3
+        Height = 327
+        Top = 35
+        Width = 802
+        Align = alClient
+        BorderSpacing.Around = 3
+        Font.Height = -13
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        Gutter.Width = 57
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Highlighter = synSQLSyn
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 17
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+    object tabOriginalSQL: TTabSheet
+      Caption = 'Original SQL Query'
+      ClientHeight = 365
+      ClientWidth = 808
+      inline synOriginalSQL: TSynEdit
+        Left = 3
+        Height = 359
+        Top = 3
+        Width = 802
+        Align = alClient
+        BorderSpacing.Around = 3
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        Gutter.Width = 55
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Highlighter = synSQLSyn
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 15
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 52
+    Top = 475
+    Width = 826
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 52
+    ClientWidth = 826
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object btnApplyToEditor: TBitBtn
+      Left = 16
+      Height = 34
+      Top = 9
+      Width = 230
+      Caption = '✔ Insert Comments into Editor'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnApplyToEditorClick
+    end
+    object btnExportMarkdown: TBitBtn
+      Left = 254
+      Height = 34
+      Top = 9
+      Width = 160
+      Caption = '📄 Eksport Document (.md)'
+      TabOrder = 1
+      OnClick = btnExportMarkdownClick
+    end
+    object btnCopyExplanation: TBitBtn
+      Left = 422
+      Height = 34
+      Top = 9
+      Width = 140
+      Caption = '📋 Copy Explain'
+      TabOrder = 2
+      OnClick = btnCopyExplanationClick
+    end
+    object btnReanalyze: TBitBtn
+      Left = 570
+      Height = 34
+      Top = 9
+      Width = 130
+      Caption = '🔄 Re-Analyze'
+      TabOrder = 3
+      OnClick = btnReanalyzeClick
+    end
+    object btnClose: TBitBtn
+      Left = 730
+      Height = 34
+      Top = 9
+      Width = 80
+      Anchors = [akTop, akRight]
+      Caption = 'Close'
+      TabOrder = 4
+      OnClick = btnCloseClick
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
+    SQLDialect = sqlSybase
+    Left = 784
+    Top = 48
+  end
+  object saveDialog: TSaveDialog
+    Left = 712
+    Top = 40
+  end
+end

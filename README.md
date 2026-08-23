@@ -54,12 +54,4 @@
   * `synedit` (Standard Lazarus component)
   * `bgracontrols` & `bgrabitmappack`
 
-### Building from Source
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-username/admiral.git](https://github.com/your-username/admiral.git)
-   cd admiral
----
-
 

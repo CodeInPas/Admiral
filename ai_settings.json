@@ -1,0 +1,11 @@
+{
+  "provider" : 0,
+  "gemini_api_key" : "AIzaSyACGpkEAaNxF70kR3bJhX7rXGf0qhbVEe0",
+  "gemini_model" : "gemini-3-flash-preview",
+  "llama_endpoint" : "http://127.0.0.1:8080/v1/chat/completions",
+  "llama_model" : "gpt-3.5-turbo",
+  "llama_api_key" : "",
+  "temperature" : 2.0000000000000001E-001,
+  "max_tokens" : 2048,
+  "timeout_sec" : 30
+}

@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="admiral.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="42"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormMain"/>
+        <EditorIndex Value="10"/>
+        <CursorPos X="15" Y="240"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameDataGrid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameDataGrid"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="343"/>
+        <CursorPos X="5" Y="114"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameObjectTree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameObjectTree"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="16"/>
+        <TopLine Value="1269"/>
+        <CursorPos X="5" Y="1292"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameQueryTab"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="17"/>
+        <TopLine Value="713"/>
+        <CursorPos X="13" Y="718"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameTableDDL.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameTableDDL"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="18"/>
+        <TopLine Value="176"/>
+        <CursorPos X="38" Y="196"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uFormConnectionEdit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormConnectionEdit"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uFormExportDialog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormExportDialog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\threads\uExportWorkerThread.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos X="5" Y="150"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\threads\uQueryWorkerThread.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="82"/>
+        <CursorPos X="5" Y="91"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uExportService.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="5" Y="75"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uHistoryService.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="190"/>
+        <CursorPos X="5" Y="213"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\uModelConnection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="245"/>
+        <CursorPos X="5" Y="265"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\uModelQueryHistory.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="176"/>
+        <CursorPos Y="183"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\uModelSchemaObject.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="256"/>
+        <CursorPos X="5" Y="266"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\uDBConnectionFactory.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="181"/>
+        <CursorPos X="5" Y="205"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\uDBDriverBase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="416"/>
+        <CursorPos X="5" Y="439"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\uDBTypes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="90"/>
+        <CursorPos X="5" Y="114"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\metadata\uDDLGenerator.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="362"/>
+        <CursorPos X="5" Y="386"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\metadata\uMetadataExtractor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="180"/>
+        <CursorPos X="5" Y="204"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\drivers\uDriverFirebird.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="613"/>
+        <CursorPos X="5" Y="636"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\drivers\uDriverMariaDB.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="114"/>
+        <CursorPos X="5" Y="138"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\drivers\uDriverMySQL.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="568"/>
+        <CursorPos X="5" Y="592"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\drivers\uDriverPostgreSQL.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="689"/>
+        <CursorPos X="5" Y="712"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\drivers\uDriverSQLite.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="473"/>
+        <CursorPos X="5" Y="496"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\uAppConst.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="76"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\uAppTypes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="72"/>
+        <CursorPos X="5" Y="97"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\uAppUtils.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="232"/>
+        <CursorPos X="5" Y="257"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\storage\uLocalStorage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="86"/>
+        <CursorPos X="3" Y="96"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\storage\uStorageMigrations.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="107"/>
+        <CursorPos X="5" Y="132"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\storage\uStorageMigrator.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="66"/>
+        <CursorPos X="5" Y="90"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\core\storage\uStorageSeeder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="75"/>
+        <CursorPos X="5" Y="99"/>
+        <UsageCount Value="83"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframevalueinspector.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameValueInspector"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameValueInspector"/>
+        <EditorIndex Value="19"/>
+        <TopLine Value="390"/>
+        <CursorPos X="36" Y="309"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\udbusermanagerservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDBUserManagerService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="415"/>
+        <CursorPos X="5" Y="439"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformusermanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormUserManager"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormUserManager"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="456"/>
+        <CursorPos X="5" Y="477"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\udbprocessmanagerservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDBProcessManagerService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="196"/>
+        <CursorPos X="5" Y="220"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformprocessmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormProcessManager"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormProcessManager"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\udbservervariablesservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDBServerVariablesService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="193"/>
+        <CursorPos X="5" Y="217"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformservervariables.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormServerVariables"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormServerVariables"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="244"/>
+        <CursorPos X="5" Y="263"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\hot\uerdmodel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uERDModel"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="375"/>
+        <CursorPos X="5" Y="399"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\hot\uerdservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uERDService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos X="31" Y="8"/>
+        <UsageCount Value="79"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformerdviewer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormERDViewer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormERDViewer"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="541"/>
+        <CursorPos X="46" Y="551"/>
+        <UsageCount Value="79"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\umodelvisualquery.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uModelVisualQuery"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="127"/>
+        <CursorPos X="5" Y="137"/>
+        <UsageCount Value="78"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformquerybuilder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormQueryBuilder"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormQueryBuilder"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="189"/>
+        <CursorPos X="5" Y="199"/>
+        <UsageCount Value="78"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformrecordview.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormRecordView"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormRecordView"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="777"/>
+        <CursorPos Y="787"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\threads\uimportworkerthread.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uImportWorkerThread"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="119"/>
+        <CursorPos X="5" Y="129"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformimportdata.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormImportData"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormImportData"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="131"/>
+        <CursorPos X="5" Y="139"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\umodeltablebuilder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uModelTableBuilder"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="151"/>
+        <CursorPos X="5" Y="161"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformtablebuilder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormTableBuilder"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormTableBuilder"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="755"/>
+        <CursorPos X="5" Y="778"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\uschemadiffengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSchemaDiffEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="378"/>
+        <CursorPos X="5" Y="398"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformschemadiff.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSchemaDiff"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormSchemaDiff"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="116"/>
+        <CursorPos X="5" Y="125"/>
+        <UsageCount Value="72"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uaiservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAIService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="574"/>
+        <CursorPos X="5" Y="599"/>
+        <UsageCount Value="71"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformaisettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAISettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAISettings"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="210"/>
+        <CursorPos X="5" Y="233"/>
+        <UsageCount Value="71"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uaidiagnosticsengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAIDiagnosticsEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="101"/>
+        <CursorPos X="5" Y="126"/>
+        <UsageCount Value="69"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaidiagnostic.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAIDiagnostic"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAIDiagnostic"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="210"/>
+        <CursorPos X="5" Y="235"/>
+        <UsageCount Value="69"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uaioptimizerengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAIOptimizerEngine"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="130"/>
+        <CursorPos X="5" Y="155"/>
+        <UsageCount Value="69"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaioptimizer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAIOptimizer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAIOptimizer"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="190"/>
+        <CursorPos Y="306"/>
+        <UsageCount Value="69"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uaiexplainerengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAIExplainerEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="97"/>
+        <CursorPos X="5" Y="122"/>
+        <UsageCount Value="69"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaiexplainer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAIExplainer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAIExplainer"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="246"/>
+        <CursorPos X="5" Y="271"/>
+        <UsageCount Value="69"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\udatatransferengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDataTransferEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="442"/>
+        <CursorPos X="5" Y="466"/>
+        <UsageCount Value="68"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformdatatransfer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormDataTransfer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormDataTransfer"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="345"/>
+        <CursorPos X="5" Y="362"/>
+        <UsageCount Value="68"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframevisualchart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameVisualChart"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameVisualChart"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="279"/>
+        <CursorPos X="3" Y="285"/>
+        <UsageCount Value="68"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\ugridconfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uGridConfig"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="190"/>
+        <CursorPos X="5" Y="209"/>
+        <UsageCount Value="67"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformgridsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormGridSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormGridSettings"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="247"/>
+        <CursorPos X="5" Y="263"/>
+        <UsageCount Value="67"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\usqlloggerservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSQLLoggerService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="124"/>
+        <CursorPos X="5" Y="146"/>
+        <UsageCount Value="66"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframesqllog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameSQLLog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameSQLLog"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="140"/>
+        <CursorPos X="5" Y="163"/>
+        <UsageCount Value="66"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\ubackuprestoreengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uBackupRestoreEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="507"/>
+        <CursorPos X="5" Y="532"/>
+        <UsageCount Value="66"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uformbackuprestore.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormBackupRestore"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="428"/>
+        <CursorPos X="5" Y="443"/>
+        <UsageCount Value="59"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\usafemodeguardrails.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSafeModeGuardrails"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="360"/>
+        <UsageCount Value="58"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformsafemodewarning.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSafeModeWarning"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormSafeModeWarning"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="97"/>
+        <CursorPos X="5" Y="123"/>
+        <UsageCount Value="58"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uservermetricscollector.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uServerMetricsCollector"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="333"/>
+        <CursorPos X="5" Y="357"/>
+        <UsageCount Value="58"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformlivemetrics.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormLiveMetrics"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormLiveMetrics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="151"/>
+        <CursorPos X="20" Y="91"/>
+        <UsageCount Value="58"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframewelcomedashboard.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameWelcomeDashboard"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameWelcomeDashboard"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="117"/>
+        <CursorPos X="5" Y="127"/>
+        <UsageCount Value="56"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\db\ucrosstabqueryengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCrosstabQueryEngine"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="113"/>
+        <CursorPos X="5" Y="139"/>
+        <UsageCount Value="55"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformcrosstabbuilder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormCrosstabBuilder"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormCrosstabBuilder"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="209"/>
+        <UsageCount Value="55"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\models\umodelrestconfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uModelRESTConfig"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="124"/>
+        <CursorPos X="5" Y="147"/>
+        <UsageCount Value="55"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\urestgeneratornodejs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uRESTGeneratorNodeJS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="460"/>
+        <CursorPos X="5" Y="483"/>
+        <UsageCount Value="55"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformrestgeneratorwizard.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormRESTGeneratorWizard"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormRESTGeneratorWizard"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="462"/>
+        <CursorPos X="5" Y="482"/>
+        <UsageCount Value="55"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\urestgeneratorfastapi.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uRESTGeneratorFastAPI"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="465"/>
+        <CursorPos X="5" Y="488"/>
+        <UsageCount Value="54"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\urestgeneratorgofiber.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uRESTGeneratorGoFiber"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="604"/>
+        <CursorPos X="5" Y="626"/>
+        <UsageCount Value="54"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\urestgeneratorphp.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uRESTGeneratorPHP"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="472"/>
+        <CursorPos X="5" Y="494"/>
+        <UsageCount Value="54"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformsplash.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSplash"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormSplash"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="13"/>
+        <TopLine Value="59"/>
+        <CursorPos X="5" Y="85"/>
+        <UsageCount Value="53"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformabout.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAbout"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAbout"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="30"/>
+        <CursorPos X="26" Y="34"/>
+        <UsageCount Value="53"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\udbextensionservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDBExtensionService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="187"/>
+        <CursorPos X="5" Y="258"/>
+        <UsageCount Value="37"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformextensionmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormExtensionManager"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormExtensionManager"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="257"/>
+        <CursorPos X="5" Y="282"/>
+        <UsageCount Value="37"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\usshtunnelservice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSSHTunnelService"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="234"/>
+        <CursorPos X="5" Y="256"/>
+        <UsageCount Value="37"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uthememanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uThemeManager"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="292"/>
+        <CursorPos X="25" Y="301"/>
+        <UsageCount Value="36"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uappsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAppSettings"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="309"/>
+        <UsageCount Value="35"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformappsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormAppSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormAppSettings"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="322"/>
+        <CursorPos X="5" Y="345"/>
+        <UsageCount Value="35"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uerdforwardengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uERDForwardEngine"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="176"/>
+        <CursorPos X="5" Y="202"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformerdtableeditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormERDTableEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFormERDTableEditor"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="99"/>
+        <CursorPos X="9" Y="108"/>
+        <UsageCount Value="35"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframedbterminal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameDBTerminal"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameDBTerminal"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="493"/>
+        <CursorPos X="5" Y="516"/>
+        <UsageCount Value="24"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameMapViewer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFrameMapViewer"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="289"/>
+        <CursorPos X="5" Y="311"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameTableDDL.lfm"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="5"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameQueryTab.lfm"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="56"/>
+        <CursorPos X="26" Y="60"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformmain.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="294"/>
+        <CursorPos X="4" Y="316"/>
+        <UsageCount Value="5"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframevalueinspector.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="248"/>
+        <CursorPos X="4" Y="270"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformusermanager.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="362"/>
+        <CursorPos X="4" Y="382"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformprocessmanager.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="203"/>
+        <CursorPos X="4" Y="223"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformservervariables.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="161"/>
+        <CursorPos X="4" Y="181"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformerdviewer.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="204"/>
+        <CursorPos X="4" Y="224"/>
+        <UsageCount Value="15"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformquerybuilder.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="350"/>
+        <CursorPos X="4" Y="369"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\hot\umockdataengine.pas"/>
+        <UnitName Value="uMockDataEngine"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="456"/>
+        <CursorPos X="6" Y="475"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformrecordview.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="348"/>
+        <CursorPos X="4" Y="367"/>
+        <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformimportdata.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="273"/>
+        <CursorPos X="4" Y="292"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformtablebuilder.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="329"/>
+        <CursorPos X="4" Y="348"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformschemadiff.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="226"/>
+        <CursorPos X="4" Y="245"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformaisettings.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="301"/>
+        <CursorPos X="4" Y="320"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaidiagnostic.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="252"/>
+        <CursorPos X="4" Y="270"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaioptimizer.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="313"/>
+        <CursorPos X="4" Y="331"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ai\uformaiexplainer.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="225"/>
+        <CursorPos X="4" Y="243"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformdatatransfer.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="312"/>
+        <CursorPos X="4" Y="329"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframevisualchart.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos X="4" Y="240"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameObjectTree.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="165"/>
+        <CursorPos X="4" Y="182"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformgridsettings.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="359"/>
+        <CursorPos X="4" Y="376"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframesqllog.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="91"/>
+        <CursorPos X="4" Y="113"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\services\uformbackuprestore.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformsafemodewarning.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="153"/>
+        <CursorPos X="4" Y="177"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformlivemetrics.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="378"/>
+        <CursorPos X="4" Y="402"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframewelcomedashboard.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="460"/>
+        <CursorPos X="4" Y="483"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformcrosstabbuilder.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="175"/>
+        <CursorPos X="4" Y="198"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformrestgeneratorwizard.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="298"/>
+        <CursorPos X="46" Y="298"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformsplash.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="4" Y="101"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformabout.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformextensionmanager.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="142"/>
+        <CursorPos X="4" Y="167"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformappsettings.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="550"/>
+        <CursorPos X="4" Y="570"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\forms\uformerdtableeditor.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="102"/>
+        <CursorPos X="4" Y="121"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uFrameDataGrid.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="285"/>
+        <CursorPos X="27" Y="290"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframedbterminal.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="128"/>
+        <CursorPos X="4" Y="152"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src\ui\frames\uframemapviewer.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="123"/>
+        <CursorPos X="4" Y="146"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="28">
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="823" TopLine="823"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="796" Column="21" TopLine="794"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="798" Column="45" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="796" TopLine="784"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="241" Column="32" TopLine="229"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="1169" Column="5" TopLine="1147"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="819" TopLine="812"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="190" TopLine="178"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="795" Column="3" TopLine="792"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformmain.pas"/>
+        <Caret Line="239" Column="15" TopLine="229"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ai\uformaioptimizer.pas"/>
+        <Caret Line="306" TopLine="190"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\forms\uformerdviewer.pas"/>
+        <Caret Line="530" Column="50" TopLine="520"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="168" Column="5"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="4" Column="40"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="931" Column="100" TopLine="915"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="190" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="663" Column="33" TopLine="648"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="11" Column="47"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="14" Column="36"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="15" Column="53"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="16" Column="58"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="15" Column="53"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="11" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="314" Column="5" TopLine="292"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="73" Column="21" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="9" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uframemapviewer.pas"/>
+        <Caret Line="311" Column="5" TopLine="289"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="649" Column="37" TopLine="639"/>
+      </Position>
+      <Position>
+        <Filename Value="src\ui\frames\uFrameQueryTab.pas"/>
+        <Caret Line="933" Column="34"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

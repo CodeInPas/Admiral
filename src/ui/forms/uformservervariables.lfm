@@ -1,0 +1,181 @@
+object FormServerVariables: TFormServerVariables
+  Left = 320
+  Height = 580
+  Top = 170
+  Width = 860
+  Caption = 'Server Variables & Status Viewer'
+  ClientHeight = 580
+  ClientWidth = 860
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 860
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 40
+    ClientWidth = 860
+    TabOrder = 0
+    object btnRefresh: TSpeedButton
+      Left = 8
+      Height = 28
+      Top = 6
+      Width = 75
+      Caption = 'Segarkan'
+      OnClick = btnRefreshClick
+    end
+    object sepTool1: TBevel
+      Left = 90
+      Height = 26
+      Top = 7
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object btnCopyName: TSpeedButton
+      Left = 100
+      Height = 28
+      Top = 6
+      Width = 85
+      Caption = 'Salin Nama'
+      OnClick = btnCopyNameClick
+    end
+    object btnCopyValue: TSpeedButton
+      Left = 190
+      Height = 28
+      Top = 6
+      Width = 85
+      Caption = 'Salin Nilai'
+      OnClick = btnCopyValueClick
+    end
+    object btnExport: TSpeedButton
+      Left = 280
+      Height = 28
+      Top = 6
+      Width = 75
+      Caption = 'Ekspor CSV'
+      OnClick = btnExportClick
+    end
+    object sepTool2: TBevel
+      Left = 362
+      Height = 26
+      Top = 7
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object lblMode: TLabel
+      Left = 372
+      Height = 15
+      Top = 13
+      Width = 33
+      Caption = 'Mode:'
+      ParentColor = False
+    end
+    object cboMode: TComboBox
+      Left = 412
+      Height = 23
+      Top = 8
+      Width = 140
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Server Variables'
+        'Status Metrics'
+      )
+      OnChange = cboModeChange
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'Server Variables'
+    end
+    object lblSearch: TLabel
+      Left = 565
+      Height = 15
+      Top = 13
+      Width = 32
+      Caption = 'Filter:'
+      ParentColor = False
+    end
+    object edtSearch: TEdit
+      Left = 603
+      Height = 23
+      Top = 8
+      Width = 249
+      Anchors = [akTop, akLeft, akRight]
+      OnChange = edtSearchChange
+      TabOrder = 1
+      TextHint = 'Cari nama atau nilai variabel...'
+    end
+  end
+  object lvVariables: TListView
+    Left = 0
+    Height = 512
+    Top = 40
+    Width = 860
+    Align = alClient
+    Columns = <
+      item
+        Caption = 'Nama Variabel'
+        Width = 240
+      end
+      item
+        Caption = 'Nilai (Value)'
+        Width = 200
+      end
+      item
+        Caption = 'Satuan'
+        Width = 70
+      end
+      item
+        Caption = 'Kategori'
+        Width = 130
+      end
+      item
+        Caption = 'Keterangan'
+        Width = 200
+      end>
+    GridLines = True
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 1
+    ViewStyle = vsReport
+    OnSelectItem = lvVariablesSelectItem
+  end
+  object pnlStatus: TPanel
+    Left = 0
+    Height = 28
+    Top = 552
+    Width = 860
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 860
+    Color = clMenuBar
+    ParentColor = False
+    TabOrder = 2
+    object lblTotalCount: TLabel
+      Left = 10
+      Height = 15
+      Top = 6
+      Width = 130
+      Caption = 'Total Variabel: 0'
+      ParentColor = False
+    end
+    object lblSelectedInfo: TLabel
+      Left = 320
+      Height = 15
+      Top = 6
+      Width = 5
+      Caption = '-'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object saveDialog: TSaveDialog
+    Left = 680
+    Top = 120
+  end
+end

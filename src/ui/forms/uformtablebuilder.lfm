@@ -1,0 +1,442 @@
+object FormTableBuilder: TFormTableBuilder
+  Left = 280
+  Height = 620
+  Top = 120
+  Width = 880
+  Caption = 'Visual Table Builder'
+  ClientHeight = 620
+  ClientWidth = 880
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 44
+    Top = 0
+    Width = 880
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 880
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTableName: TLabel
+      Left = 10
+      Height = 15
+      Top = 14
+      Width = 67
+      Caption = 'Nama Tabel:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtTableName: TEdit
+      Left = 82
+      Height = 23
+      Top = 10
+      Width = 180
+      TabOrder = 0
+      Text = 'tabel_baru'
+      OnChange = edtTableNameChange
+    end
+    object lblSchema: TLabel
+      Left = 275
+      Height = 15
+      Top = 14
+      Width = 38
+      Caption = 'Skema:'
+      ParentColor = False
+    end
+    object edtSchema: TEdit
+      Left = 325
+      Height = 23
+      Top = 10
+      Width = 120
+      TabOrder = 1
+      OnChange = edtSchemaChange
+    end
+    object lblEngine: TLabel
+      Left = 460
+      Height = 15
+      Top = 14
+      Width = 39
+      Caption = 'Engine:'
+      ParentColor = False
+    end
+    object cboEngine: TComboBox
+      Left = 505
+      Height = 23
+      Top = 10
+      Width = 90
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'InnoDB'
+        'MyISAM'
+        'MEMORY'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+      Text = 'InnoDB'
+      OnChange = cboEngineChange
+    end
+    object lblCharset: TLabel
+      Left = 610
+      Height = 15
+      Top = 14
+      Width = 43
+      Caption = 'Charset:'
+      ParentColor = False
+    end
+    object cboCharset: TComboBox
+      Left = 660
+      Height = 23
+      Top = 10
+      Width = 100
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'utf8mb4'
+        'utf8'
+        'latin1'
+      )
+      Style = csDropDownList
+      TabOrder = 3
+      Text = 'utf8mb4'
+      OnChange = cboCharsetChange
+    end
+  end
+  object pgcMain: TPageControl
+    Left = 0
+    Height = 528
+    Top = 44
+    Width = 880
+    ActivePage = tabDDLPreview
+    Align = alClient
+    TabIndex = 3
+    TabOrder = 1
+    OnChange = pgcMainChange
+    object tabColumns: TTabSheet
+      Caption = 'Kolom & Tipe Data'
+      ClientHeight = 500
+      ClientWidth = 872
+      object pnlColToolbar: TPanel
+        Left = 0
+        Height = 32
+        Top = 0
+        Width = 872
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 32
+        ClientWidth = 872
+        TabOrder = 0
+        object btnAddCol: TSpeedButton
+          Left = 4
+          Height = 24
+          Top = 4
+          Width = 110
+          Caption = '+ Tambah Kolom'
+          OnClick = btnAddColClick
+        end
+        object btnDelCol: TSpeedButton
+          Left = 120
+          Height = 24
+          Top = 4
+          Width = 90
+          Caption = 'Hapus Kolom'
+          OnClick = btnDelColClick
+        end
+        object btnMoveUpCol: TSpeedButton
+          Left = 216
+          Height = 24
+          Top = 4
+          Width = 70
+          Caption = '▲ Naik'
+          OnClick = btnMoveUpColClick
+        end
+        object btnMoveDownCol: TSpeedButton
+          Left = 290
+          Height = 24
+          Top = 4
+          Width = 70
+          Caption = '▼ Turun'
+          OnClick = btnMoveDownColClick
+        end
+      end
+      object gridColumns: TStringGrid
+        Left = 0
+        Height = 468
+        Top = 32
+        Width = 872
+        Align = alClient
+        AutoFillColumns = True
+        ColCount = 8
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 1
+        TabOrder = 1
+        OnEditingDone = gridColumnsEditingDone
+        ColWidths = (
+          107
+          107
+          107
+          106
+          106
+          106
+          106
+          106
+        )
+      end
+    end
+    object tabIndexes: TTabSheet
+      Caption = 'Indeks'
+      ClientHeight = 500
+      ClientWidth = 872
+      object pnlIdxToolbar: TPanel
+        Left = 0
+        Height = 32
+        Top = 0
+        Width = 872
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 32
+        ClientWidth = 872
+        TabOrder = 0
+        object btnAddIdx: TSpeedButton
+          Left = 4
+          Height = 24
+          Top = 4
+          Width = 110
+          Caption = '+ Tambah Indeks'
+          OnClick = btnAddIdxClick
+        end
+        object btnDelIdx: TSpeedButton
+          Left = 120
+          Height = 24
+          Top = 4
+          Width = 90
+          Caption = 'Hapus Indeks'
+          OnClick = btnDelIdxClick
+        end
+      end
+      object gridIndexes: TStringGrid
+        Left = 0
+        Height = 468
+        Top = 32
+        Width = 872
+        Align = alClient
+        AutoFillColumns = True
+        ColCount = 3
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 1
+        TabOrder = 1
+        OnEditingDone = gridIndexesEditingDone
+        ColWidths = (
+          284
+          284
+          283
+        )
+      end
+    end
+    object tabForeignKeys: TTabSheet
+      Caption = 'Foreign Keys (Relasi)'
+      ClientHeight = 500
+      ClientWidth = 872
+      object pnlFKToolbar: TPanel
+        Left = 0
+        Height = 32
+        Top = 0
+        Width = 872
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 32
+        ClientWidth = 872
+        TabOrder = 0
+        object btnAddFK: TSpeedButton
+          Left = 4
+          Height = 24
+          Top = 4
+          Width = 130
+          Caption = '+ Tambah Foreign Key'
+          OnClick = btnAddFKClick
+        end
+        object btnDelFK: TSpeedButton
+          Left = 140
+          Height = 24
+          Top = 4
+          Width = 80
+          Caption = 'Hapus Baris'
+          OnClick = btnDelFKClick
+        end
+      end
+      object gridFKs: TStringGrid
+        Left = 0
+        Height = 468
+        Top = 32
+        Width = 872
+        Align = alClient
+        AutoFillColumns = True
+        ColCount = 6
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 1
+        TabOrder = 1
+        OnEditingDone = gridFKsEditingDone
+        ColWidths = (
+          142
+          142
+          142
+          142
+          142
+          141
+        )
+      end
+    end
+    object tabDDLPreview: TTabSheet
+      Caption = 'Pratinjau DDL SQL'
+      ClientHeight = 500
+      ClientWidth = 872
+      inline synDDLPreview: TSynEdit
+        Left = 0
+        Height = 500
+        Top = 0
+        Width = 872
+        Align = alClient
+        Font.Height = -13
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        Gutter.Width = 57
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Highlighter = synSQLSyn
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 17
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 48
+    Top = 572
+    Width = 880
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 880
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object btnCopyDDL: TSpeedButton
+      Left = 10
+      Height = 32
+      Top = 8
+      Width = 110
+      Caption = '📋 Salin DDL'
+      OnClick = btnCopyDDLClick
+    end
+    object btnExecuteDDL: TBitBtn
+      Left = 600
+      Height = 32
+      Top = 8
+      Width = 180
+      Anchors = [akTop, akRight]
+      Caption = '⚡ Buat Tabel (Eksekusi)'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnExecuteDDLClick
+    end
+    object btnClose: TBitBtn
+      Left = 790
+      Height = 32
+      Top = 8
+      Width = 80
+      Anchors = [akTop, akRight]
+      Caption = 'Tutup'
+      TabOrder = 1
+      OnClick = btnCloseClick
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
+    SQLDialect = sqlSybase
+    Left = 780
+    Top = 80
+  end
+end

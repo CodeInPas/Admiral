@@ -1,0 +1,528 @@
+object FormLiveMetrics: TFormLiveMetrics
+  Left = 240
+  Height = 700
+  Top = 80
+  Width = 980
+  Caption = 'Live System Metrics & Performance Dashboard'
+  ClientHeight = 700
+  ClientWidth = 980
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 55
+    Top = 0
+    Width = 980
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 55
+    ClientWidth = 980
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 3
+      Height = 20
+      Top = 3
+      Width = 974
+      Align = alTop
+      BorderSpacing.Around = 3
+      Caption = '📈 Live System Metrics & Performance Dashboard'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 3
+      Height = 13
+      Top = 26
+      Width = 974
+      Align = alTop
+      BorderSpacing.Around = 3
+      Caption = 'Pemantauan grafik real-time: koneksi aktif, throughput kueri (QPS), buffer cache, dan I/O traffic'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object Panel1: TPanel
+      Left = 0
+      Height = 50
+      Top = 42
+      Width = 980
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Panel1'
+      ParentBackground = False
+      TabOrder = 0
+    end
+  end
+  object pnlControls: TPanel
+    Left = 0
+    Height = 33
+    Top = 55
+    Width = 980
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 33
+    ClientWidth = 980
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object lblConn: TLabel
+      Left = 4
+      Height = 25
+      Top = 4
+      Width = 101
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Koneksi Database:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboConnections: TComboBox
+      Left = 109
+      Height = 23
+      Top = 4
+      Width = 260
+      Align = alLeft
+      BorderSpacing.Around = 4
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+      OnChange = cboConnectionsChange
+    end
+    object lblInterval: TLabel
+      Left = 373
+      Height = 25
+      Top = 4
+      Width = 91
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Interval Update:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboInterval: TComboBox
+      Left = 468
+      Height = 23
+      Top = 4
+      Width = 110
+      Align = alLeft
+      BorderSpacing.Around = 4
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        '1 Detik'
+        '2 Detik'
+        '5 Detik'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+      Text = '1 Detik'
+      OnChange = cboIntervalChange
+    end
+    object btnToggleMonitor: TBitBtn
+      Left = 582
+      Height = 25
+      Top = 4
+      Width = 160
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '⏸️ Jeda Pemantauan'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnToggleMonitorClick
+    end
+  end
+  object pnlCards: TPanel
+    Left = 0
+    Height = 75
+    Top = 88
+    Width = 980
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 75
+    ClientWidth = 980
+    TabOrder = 2
+    object pnlCardConn: TPanel
+      Left = 4
+      Height = 67
+      Top = 4
+      Width = 220
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelColor = clSilver
+      ClientHeight = 67
+      ClientWidth = 220
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object lblCardConnTitle: TLabel
+        Left = 10
+        Height = 13
+        Top = 8
+        Width = 79
+        Caption = 'KONEKSI AKTIF'
+        Font.Color = clGrayText
+        Font.Height = -11
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblCardConnVal: TLabel
+        Left = 10
+        Height = 30
+        Top = 26
+        Width = 12
+        Caption = '0'
+        Font.Color = 13854720
+        Font.Height = -21
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object pnlCardQPS: TPanel
+      Left = 228
+      Height = 67
+      Top = 4
+      Width = 220
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelColor = clSilver
+      ClientHeight = 67
+      ClientWidth = 220
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 1
+      object lblCardQPSTitle: TLabel
+        Left = 10
+        Height = 13
+        Top = 8
+        Width = 106
+        Caption = 'THROUGHPUT (QPS)'
+        Font.Color = clGrayText
+        Font.Height = -11
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblCardQPSVal: TLabel
+        Left = 10
+        Height = 30
+        Top = 26
+        Width = 30
+        Caption = '0.0'
+        Font.Color = clGreen
+        Font.Height = -21
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object pnlCardHit: TPanel
+      Left = 452
+      Height = 67
+      Top = 4
+      Width = 220
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelColor = clSilver
+      ClientHeight = 67
+      ClientWidth = 220
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 2
+      object lblCardHitTitle: TLabel
+        Left = 10
+        Height = 13
+        Top = 8
+        Width = 94
+        Caption = 'BUFFER HIT RATIO'
+        Font.Color = clGrayText
+        Font.Height = -11
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblCardHitVal: TLabel
+        Left = 10
+        Height = 30
+        Top = 26
+        Width = 66
+        Caption = '0.00 %'
+        Font.Color = 11141120
+        Font.Height = -21
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object pnlCardNet: TPanel
+      Left = 676
+      Height = 67
+      Top = 4
+      Width = 240
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelColor = clSilver
+      ClientHeight = 67
+      ClientWidth = 240
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 3
+      object lblCardNetTitle: TLabel
+        Left = 10
+        Height = 13
+        Top = 8
+        Width = 118
+        Caption = 'I/O TRAFFIC (IN / OUT)'
+        Font.Color = clGrayText
+        Font.Height = -11
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblCardNetVal: TLabel
+        Left = 10
+        Height = 25
+        Top = 26
+        Width = 113
+        Caption = '0.0 / 0.0 KB/s'
+        Font.Color = clMaroon
+        Font.Height = -18
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+  end
+  object pnlCharts: TPanel
+    Left = 0
+    Height = 537
+    Top = 163
+    Width = 980
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 537
+    ClientWidth = 980
+    TabOrder = 3
+    object pnlRowTop: TPanel
+      Left = 0
+      Height = 195
+      Top = 0
+      Width = 980
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 195
+      ClientWidth = 980
+      TabOrder = 0
+      object pnlChartConn: TPanel
+        Left = 0
+        Height = 195
+        Top = 0
+        Width = 485
+        Align = alLeft
+        BevelOuter = bvNone
+        ClientHeight = 195
+        ClientWidth = 485
+        TabOrder = 0
+        object chartConnections: TChart
+          Left = 8
+          Height = 179
+          Top = 8
+          Width = 469
+          AxisList = <          
+            item
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelFont.Orientation = 900
+              Title.LabelBrush.Style = bsClear
+            end          
+            item
+              Alignment = calBottom
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end>
+          Title.Text.Strings = (
+            'Koneksi Aktif (Threads Connected)'
+          )
+          Title.Visible = True
+          Align = alClient
+          BorderSpacing.Around = 8
+          object seriesConnections: TLineSeries
+          end
+        end
+      end
+      object splColTop: TSplitter
+        Left = 485
+        Height = 195
+        Top = 0
+        Width = 5
+      end
+      object pnlChartQPS: TPanel
+        Left = 490
+        Height = 195
+        Top = 0
+        Width = 490
+        Align = alClient
+        BevelOuter = bvNone
+        ClientHeight = 195
+        ClientWidth = 490
+        TabOrder = 1
+        object chartQPS: TChart
+          Left = 8
+          Height = 179
+          Top = 8
+          Width = 474
+          AxisList = <          
+            item
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelFont.Orientation = 900
+              Title.LabelBrush.Style = bsClear
+            end          
+            item
+              Alignment = calBottom
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end>
+          Title.Text.Strings = (
+            'Kueri Per Detik (QPS Throughput)'
+          )
+          Title.Visible = True
+          Align = alClient
+          BorderSpacing.Around = 8
+          object seriesQPS: TLineSeries
+          end
+        end
+      end
+    end
+    object splRow: TSplitter
+      Cursor = crVSplit
+      Left = 0
+      Height = 5
+      Top = 195
+      Width = 980
+      Align = alTop
+      ResizeAnchor = akTop
+    end
+    object pnlRowBottom: TPanel
+      Left = 0
+      Height = 337
+      Top = 200
+      Width = 980
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 337
+      ClientWidth = 980
+      TabOrder = 1
+      object pnlChartHit: TPanel
+        Left = 0
+        Height = 337
+        Top = 0
+        Width = 485
+        Align = alLeft
+        BevelOuter = bvNone
+        ClientHeight = 337
+        ClientWidth = 485
+        TabOrder = 0
+        object chartHitRatio: TChart
+          Left = 8
+          Height = 321
+          Top = 8
+          Width = 469
+          AxisList = <          
+            item
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelFont.Orientation = 900
+              Title.LabelBrush.Style = bsClear
+            end          
+            item
+              Alignment = calBottom
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end>
+          Title.Text.Strings = (
+            'Buffer Cache Hit Ratio (%)'
+          )
+          Title.Visible = True
+          Align = alClient
+          BorderSpacing.Around = 8
+          object seriesHitRatio: TLineSeries
+          end
+        end
+      end
+      object splColBottom: TSplitter
+        Left = 485
+        Height = 337
+        Top = 0
+        Width = 5
+      end
+      object pnlChartNet: TPanel
+        Left = 490
+        Height = 337
+        Top = 0
+        Width = 490
+        Align = alClient
+        BevelOuter = bvNone
+        ClientHeight = 337
+        ClientWidth = 490
+        TabOrder = 1
+        object chartNetwork: TChart
+          Left = 8
+          Height = 321
+          Top = 8
+          Width = 474
+          AxisList = <          
+            item
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelFont.Orientation = 900
+              Title.LabelBrush.Style = bsClear
+            end          
+            item
+              Alignment = calBottom
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end>
+          Legend.Visible = True
+          Title.Text.Strings = (
+            'I/O Network Traffic (KB/s)'
+          )
+          Title.Visible = True
+          Align = alClient
+          BorderSpacing.Around = 8
+          object seriesNetIn: TLineSeries
+          end
+          object seriesNetOut: TLineSeries
+          end
+        end
+      end
+    end
+  end
+  object tmrPoll: TTimer
+    OnTimer = tmrPollTimer
+    Left = 850
+    Top = 15
+  end
+end

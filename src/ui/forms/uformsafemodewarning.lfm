@@ -1,0 +1,177 @@
+object FormSafeModeWarning: TFormSafeModeWarning
+  Left = 320
+  Height = 490
+  Top = 160
+  Width = 720
+  BorderStyle = bsDialog
+  Caption = 'Safe Mode Guardrail - Peringatan Keamanan Database'
+  ClientHeight = 490
+  ClientWidth = 720
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  object pnlTop: TPanel
+    Left = 0
+    Height = 75
+    Top = 0
+    Width = 720
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 75
+    ClientWidth = 720
+    Color = 2829272
+    ParentColor = False
+    TabOrder = 0
+    object lblBadge: TLabel
+      Left = 16
+      Height = 16
+      Top = 10
+      Width = 195
+      Caption = ' ⛔ LEVEL RISIKO: KRITIKAL '
+      Color = clWhite
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lblRiskTitle: TLabel
+      Left = 16
+      Height = 21
+      Top = 30
+      Width = 320
+      Caption = 'KRITIKAL: DELETE Tanpa Klausa WHERE!'
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblTargetNotice: TLabel
+      Left = 16
+      Height = 14
+      Top = 53
+      Width = 140
+      Caption = 'Target: Database Aktif'
+      Font.Color = 14474460
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pnlCenter: TPanel
+    Left = 0
+    Height = 335
+    Top = 75
+    Width = 720
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 335
+    ClientWidth = 720
+    TabOrder = 1
+    object lblReasonHeader: TLabel
+      Left = 16
+      Height = 15
+      Top = 12
+      Width = 120
+      Caption = 'Alasan Intersepsi:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblRiskReason: TLabel
+      Left = 16
+      Height = 45
+      Top = 32
+      Width = 688
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      Caption = 'Perintah ini akan menghapus atau menimpa seluruh baris data pada tabel karena tidak memiliki klausa WHERE.'
+      Font.Color = clMaroon
+      Font.Height = -13
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object lblSnippetHeader: TLabel
+      Left = 16
+      Height = 15
+      Top = 85
+      Width = 165
+      Caption = 'Kueri yang dicekal eksekusinya:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object synOffendingSQL: TSynEdit
+      Left = 16
+      Height = 220
+      Top = 105
+      Width = 688
+      Align = alBottom
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Font.Height = -12
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqCleartype
+      ParentColor = False
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+      Gutter.Width = 30
+      RightGutter.Width = 0
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 80
+    Top = 410
+    Width = 720
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 80
+    ClientWidth = 720
+    Color = clMenuBar
+    ParentColor = False
+    TabOrder = 2
+    object chkAcknowledge: TCheckBox
+      Left = 16
+      Height = 19
+      Top = 10
+      Width = 470
+      Caption = 'Saya memahami risiko di atas dan tetap ingin menjalankan kueri ini secara sadar.'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnChange = chkAcknowledgeChange
+    end
+    object btnCancelExec: TBitBtn
+      Left = 380
+      Height = 36
+      Top = 36
+      Width = 175
+      Anchors = [akTop, akRight]
+      Caption = '🛡️ Batalkan (Aman)'
+      Font.Style = [fsBold]
+      OnClick = btnCancelExecClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnProceedExec: TBitBtn
+      Left = 565
+      Height = 36
+      Top = 36
+      Width = 140
+      Anchors = [akTop, akRight]
+      Caption = '⚠️ Tetap Eksekusi'
+      OnClick = btnProceedExecClick
+      TabOrder = 2
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = True
+    Left = 650
+    Top = 110
+  end
+end

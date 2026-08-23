@@ -1,0 +1,412 @@
+object FormBackupRestore: TFormBackupRestore
+  Left = 280
+  Height = 630
+  Top = 110
+  Width = 840
+  Caption = 'Database Backup & Restore Manager'
+  ClientHeight = 630
+  ClientWidth = 840
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 55
+    Top = 0
+    Width = 840
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 55
+    ClientWidth = 840
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 18
+      Top = 8
+      Width = 320
+      Caption = '📦 Database Backup & Restore Manager'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 16
+      Height = 14
+      Top = 30
+      Width = 475
+      Caption = 'Pencadangan skema struktur & data (SQL Dump) serta pemulihan database secara on-the-fly'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pgcMain: TPageControl
+    Left = 0
+    Height = 360
+    Top = 55
+    Width = 840
+    ActivePage = tabBackup
+    Align = alTop
+    TabIndex = 0
+    TabOrder = 1
+    OnChange = pgcMainChange
+    object tabBackup: TTabSheet
+      Caption = '💾 Pencadangan (Backup / SQL Dump)'
+      ClientHeight = 332
+      ClientWidth = 832
+      object gbBackupTarget: TGroupBox
+        Left = 12
+        Height = 315
+        Top = 6
+        Width = 400
+        Caption = ' Target Database & Tabel '
+        ClientHeight = 295
+        ClientWidth = 396
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        object lblBackupConn: TLabel
+          Left = 12
+          Height = 15
+          Top = 6
+          Width = 100
+          Caption = 'Koneksi Database:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object cboBackupConn: TComboBox
+          Left = 12
+          Height = 23
+          Top = 24
+          Width = 372
+          ItemHeight = 15
+          Style = csDropDownList
+          TabOrder = 0
+          OnChange = cboBackupConnChange
+        end
+        object lblBackupTables: TLabel
+          Left = 12
+          Height = 15
+          Top = 54
+          Width = 120
+          Caption = 'Pilih Tabel Dicadangkan:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object btnSelectAll: TSpeedButton
+          Left = 240
+          Height = 20
+          Top = 50
+          Width = 70
+          Caption = 'Pilih Semua'
+          ParentFont = False
+          OnClick = btnSelectAllClick
+        end
+        object btnUnselectAll: TSpeedButton
+          Left = 315
+          Height = 20
+          Top = 50
+          Width = 70
+          Caption = 'Hapus Pilihan'
+          ParentFont = False
+          OnClick = btnUnselectAllClick
+        end
+        object clbBackupTables: TCheckListBox
+          Left = 12
+          Height = 215
+          Top = 72
+          Width = 372
+          ItemHeight = 0
+          ParentFont = False
+          TabOrder = 1
+        end
+      end
+      object gbBackupOptions: TGroupBox
+        Left = 422
+        Height = 315
+        Top = 6
+        Width = 398
+        Caption = ' Opsi Ekspor SQL Dump '
+        ClientHeight = 295
+        ClientWidth = 394
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        object chkIncludeStructure: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 14
+          Width = 260
+          Caption = 'Sertakan Struktur Tabel DDL (CREATE TABLE)'
+          Checked = True
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 0
+        end
+        object chkIncludeData: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 42
+          Width = 250
+          Caption = 'Sertakan Seluruh Baris Data (INSERT INTO)'
+          Checked = True
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 1
+        end
+        object chkAddDropTable: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 70
+          Width = 280
+          Caption = 'Tambahkan Perintah DROP TABLE IF EXISTS'
+          Checked = True
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 2
+        end
+        object lblBatchSize: TLabel
+          Left = 16
+          Height = 15
+          Top = 106
+          Width = 140
+          Caption = 'Ukuran Batch Baris INSERT:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object seBatchSize: TSpinEdit
+          Left = 175
+          Height = 23
+          Top = 102
+          Width = 90
+          Increment = 100
+          MaxValue = 10000
+          MinValue = 50
+          TabOrder = 3
+          Value = 500
+        end
+        object lblBackupPath: TLabel
+          Left = 16
+          Height = 15
+          Top = 145
+          Width = 140
+          Caption = 'Simpan Berkas Dump ke:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtBackupPath: TEdit
+          Left = 16
+          Height = 23
+          Top = 165
+          Width = 328
+          ParentFont = False
+          TabOrder = 4
+        end
+        object btnBrowseBackup: TSpeedButton
+          Left = 348
+          Height = 23
+          Top = 165
+          Width = 32
+          Caption = '...'
+          OnClick = btnBrowseBackupClick
+        end
+      end
+    end
+    object tabRestore: TTabSheet
+      Caption = '📥 Pemulihan (Restore / Execute SQL)'
+      ClientHeight = 332
+      ClientWidth = 832
+      object gbRestoreTarget: TGroupBox
+        Left = 12
+        Height = 170
+        Top = 6
+        Width = 808
+        Caption = ' Target & Berkas Sumber '
+        ClientHeight = 150
+        ClientWidth = 804
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        object lblRestoreConn: TLabel
+          Left = 16
+          Height = 15
+          Top = 10
+          Width = 135
+          Caption = 'Koneksi Database Tujuan:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object cboRestoreConn: TComboBox
+          Left = 16
+          Height = 23
+          Top = 28
+          Width = 768
+          ItemHeight = 15
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object lblRestoreFile: TLabel
+          Left = 16
+          Height = 15
+          Top = 68
+          Width = 135
+          Caption = 'Pilih Berkas SQL Dump:'
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtRestoreFile: TEdit
+          Left = 16
+          Height = 23
+          Top = 88
+          Width = 728
+          ParentFont = False
+          TabOrder = 1
+        end
+        object btnBrowseRestore: TSpeedButton
+          Left = 748
+          Height = 23
+          Top = 88
+          Width = 36
+          Caption = '...'
+          OnClick = btnBrowseRestoreClick
+        end
+      end
+      object gbRestoreOptions: TGroupBox
+        Left = 12
+        Height = 135
+        Top = 186
+        Width = 808
+        Caption = ' Opsi Pemulihan '
+        ClientHeight = 115
+        ClientWidth = 804
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        object chkRestoreTx: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 14
+          Width = 310
+          Caption = 'Gunakan Transaksi Tunggal (Kecepatan Maksimal)'
+          Checked = True
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 0
+        end
+        object chkRestoreContinueError: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 42
+          Width = 260
+          Caption = 'Lanjutkan pemulihan jika terjadi error SQL'
+          ParentFont = False
+          TabOrder = 1
+        end
+      end
+    end
+  end
+  object pnlProgress: TPanel
+    Left = 0
+    Height = 215
+    Top = 415
+    Width = 840
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 215
+    ClientWidth = 840
+    TabOrder = 2
+    object lblCurrentTask: TLabel
+      Left = 16
+      Height = 15
+      Top = 4
+      Width = 150
+      Caption = 'Status: Menunggu instruksi...'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object prgStatus: TProgressBar
+      Left = 16
+      Height = 8
+      Top = 22
+      Width = 808
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+    end
+    object memLog: TMemo
+      Left = 16
+      Height = 175
+      Top = 35
+      Width = 808
+      Align = alBottom
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Color = 16514043
+      Font.Height = -12
+      Font.Name = 'Courier New'
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssAutoVertical
+      TabOrder = 1
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 60
+    Top = 570
+    Width = 840
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 60
+    ClientWidth = 840
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 3
+    object btnStart: TBitBtn
+      Left = 16
+      Height = 36
+      Top = 12
+      Width = 220
+      Caption = '⚡ Mulai Backup (Dump)'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnStartClick
+    end
+    object btnCancel: TBitBtn
+      Left = 245
+      Height = 36
+      Top = 12
+      Width = 110
+      Caption = '⛔ Batalkan'
+      Enabled = False
+      TabOrder = 1
+      OnClick = btnCancelClick
+    end
+    object btnClose: TBitBtn
+      Left = 740
+      Height = 36
+      Top = 12
+      Width = 84
+      Anchors = [akTop, akRight]
+      Caption = 'Tutup'
+      TabOrder = 2
+      OnClick = btnCloseClick
+    end
+  end
+  object saveDlg: TSaveDialog
+    Left = 520
+    Top = 180
+  end
+  object openDlg: TOpenDialog
+    Left = 580
+    Top = 180
+  end
+end

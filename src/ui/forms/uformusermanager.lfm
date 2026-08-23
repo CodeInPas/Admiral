@@ -1,0 +1,382 @@
+object FormUserManager: TFormUserManager
+  Left = 350
+  Height = 560
+  Top = 180
+  Width = 860
+  Caption = 'Manajemen Pengguna & Hak Akses'
+  ClientHeight = 560
+  ClientWidth = 860
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlLeft: TPanel
+    Left = 0
+    Height = 560
+    Top = 0
+    Width = 280
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 560
+    ClientWidth = 280
+    TabOrder = 0
+    object pnlLeftToolbar: TPanel
+      Left = 0
+      Height = 36
+      Top = 0
+      Width = 280
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 36
+      ClientWidth = 280
+      TabOrder = 0
+      object btnNewUser: TSpeedButton
+        Left = 4
+        Height = 28
+        Top = 4
+        Width = 65
+        Caption = '+ User'
+        OnClick = btnNewUserClick
+      end
+      object btnDeleteUser: TSpeedButton
+        Left = 72
+        Height = 28
+        Top = 4
+        Width = 60
+        Caption = 'Hapus'
+        OnClick = btnDeleteUserClick
+      end
+      object btnChangePass: TSpeedButton
+        Left = 135
+        Height = 28
+        Top = 4
+        Width = 75
+        Caption = 'Password'
+        OnClick = btnChangePassClick
+      end
+      object btnRefreshUsers: TSpeedButton
+        Left = 213
+        Height = 28
+        Top = 4
+        Width = 60
+        Caption = 'Segarkan'
+        OnClick = btnRefreshUsersClick
+      end
+    end
+    object lvUsers: TListView
+      Left = 0
+      Height = 524
+      Top = 36
+      Width = 280
+      Align = alClient
+      Columns = <
+        item
+          Caption = 'Username'
+          Width = 120
+        end
+        item
+          Caption = 'Host'
+          Width = 80
+        end
+        item
+          Caption = 'Super'
+          Width = 60
+        end>
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 1
+      ViewStyle = vsReport
+      OnSelectItem = lvUsersSelectItem
+    end
+  end
+  object splMain: TSplitter
+    Left = 280
+    Height = 560
+    Top = 0
+    Width = 5
+  end
+  object pnlClient: TPanel
+    Left = 285
+    Height = 560
+    Top = 0
+    Width = 575
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 560
+    ClientWidth = 575
+    TabOrder = 1
+    object pnlUserDetailHeader: TPanel
+      Left = 0
+      Height = 44
+      Top = 0
+      Width = 575
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 44
+      ClientWidth = 575
+      Color = clMenuBar
+      ParentColor = False
+      TabOrder = 0
+      object lblSelectedUser: TLabel
+        Left = 12
+        Height = 16
+        Top = 6
+        Width = 180
+        Caption = 'Tidak ada user yang dipilih'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblUserMeta: TLabel
+        Left = 12
+        Height = 14
+        Top = 24
+        Width = 35
+        Caption = 'Role: -'
+        Font.Height = -11
+        Font.Color = clGrayText
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object pgcDetail: TPageControl
+      Left = 0
+      Height = 516
+      Top = 44
+      Width = 575
+      ActivePage = tabPrivileges
+      Align = alClient
+      TabIndex = 0
+      TabOrder = 1
+      object tabPrivileges: TTabSheet
+        Caption = 'Pengaturan Hak Akses (GRANT/REVOKE)'
+        ClientHeight = 488
+        ClientWidth = 567
+        object pnlPrivTop: TPanel
+          Left = 0
+          Height = 40
+          Top = 0
+          Width = 567
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 40
+          ClientWidth = 567
+          TabOrder = 0
+          object lblTargetDB: TLabel
+            Left = 10
+            Height = 15
+            Top = 12
+            Width = 90
+            Caption = 'Target Database:'
+            ParentColor = False
+          end
+          object cboTargetDB: TComboBox
+            Left = 105
+            Height = 23
+            Top = 8
+            Width = 180
+            ItemHeight = 15
+            TabOrder = 0
+            Text = '*.*'
+            OnChange = chkPrivChange
+          end
+          object chkGrantOption: TCheckBox
+            Left = 300
+            Height = 19
+            Top = 10
+            Width = 150
+            Caption = 'WITH GRANT OPTION'
+            TabOrder = 1
+          end
+        end
+        object gbPrivileges: TGroupBox
+          Left = 10
+          Height = 220
+          Top = 46
+          Width = 547
+          Anchors = [akTop, akLeft, akRight]
+          Caption = 'Daftar Hak Akses (Privileges)'
+          ClientHeight = 200
+          ClientWidth = 543
+          TabOrder = 1
+          object chkSelect: TCheckBox
+            Left = 20
+            Height = 19
+            Top = 15
+            Width = 120
+            Caption = 'SELECT (Baca)'
+            OnChange = chkPrivChange
+            TabOrder = 0
+          end
+          object chkInsert: TCheckBox
+            Left = 20
+            Height = 19
+            Top = 45
+            Width = 120
+            Caption = 'INSERT (Tambah)'
+            OnChange = chkPrivChange
+            TabOrder = 1
+          end
+          object chkUpdate: TCheckBox
+            Left = 20
+            Height = 19
+            Top = 75
+            Width = 120
+            Caption = 'UPDATE (Ubah)'
+            OnChange = chkPrivChange
+            TabOrder = 2
+          end
+          object chkDelete: TCheckBox
+            Left = 20
+            Height = 19
+            Top = 105
+            Width = 120
+            Caption = 'DELETE (Hapus)'
+            OnChange = chkPrivChange
+            TabOrder = 3
+          end
+          object chkCreate: TCheckBox
+            Left = 190
+            Height = 19
+            Top = 15
+            Width = 140
+            Caption = 'CREATE (Buat Tabel)'
+            OnChange = chkPrivChange
+            TabOrder = 4
+          end
+          object chkDrop: TCheckBox
+            Left = 190
+            Height = 19
+            Top = 45
+            Width = 140
+            Caption = 'DROP (Hapus Objek)'
+            OnChange = chkPrivChange
+            TabOrder = 5
+          end
+          object chkAlter: TCheckBox
+            Left = 190
+            Height = 19
+            Top = 75
+            Width = 140
+            Caption = 'ALTER (Struktur)'
+            OnChange = chkPrivChange
+            TabOrder = 6
+          end
+          object chkExecute: TCheckBox
+            Left = 360
+            Height = 19
+            Top = 15
+            Width = 150
+            Caption = 'EXECUTE (Routine)'
+            OnChange = chkPrivChange
+            TabOrder = 7
+          end
+          object chkReferences: TCheckBox
+            Left = 360
+            Height = 19
+            Top = 45
+            Width = 150
+            Caption = 'REFERENCES (FK)'
+            OnChange = chkPrivChange
+            TabOrder = 8
+          end
+        end
+        object pnlPrivActions: TPanel
+          Left = 10
+          Height = 45
+          Top = 276
+          Width = 547
+          Anchors = [akTop, akLeft, akRight]
+          BevelOuter = bvNone
+          ClientHeight = 45
+          ClientWidth = 547
+          TabOrder = 2
+          object btnSelectAllPrivs: TBitBtn
+            Left = 0
+            Height = 30
+            Top = 6
+            Width = 100
+            Caption = 'Pilih Semua'
+            OnClick = btnSelectAllPrivsClick
+          end
+          object btnClearAllPrivs: TBitBtn
+            Left = 106
+            Height = 30
+            Top = 6
+            Width = 100
+            Caption = 'Hapus Pilihan'
+            OnClick = btnClearAllPrivsClick
+          end
+          object btnApplyGrant: TBitBtn
+            Left = 270
+            Height = 30
+            Top = 6
+            Width = 130
+            Anchors = [akTop, akRight]
+            Caption = '✔ Terapkan GRANT'
+            Font.Style = [fsBold]
+            OnClick = btnApplyGrantClick
+            ParentFont = False
+          end
+          object btnApplyRevoke: TBitBtn
+            Left = 406
+            Height = 30
+            Top = 6
+            Width = 140
+            Anchors = [akTop, akRight]
+            Caption = '✖ Cabut (REVOKE)'
+            Font.Style = [fsBold]
+            OnClick = btnApplyRevokeClick
+            ParentFont = False
+          end
+        end
+      end
+      object tabActiveGrants: TTabSheet
+        Caption = 'Hak Akses Aktif (Grants Saat Ini)'
+        ClientHeight = 488
+        ClientWidth = 567
+        object memGrants: TMemo
+          Left = 0
+          Height = 488
+          Top = 0
+          Width = 567
+          Align = alClient
+          Font.Height = -12
+          Font.Name = 'Courier New'
+          ParentFont = False
+          ReadOnly = True
+          ScrollBars = ssAutoBoth
+          TabOrder = 0
+        end
+      end
+      object tabSQLPreview: TTabSheet
+        Caption = 'SQL Generator Preview'
+        ClientHeight = 488
+        ClientWidth = 567
+        object synSQLPreview: TSynEdit
+          Left = 0
+          Height = 488
+          Top = 0
+          Width = 567
+          Align = alClient
+          Font.Height = -13
+          Font.Name = 'Courier New'
+          Font.Pitch = fpFixed
+          Font.Quality = fqCleartype
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 0
+          Gutter.Width = 30
+          RightGutter.Width = 0
+          Highlighter = synSQLSyn
+        end
+      end
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = True
+    Left = 740
+    Top = 80
+  end
+end

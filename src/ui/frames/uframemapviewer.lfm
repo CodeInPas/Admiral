@@ -1,0 +1,152 @@
+object FrameMapViewer: TFrameMapViewer
+  Left = 0
+  Height = 317
+  Top = 0
+  Width = 872
+  ClientHeight = 317
+  ClientWidth = 872
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 320
+  DesignTop = 200
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 38
+    Top = 0
+    Width = 872
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 38
+    ClientWidth = 872
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblLat: TLabel
+      Left = 8
+      Height = 15
+      Top = 11
+      Width = 20
+      Caption = 'Lat:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboLatField: TComboBox
+      Left = 36
+      Height = 23
+      Top = 7
+      Width = 110
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object lblLng: TLabel
+      Left = 154
+      Height = 15
+      Top = 11
+      Width = 23
+      Caption = 'Lng:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboLngField: TComboBox
+      Left = 186
+      Height = 23
+      Top = 7
+      Width = 110
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object lblLabelField: TLabel
+      Left = 304
+      Height = 15
+      Top = 11
+      Width = 31
+      Caption = 'Label:'
+      ParentColor = False
+    end
+    object cboLabelField: TComboBox
+      Left = 342
+      Height = 23
+      Top = 7
+      Width = 120
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object lblProvider: TLabel
+      Left = 470
+      Height = 15
+      Top = 11
+      Width = 47
+      Caption = 'Provider:'
+      ParentColor = False
+    end
+    object cboProvider: TComboBox
+      Left = 522
+      Height = 23
+      Top = 7
+      Width = 140
+      Enabled = False
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 3
+      OnChange = cboProviderChange
+    end
+    object btnPlot: TSpeedButton
+      Left = 670
+      Height = 25
+      Top = 6
+      Width = 65
+      Caption = '📍 Plot'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnPlotClick
+    end
+    object btnAutoFit: TSpeedButton
+      Left = 740
+      Height = 25
+      Top = 6
+      Width = 45
+      Caption = '🔍 Fit'
+      OnClick = btnAutoFitClick
+    end
+    object btnClear: TSpeedButton
+      Left = 790
+      Height = 25
+      Top = 6
+      Width = 77
+      Caption = '🧹 Hapus'
+      OnClick = btnClearClick
+    end
+    object lblStatus: TLabel
+      Left = 8
+      Height = 1
+      Top = 24
+      Width = 1
+      Font.Color = clGrayText
+      Font.Height = -10
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+  end
+  object mapView: TMapView
+    Left = 0
+    Height = 279
+    Top = 38
+    Width = 872
+    Active = True
+    Align = alClient
+    DownloadEngine = mapView.BuiltInDLE
+    DrawingEngine = mapView.BuiltInDE
+    Layers = <>
+    Font.Color = clWindowText
+    ParentFont = False
+    POITextBgOpacity = 0.550000011920929
+    TabOrder = 1
+  end
+end

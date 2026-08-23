@@ -1,0 +1,228 @@
+object FormERDViewer: TFormERDViewer
+  Left = 280
+  Height = 650
+  Top = 120
+  Width = 1100
+  Caption = 'Two-Way ERD Modeler (Forward & Reverse Engineering)'
+  ClientHeight = 650
+  ClientWidth = 1100
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 1100
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 40
+    ClientWidth = 1100
+    TabOrder = 0
+    object btnReverseDB: TSpeedButton
+      Left = 6
+      Height = 28
+      Top = 6
+      Width = 90
+      Caption = '📥 Reverse DB'
+      OnClick = btnReverseDBClick
+    end
+    object sepTool1: TBevel
+      Left = 100
+      Height = 26
+      Top = 7
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object btnAddTable: TSpeedButton
+      Left = 106
+      Height = 28
+      Top = 6
+      Width = 100
+      Caption = '➕ Tambah Tabel'
+      OnClick = btnAddTableClick
+    end
+    object btnEditTable: TSpeedButton
+      Left = 210
+      Height = 28
+      Top = 6
+      Width = 85
+      Caption = '✏️ Ubah'
+      Enabled = False
+      OnClick = btnEditTableClick
+    end
+    object btnDeleteTable: TSpeedButton
+      Left = 299
+      Height = 28
+      Top = 6
+      Width = 85
+      Caption = '🗑️ Hapus'
+      Enabled = False
+      OnClick = btnDeleteTableClick
+    end
+    object sepTool2: TBevel
+      Left = 388
+      Height = 26
+      Top = 7
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object btnAutoLayout: TSpeedButton
+      Left = 394
+      Height = 28
+      Top = 6
+      Width = 85
+      Caption = '📐 Tata Ulang'
+      OnClick = btnAutoLayoutClick
+    end
+    object btnExportPNG: TSpeedButton
+      Left = 483
+      Height = 28
+      Top = 6
+      Width = 90
+      Caption = '🖼️ Ekspor...'
+      OnClick = btnExportPNGClick
+    end
+    object sepTool3: TBevel
+      Left = 577
+      Height = 26
+      Top = 7
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object btnForwardDDL: TSpeedButton
+      Left = 583
+      Height = 28
+      Top = 6
+      Width = 95
+      Caption = '📋 Salin DDL'
+      OnClick = btnForwardDDLClick
+    end
+    object btnSyncToDB: TSpeedButton
+      Left = 682
+      Height = 28
+      Top = 6
+      Width = 110
+      Caption = '🚀 Sync ke DB'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnSyncToDBClick
+    end
+    object chkShowTypes: TCheckBox
+      Left = 802
+      Height = 19
+      Top = 11
+      Width = 106
+      Caption = 'Tipe Data Kolom'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+      OnChange = chkShowTypesChange
+    end
+    object lblSearch: TLabel
+      Left = 918
+      Height = 15
+      Top = 13
+      Width = 24
+      Caption = 'Cari:'
+      ParentColor = False
+    end
+    object edtSearch: TEdit
+      Left = 948
+      Height = 23
+      Top = 8
+      Width = 145
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 1
+      TextHint = 'Nama tabel...'
+      OnChange = edtSearchChange
+    end
+  end
+  object pnlSidebar: TPanel
+    Left = 840
+    Height = 610
+    Top = 40
+    Width = 260
+    Align = alRight
+    BevelOuter = bvNone
+    ClientHeight = 610
+    ClientWidth = 260
+    TabOrder = 1
+    object lblTableTitle: TLabel
+      Left = 8
+      Height = 15
+      Top = 8
+      Width = 244
+      Align = alTop
+      BorderSpacing.Around = 8
+      Caption = 'Pilih sebuah tabel'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lvColumns: TListView
+      Left = 0
+      Height = 579
+      Top = 31
+      Width = 260
+      Align = alClient
+      Columns = <      
+        item
+          Caption = 'Kolom'
+          Width = 110
+        end      
+        item
+          Caption = 'Tipe'
+          Width = 90
+        end      
+        item
+          Caption = 'Key'
+          Width = 40
+        end>
+      GridLines = True
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 0
+      ViewStyle = vsReport
+    end
+  end
+  object splSidebar: TSplitter
+    Left = 835
+    Height = 610
+    Top = 40
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object sbCanvas: TScrollBox
+    Left = 0
+    Height = 610
+    Top = 40
+    Width = 835
+    HorzScrollBar.Page = 820
+    VertScrollBar.Page = 600
+    Align = alClient
+    ClientHeight = 606
+    ClientWidth = 831
+    TabOrder = 2
+    object paintBox: TPaintBox
+      Left = 0
+      Height = 600
+      Top = 0
+      Width = 820
+      Color = 2368548
+      ParentColor = False
+      OnDblClick = paintBoxDblClick
+      OnMouseDown = paintBoxMouseDown
+      OnMouseMove = paintBoxMouseMove
+      OnMouseUp = paintBoxMouseUp
+      OnPaint = paintBoxPaint
+    end
+  end
+  object saveDialog: TSaveDialog
+    Left = 700
+    Top = 100
+  end
+end

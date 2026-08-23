@@ -1,0 +1,158 @@
+object FrameDBTerminal: TFrameDBTerminal
+  Left = 0
+  Height = 550
+  Top = 0
+  Width = 850
+  ClientHeight = 550
+  ClientWidth = 850
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 250
+  DesignTop = 150
+  object pnlMain: TPanel
+    Left = 0
+    Height = 550
+    Top = 0
+    Width = 850
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 550
+    ClientWidth = 850
+    Color = 1973790
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object pnlToolbar: TPanel
+      Left = 0
+      Height = 34
+      Top = 0
+      Width = 850
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 34
+      ClientWidth = 850
+      Color = 1447446
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object btnClearScreen: TSpeedButton
+        Left = 4
+        Height = 26
+        Top = 4
+        Width = 80
+        Align = alLeft
+        BorderSpacing.Around = 4
+        Caption = '🧹 Bersihkan'
+        Font.Color = clWhite
+        Font.Height = -11
+        ParentFont = False
+        OnClick = btnClearScreenClick
+      end
+      object btnCopyAll: TSpeedButton
+        Left = 88
+        Height = 26
+        Top = 4
+        Width = 75
+        Align = alLeft
+        BorderSpacing.Around = 4
+        Caption = '📋 Salin Log'
+        Font.Color = clWhite
+        Font.Height = -11
+        ParentFont = False
+        OnClick = btnCopyAllClick
+      end
+      object lblConnStatus: TLabel
+        Left = 175
+        Height = 34
+        Top = 0
+        Width = 675
+        Align = alClient
+        BorderSpacing.Left = 12
+        Caption = 'Sesi CLI Siap.'
+        Font.Color = 8454143
+        Font.Height = -11
+        Font.Name = 'Segoe UI'
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object memTerminal: TMemo
+      Left = 0
+      Height = 480
+      Top = 34
+      Width = 850
+      Align = alClient
+      BorderStyle = bsNone
+      Color = 1315860
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = 14474460
+      Font.Height = -13
+      Font.Name = 'Consolas'
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      TabOrder = 1
+    end
+    object pnlPrompt: TPanel
+      Left = 0
+      Height = 36
+      Top = 514
+      Width = 850
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 36
+      ClientWidth = 850
+      Color = 2171169
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 2
+      object lblPrompt: TLabel
+        Left = 8
+        Height = 36
+        Top = 0
+        Width = 70
+        Align = alLeft
+        BorderSpacing.Left = 8
+        Caption = 'admin@db> '
+        Font.Color = 5308415
+        Font.Height = -13
+        Font.Name = 'Consolas'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtCommand: TEdit
+        Left = 82
+        Height = 28
+        Top = 4
+        Width = 690
+        Align = alClient
+        BorderSpacing.Around = 4
+        BorderStyle = bsNone
+        Color = 1315860
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Consolas'
+        ParentFont = False
+        TabOrder = 0
+        OnKeyDown = edtCommandKeyDown
+      end
+      object btnRun: TSpeedButton
+        Left = 776
+        Height = 28
+        Top = 4
+        Width = 70
+        Align = alRight
+        BorderSpacing.Around = 4
+        Caption = 'Kirim ↵'
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = btnRunClick
+      end
+    end
+  end
+end

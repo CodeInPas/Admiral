@@ -1,0 +1,116 @@
+object FormSplash: TFormSplash
+  Left = 400
+  Height = 260
+  Top = 250
+  Width = 480
+  BorderStyle = bsNone
+  Caption = 'Memuat siadmin...'
+  ClientHeight = 260
+  ClientWidth = 480
+  Color = 6776632
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  object pnlContainer: TPanel
+    Left = 0
+    Height = 260
+    Top = 0
+    Width = 480
+    Align = alClient
+    BevelColor = 13748672
+    BevelWidth = 2
+    ClientHeight = 260
+    ClientWidth = 480
+    Color = 15593702
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 31
+      Height = 40
+      Top = 8
+      Width = 418
+      Align = alTop
+      BorderSpacing.Left = 23
+      BorderSpacing.Right = 23
+      BorderSpacing.Around = 6
+      Caption = 'Admiral'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clMenuHighlight
+      Font.Height = -29
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 31
+      Height = 15
+      Top = 54
+      Width = 418
+      Align = alTop
+      BorderSpacing.Left = 23
+      BorderSpacing.Right = 23
+      BorderSpacing.Around = 6
+      Caption = 'Multi-DBMS Administration & AI-Powered REST API Studio'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBackground
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblVersion: TLabel
+      Left = 31
+      Height = 15
+      Top = 75
+      Width = 418
+      Align = alTop
+      Anchors = [akTop, akRight]
+      BorderSpacing.Left = 23
+      BorderSpacing.Right = 23
+      BorderSpacing.Around = 6
+      Caption = 'v1.0.0 (64-bit Native)'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblStatus: TLabel
+      Left = 25
+      Height = 15
+      Top = 220
+      Width = 430
+      Align = alBottom
+      BorderSpacing.Around = 23
+      Caption = 'Loading modules and database connection profiles...'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      ParentColor = False
+      ParentFont = False
+    end
+    object ProgressBar: TProgressBar
+      Left = 25
+      Height = 10
+      Top = 187
+      Width = 430
+      Align = alBottom
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 23
+      Smooth = True
+      TabOrder = 0
+    end
+  end
+  object TimerLoader: TTimer
+    Enabled = False
+    Interval = 150
+    OnTimer = TimerLoaderTimer
+    Left = 400
+    Top = 100
+  end
+end

@@ -1,0 +1,333 @@
+object FormRESTGeneratorWizard: TFormRESTGeneratorWizard
+  Left = 320
+  Height = 520
+  Top = 140
+  Width = 660
+  BorderStyle = bsDialog
+  Caption = 'REST API Backend Generator Wizard'
+  ClientHeight = 520
+  ClientWidth = 660
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 65
+    Top = 0
+    Width = 660
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 65
+    ClientWidth = 660
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 20
+      Top = 10
+      Width = 291
+      Caption = '🌐 Multi-Framework REST API Generator'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 16
+      Height = 13
+      Top = 36
+      Width = 459
+      Caption = 'Pilih framework backend, tentukan tabel target, dan generate service REST API siap pakai.'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pgcSteps: TPageControl
+    Left = 0
+    Height = 399
+    Top = 65
+    Width = 660
+    ActivePage = tabTables
+    Align = alClient
+    ShowTabs = False
+    TabIndex = 0
+    TabOrder = 1
+    object tabTables: TTabSheet
+      Caption = '1. Seleksi Tabel'
+      ClientHeight = 391
+      ClientWidth = 652
+      object pnlFrameworkSelection: TPanel
+        Left = 0
+        Height = 44
+        Top = 0
+        Width = 652
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 44
+        ClientWidth = 652
+        TabOrder = 0
+        object lblSelectFramework: TLabel
+          Left = 16
+          Height = 15
+          Top = 14
+          Width = 157
+          Caption = 'Target Framework Backend:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object cboFramework: TComboBox
+          Left = 185
+          Height = 23
+          Top = 10
+          Width = 320
+          ItemHeight = 15
+          Style = csDropDownList
+          TabOrder = 0
+          OnChange = cboFrameworkChange
+        end
+      end
+      object pnlTableFilter: TPanel
+        Left = 0
+        Height = 38
+        Top = 44
+        Width = 652
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 38
+        ClientWidth = 652
+        TabOrder = 1
+        object edtFilterTable: TEdit
+          Left = 16
+          Height = 23
+          Top = 6
+          Width = 260
+          TabOrder = 0
+          TextHint = 'Cari nama tabel / view...'
+          OnChange = edtFilterTableChange
+        end
+        object btnSelectAll: TSpeedButton
+          Left = 285
+          Height = 24
+          Top = 6
+          Width = 90
+          Caption = 'Pilih Semua'
+          OnClick = btnSelectAllClick
+        end
+        object btnDeselectAll: TSpeedButton
+          Left = 380
+          Height = 24
+          Top = 6
+          Width = 90
+          Caption = 'Kosongkan'
+          OnClick = btnDeselectAllClick
+        end
+      end
+      object clbTables: TCheckListBox
+        Left = 16
+        Height = 291
+        Top = 88
+        Width = 620
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ItemHeight = 0
+        TabOrder = 2
+      end
+    end
+    object tabOperations: TTabSheet
+      Caption = '2. Matriks CRUD'
+      ClientHeight = 391
+      ClientWidth = 652
+      object pnlOpToolbar: TPanel
+        Left = 0
+        Height = 35
+        Top = 0
+        Width = 652
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 35
+        ClientWidth = 652
+        TabOrder = 0
+        object lblOpInfo: TLabel
+          Left = 16
+          Height = 13
+          Top = 10
+          Width = 429
+          Caption = 'Atur alias rute URL dan aktifkan (1) / nonaktifkan (0) operasi CRUD untuk tiap tabel:'
+          Font.Color = clGrayText
+          Font.Height = -11
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+      object gridOperations: TStringGrid
+        Left = 16
+        Height = 341
+        Top = 40
+        Width = 620
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        AutoFillColumns = True
+        ColCount = 7
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 1
+        TabOrder = 1
+        ColWidths = (
+          64
+          92
+          92
+          92
+          92
+          92
+          92
+        )
+      end
+    end
+    object tabSettings: TTabSheet
+      Caption = '3. Pengaturan Proyek'
+      ClientHeight = 391
+      ClientWidth = 652
+      object lblPort: TLabel
+        Left = 24
+        Height = 15
+        Top = 25
+        Width = 97
+        Caption = 'Port Web Server:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtPort: TEdit
+        Left = 160
+        Height = 23
+        Top = 22
+        Width = 100
+        TabOrder = 0
+        Text = '3000'
+      end
+      object lblBaseRoute: TLabel
+        Left = 24
+        Height = 15
+        Top = 65
+        Width = 92
+        Caption = 'Base Route URL:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtBaseRoute: TEdit
+        Left = 160
+        Height = 23
+        Top = 62
+        Width = 200
+        TabOrder = 1
+        Text = '/api/v1'
+      end
+      object chkEnableAuth: TCheckBox
+        Left = 160
+        Height = 19
+        Top = 105
+        Width = 205
+        Caption = 'Aktifkan Keamanan Header API Key'
+        Checked = True
+        State = cbChecked
+        TabOrder = 2
+        OnChange = chkEnableAuthChange
+      end
+      object lblApiKey: TLabel
+        Left = 24
+        Height = 15
+        Top = 142
+        Width = 86
+        Caption = 'Secret API Key:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtApiKey: TEdit
+        Left = 160
+        Height = 23
+        Top = 138
+        Width = 320
+        TabOrder = 3
+        Text = 'siadmin-secret-api-key-2026'
+      end
+      object lblOutDir: TLabel
+        Left = 24
+        Height = 15
+        Top = 185
+        Width = 106
+        Caption = 'Direktori Keluaran:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtOutDir: TEdit
+        Left = 160
+        Height = 23
+        Top = 182
+        Width = 400
+        TabOrder = 4
+      end
+      object btnBrowseDir: TSpeedButton
+        Left = 568
+        Height = 23
+        Top = 182
+        Width = 60
+        Caption = 'Pilih...'
+        OnClick = btnBrowseDirClick
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 56
+    Top = 464
+    Width = 660
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 56
+    ClientWidth = 660
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object btnBack: TBitBtn
+      Left = 350
+      Height = 36
+      Top = 10
+      Width = 90
+      Caption = '⬅ Kembali'
+      TabOrder = 0
+      OnClick = btnBackClick
+    end
+    object btnNext: TBitBtn
+      Left = 450
+      Height = 36
+      Top = 10
+      Width = 120
+      Caption = 'Lanjut ➔'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnNextClick
+    end
+    object btnCancel: TBitBtn
+      Left = 578
+      Height = 36
+      Top = 10
+      Width = 70
+      Cancel = True
+      Caption = 'Batal'
+      ModalResult = 2
+      TabOrder = 2
+    end
+  end
+  object SelectDirectoryDialog: TSelectDirectoryDialog
+    Title = 'Pilih Folder Tujuan Proyek REST API'
+    Left = 280
+    Top = 220
+  end
+end

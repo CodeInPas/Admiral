@@ -1,0 +1,431 @@
+object FrameWelcomeDashboard: TFrameWelcomeDashboard
+  Left = 0
+  Height = 511
+  Top = 0
+  Width = 960
+  ClientHeight = 511
+  ClientWidth = 960
+  Color = 15857127
+  LCLVersion = '4.4.0.0'
+  ParentBackground = False
+  ParentColor = False
+  TabOrder = 0
+  DesignLeft = 240
+  DesignTop = 110
+  object sbMain: TScrollBox
+    Left = 0
+    Height = 511
+    Top = 0
+    Width = 960
+    HorzScrollBar.Page = 476
+    VertScrollBar.Page = 1
+    VertScrollBar.Visible = False
+    Align = alClient
+    BorderStyle = bsNone
+    ClientHeight = 511
+    ClientWidth = 960
+    ParentBackground = False
+    TabOrder = 0
+    object pnlContainer: TPanel
+      Left = 0
+      Height = 650
+      Top = 0
+      Width = 960
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 650
+      ClientWidth = 960
+      ParentBackground = False
+      TabOrder = 0
+      object pnlHero: TPanel
+        Left = 20
+        Height = 75
+        Top = 15
+        Width = 920
+        Anchors = [akTop, akLeft, akRight]
+        BevelOuter = bvNone
+        ClientHeight = 75
+        ClientWidth = 920
+        Color = clMenuBar
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        object lblAppTitle: TLabel
+          Left = 20
+          Height = 28
+          Top = 10
+          Width = 301
+          Caption = 'ℹ️ Tentang Aplikasi Laksamana'
+          Font.Height = -20
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblAppSubtitle: TLabel
+          Left = 20
+          Height = 15
+          Top = 44
+          Width = 456
+          Caption = 'Multi-DBMS Administration Tool, Visual Database Modeler, BI Analytics, & AI SQL Studio'
+          Font.Color = clGrayText
+          Font.Height = -12
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblVersionTag: TLabel
+          Left = 757
+          Height = 15
+          Top = 16
+          Width = 143
+          Alignment = taRightJustify
+          Anchors = [akTop, akRight]
+          Caption = 'v1.0.0 • Production Ready'
+          Font.Color = 13854720
+          Font.Height = -12
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblBuildTag: TLabel
+          Left = 780
+          Height = 13
+          Top = 42
+          Width = 120
+          Alignment = taRightJustify
+          Anchors = [akTop, akRight]
+          Caption = 'Free Pascal & Lazarus IDE'
+          Font.Color = clGrayText
+          Font.Height = -11
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+      object pnlRow1: TPanel
+        Left = 20
+        Height = 180
+        Top = 100
+        Width = 920
+        Anchors = [akTop, akLeft, akRight]
+        BevelOuter = bvNone
+        ClientHeight = 180
+        ClientWidth = 920
+        ParentBackground = False
+        TabOrder = 1
+        object pnlCardAppInfo: TPanel
+          Left = 0
+          Height = 180
+          Top = 0
+          Width = 440
+          BevelColor = clSilver
+          ClientHeight = 180
+          ClientWidth = 440
+          Color = clWhite
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+          object lblTitleAppInfo: TLabel
+            Left = 16
+            Height = 15
+            Top = 12
+            Width = 137
+            Caption = '📋 INFORMASI APLIKASI'
+            Font.Color = 13854720
+            Font.Height = -12
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblInfoAppName: TLabel
+            Left = 16
+            Height = 15
+            Top = 40
+            Width = 245
+            Caption = '• Nama Program : Laksamana Database Studio'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblInfoVersion: TLabel
+            Left = 16
+            Height = 15
+            Top = 65
+            Width = 220
+            Caption = '• Versi Rilis         : v1.0.0 (64-bit Native GUI)'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblInfoLazarusFPC: TLabel
+            Left = 16
+            Height = 15
+            Top = 90
+            Width = 272
+            Caption = '• Framework       : Lazarus LCL & Free Pascal Compiler'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblInfoPlatform: TLabel
+            Left = 16
+            Height = 15
+            Top = 115
+            Width = 262
+            Caption = '• Lisensi             : Proprietary / Standalone Desktop'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblInfoAuthor: TLabel
+            Left = 16
+            Height = 15
+            Top = 140
+            Width = 291
+            Caption = '• Arsitektur         : Multi-Threaded Non-Blocking Engine'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+        object pnlCardDBEngine: TPanel
+          Left = 460
+          Height = 180
+          Top = 0
+          Width = 460
+          Anchors = [akTop, akLeft, akRight]
+          BevelColor = clSilver
+          ClientHeight = 180
+          ClientWidth = 460
+          Color = clWhite
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 1
+          object lblTitleDBEngine: TLabel
+            Left = 16
+            Height = 15
+            Top = 12
+            Width = 170
+            Caption = '🔌 DUKUNGAN DRIVER DBMS'
+            Font.Color = clGreen
+            Font.Height = -12
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblDBMySQL: TLabel
+            Left = 16
+            Height = 15
+            Top = 40
+            Width = 292
+            Caption = '• MySQL / MariaDB  : Versi 5.x s/d 8.x (ZeosLib Protocol)'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblDBPostgres: TLabel
+            Left = 16
+            Height = 15
+            Top = 65
+            Width = 288
+            Caption = '• PostgreSQL          : Versi 10 s/d 16 (PL/pgSQL Support)'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblDBSQLite: TLabel
+            Left = 16
+            Height = 15
+            Top = 90
+            Width = 273
+            Caption = '• SQLite Database  : SQLite 3.x Embedded File-based'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblDBFirebird: TLabel
+            Left = 16
+            Height = 15
+            Top = 115
+            Width = 259
+            Caption = '• Firebird SQL        : Versi 2.5 s/d 4.x (PSQL Engine)'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblDBStatus: TLabel
+            Left = 16
+            Height = 15
+            Top = 140
+            Width = 278
+            Caption = '• Protokol Driver    : Native TCP/IP & In-Process Library'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+      end
+      object pnlRow2: TPanel
+        Left = 20
+        Height = 180
+        Top = 290
+        Width = 920
+        Anchors = [akTop, akLeft, akRight]
+        BevelOuter = bvNone
+        ClientHeight = 180
+        ClientWidth = 920
+        ParentBackground = False
+        TabOrder = 2
+        object pnlCardModules: TPanel
+          Left = 0
+          Height = 180
+          Top = 0
+          Width = 440
+          BevelColor = clSilver
+          ClientHeight = 180
+          ClientWidth = 440
+          Color = clWhite
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+          object lblTitleModules: TLabel
+            Left = 16
+            Height = 15
+            Top = 12
+            Width = 145
+            Caption = '🛠️ FITUR & MODUL UTAMA'
+            Font.Color = 11141120
+            Font.Height = -12
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblModSQL: TLabel
+            Left = 16
+            Height = 15
+            Top = 40
+            Width = 329
+            Caption = '• SQL Tab Editor : Syntax Highlighting, Explain Plan, Visual Grid'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblModTableBuilder: TLabel
+            Left = 16
+            Height = 15
+            Top = 65
+            Width = 325
+            Caption = '• Table Designer : Desain Kolom In-Grid Dropdown, Indeks & FK'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblModSchemaDiff: TLabel
+            Left = 16
+            Height = 15
+            Top = 90
+            Width = 330
+            Caption = '• Schema Diff    : Komparasi Struktur Antar Database & Sync DDL'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblModLiveMetrics: TLabel
+            Left = 16
+            Height = 15
+            Top = 115
+            Width = 336
+            Caption = '• Live Metrics    : Grafik Real-Time QPS, Koneksi, Buffer Hit Ratio'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblModDataTransfer: TLabel
+            Left = 16
+            Height = 15
+            Top = 140
+            Width = 315
+            Caption = '• Data Transfer  : Migrasi Lintas DBMS & Generator PHP CRUD'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+        object pnlCardAI: TPanel
+          Left = 460
+          Height = 180
+          Top = 0
+          Width = 460
+          Anchors = [akTop, akLeft, akRight]
+          BevelColor = clSilver
+          ClientHeight = 180
+          ClientWidth = 460
+          Color = clWhite
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 1
+          object lblTitleAI: TLabel
+            Left = 16
+            Height = 15
+            Top = 12
+            Width = 147
+            Caption = '🤖 AI ENGINE & KEAMANAN'
+            Font.Color = clNavy
+            Font.Height = -12
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblAINL2SQL: TLabel
+            Left = 16
+            Height = 15
+            Top = 40
+            Width = 325
+            Caption = '• NL2SQL Generator : Konversi teks bahasa alami menjadi SQL'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblAIOptimizer: TLabel
+            Left = 16
+            Height = 15
+            Top = 65
+            Width = 318
+            Caption = '• AI Query Optimizer : Analisis indeks dan restrukturisasi SQL'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblAIDiagnostic: TLabel
+            Left = 16
+            Height = 15
+            Top = 90
+            Width = 337
+            Caption = '• Auto-Fix Error SQL  : Diagnosa galat kueri dan perbaikan instan'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblAIRoutine: TLabel
+            Left = 16
+            Height = 15
+            Top = 115
+            Width = 311
+            Caption = '• Routine Generator : Pembuatan Stored Procedure & Trigger'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+          object lblAISafeMode: TLabel
+            Left = 16
+            Height = 15
+            Top = 140
+            Width = 318
+            Caption = '• Safe Guardrail       : Proteksi kueri destruktif (DELETE/DROP)'
+            Font.Height = -12
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+      end
+    end
+  end
+end

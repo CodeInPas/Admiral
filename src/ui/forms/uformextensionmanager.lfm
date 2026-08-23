@@ -1,0 +1,167 @@
+object FormExtensionManager: TFormExtensionManager
+  Left = 420
+  Height = 480
+  Top = 180
+  Width = 750
+  Caption = 'Ekstensi & Plugin Manager'
+  ClientHeight = 480
+  ClientWidth = 750
+  Position = poScreenCenter
+  LCLVersion = '3.0.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 38
+    Top = 0
+    Width = 750
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 38
+    ClientWidth = 750
+    TabOrder = 0
+    object btnRefresh: TSpeedButton
+      Left = 4
+      Height = 30
+      Top = 4
+      Width = 85
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '🔄 Segarkan'
+      OnClick = btnRefreshClick
+    end
+    object btnInstall: TSpeedButton
+      Left = 93
+      Height = 30
+      Top = 4
+      Width = 90
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '➕ Aktifkan'
+      OnClick = btnInstallClick
+    end
+    object btnUninstall: TSpeedButton
+      Left = 187
+      Height = 30
+      Top = 4
+      Width = 85
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '🗑️ Cabut'
+      OnClick = btnUninstallClick
+    end
+    object btnLoadFile: TSpeedButton
+      Left = 276
+      Height = 30
+      Top = 4
+      Width = 120
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '📁 Muat Library...'
+      OnClick = btnLoadFileClick
+    end
+    object sep1: TBevel
+      Left = 400
+      Height = 26
+      Top = 6
+      Width = 2
+      Shape = bsLeftLine
+    end
+    object lblSearch: TLabel
+      Left = 415
+      Height = 30
+      Top = 4
+      Width = 35
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Cari:'
+      Layout = tlCenter
+      ParentColor = False
+    end
+    object edtSearch: TEdit
+      Left = 454
+      Height = 28
+      Top = 5
+      Width = 285
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+      OnChange = edtSearchChange
+    end
+  end
+  object lvExtensions: TListView
+    Left = 0
+    Height = 398
+    Top = 38
+    Width = 750
+    Align = alClient
+    Columns = <
+      item
+        Caption = 'Nama Ekstensi / Plugin'
+        Width = 180
+      end
+      item
+        Caption = 'Status'
+        Width = 110
+      end
+      item
+        Caption = 'Versi'
+        Width = 70
+      end
+      item
+        Caption = 'Berkas Library'
+        Width = 130
+      end
+      item
+        Caption = 'Deskripsi'
+        Width = 240
+      end>
+    GridLines = True
+    ReadOnly = True
+    RowSelect = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 1
+    ViewStyle = vsReport
+    OnSelectItem = lvExtensionsSelectItem
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 44
+    Top = 436
+    Width = 750
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 750
+    TabOrder = 2
+    object lblStatus: TLabel
+      Left = 12
+      Height = 44
+      Top = 0
+      Width = 620
+      Align = alClient
+      BorderSpacing.Left = 12
+      Caption = 'Siap.'
+      Layout = tlCenter
+      ParentColor = False
+    end
+    object btnClose: TBitBtn
+      Left = 647
+      Height = 32
+      Top = 6
+      Width = 95
+      Anchors = [akTop, akRight]
+      Caption = 'Tutup'
+      Font.Style = [fsBold]
+      ModalResult = 11
+      OnClick = btnCloseClick
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object openDialog: TOpenDialog
+    Title = 'Pilih Berkas Library Ekstensi'
+    Left = 600
+    Top = 70
+  end
+end

@@ -1,0 +1,300 @@
+object FormImportData: TFormImportData
+  Left = 320
+  Height = 580
+  Top = 140
+  Width = 780
+  Caption = 'Data Importer Wizard'
+  ClientHeight = 580
+  ClientWidth = 780
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 85
+    Top = 0
+    Width = 780
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 85
+    ClientWidth = 780
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblSourceFile: TLabel
+      Left = 12
+      Height = 15
+      Top = 14
+      Width = 75
+      Caption = 'Berkas Sumber:'
+      ParentColor = False
+    end
+    object edtSourceFile: TEdit
+      Left = 95
+      Height = 23
+      Top = 10
+      Width = 420
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object btnBrowseFile: TSpeedButton
+      Left = 520
+      Height = 23
+      Top = 10
+      Width = 80
+      Caption = 'Pilih File...'
+      OnClick = btnBrowseFileClick
+    end
+    object lblFormat: TLabel
+      Left = 615
+      Height = 15
+      Top = 14
+      Width = 40
+      Caption = 'Format:'
+      ParentColor = False
+    end
+    object cboFormat: TComboBox
+      Left = 660
+      Height = 23
+      Top = 10
+      Width = 105
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'CSV'
+        'JSON'
+        'SQL'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'CSV'
+      OnChange = cboFormatChange
+    end
+    object lblTargetTable: TLabel
+      Left = 12
+      Height = 15
+      Top = 50
+      Width = 70
+      Caption = 'Tabel Target:'
+      ParentColor = False
+    end
+    object cboTargetTable: TComboBox
+      Left = 95
+      Height = 23
+      Top = 46
+      Width = 240
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+      OnChange = cboTargetTableChange
+    end
+  end
+  object pnlCSVOptions: TPanel
+    Left = 0
+    Height = 36
+    Top = 85
+    Width = 780
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 36
+    ClientWidth = 780
+    TabOrder = 1
+    object lblDelimiter: TLabel
+      Left = 12
+      Height = 15
+      Top = 10
+      Width = 55
+      Caption = 'Pemisah:'
+      ParentColor = False
+    end
+    object cboDelimiter: TComboBox
+      Left = 95
+      Height = 23
+      Top = 6
+      Width = 130
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Koma (,)'
+        'Titik Koma (;)'
+        'Tab (\t)'
+      )
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'Koma (,)'
+      OnChange = cboDelimiterChange
+    end
+    object chkHasHeader: TCheckBox
+      Left = 250
+      Height = 19
+      Top = 8
+      Width = 160
+      Caption = 'Baris Pertama adalah Header'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+      OnChange = chkHasHeaderChange
+    end
+  end
+  object pgcMain: TPageControl
+    Left = 0
+    Height = 364
+    Top = 121
+    Width = 780
+    ActivePage = tabMapping
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 2
+    object tabMapping: TTabSheet
+      Caption = 'Pemetaan Kolom (Column Mapping)'
+      ClientHeight = 336
+      ClientWidth = 772
+      object gridMapping: TStringGrid
+        Left = 0
+        Height = 336
+        Top = 0
+        Width = 772
+        Align = alClient
+        AutoFillColumns = True
+        ColCount = 4
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 1
+        TabOrder = 0
+        OnEditingDone = gridMappingEditingDone
+        ColWidths = (
+          193
+          193
+          193
+          193
+        )
+      end
+    end
+    object tabPreview: TTabSheet
+      Caption = 'Pratinjau Data (Preview)'
+      ClientHeight = 336
+      ClientWidth = 772
+      object gridPreview: TStringGrid
+        Left = 0
+        Height = 336
+        Top = 0
+        Width = 772
+        Align = alClient
+        ColCount = 1
+        FixedCols = 0
+        RowCount = 1
+        TabOrder = 0
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 95
+    Top = 485
+    Width = 780
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 95
+    ClientWidth = 780
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 3
+    object lblBatchSize: TLabel
+      Left = 12
+      Height = 15
+      Top = 10
+      Width = 90
+      Caption = 'Commit Batch:'
+      ParentColor = False
+    end
+    object edtBatchSize: TEdit
+      Left = 105
+      Height = 23
+      Top = 6
+      Width = 60
+      TabOrder = 0
+      Text = '500'
+    end
+    object lblErrorAction: TLabel
+      Left = 190
+      Height = 15
+      Top = 10
+      Width = 70
+      Caption = 'Jika Error:'
+      ParentColor = False
+    end
+    object cboErrorAction: TComboBox
+      Left = 265
+      Height = 23
+      Top = 6
+      Width = 140
+      ItemHeight = 15
+      ItemIndex = 1
+      Items.Strings = (
+        'Hentikan & Rollback'
+        'Lewati Baris (Skip)'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Lewati Baris (Skip)'
+    end
+    object prgImport: TProgressBar
+      Left = 12
+      Height = 16
+      Top = 36
+      Width = 756
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 2
+    end
+    object lblStatus: TLabel
+      Left = 12
+      Height = 15
+      Top = 62
+      Width = 26
+      Caption = 'Siap.'
+      ParentColor = False
+    end
+    object btnStartImport: TBitBtn
+      Left = 470
+      Height = 30
+      Top = 56
+      Width = 140
+      Anchors = [akTop, akRight]
+      Caption = '▶ Mulai Impor'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 3
+      OnClick = btnStartImportClick
+    end
+    object btnCancel: TBitBtn
+      Left = 618
+      Height = 30
+      Top = 56
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = 'Batal'
+      Enabled = False
+      TabOrder = 4
+      OnClick = btnCancelClick
+    end
+    object btnClose: TBitBtn
+      Left = 698
+      Height = 30
+      Top = 56
+      Width = 70
+      Anchors = [akTop, akRight]
+      Caption = 'Tutup'
+      TabOrder = 5
+      OnClick = btnCloseClick
+    end
+  end
+  object openDialog: TOpenDialog
+    Filter = 'All Supported Files (*.csv;*.json;*.sql)|*.csv;*.json;*.sql|CSV Files (*.csv)|*.csv|JSON Files (*.json)|*.json|SQL Scripts (*.sql)|*.sql|All Files (*.*)|*.*'
+    Left = 360
+    Top = 180
+  end
+end

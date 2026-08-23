@@ -1,0 +1,247 @@
+object FrameVisualChart: TFrameVisualChart
+  Left = 0
+  Height = 357
+  Top = 0
+  Width = 860
+  ClientHeight = 357
+  ClientWidth = 860
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 295
+  DesignTop = 130
+  object pnlControl: TPanel
+    Left = 0
+    Height = 44
+    Top = 0
+    Width = 860
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 860
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblChartType: TLabel
+      Left = 10
+      Height = 15
+      Top = 14
+      Width = 65
+      Caption = 'Tipe Grafik:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboChartType: TComboBox
+      Left = 75
+      Height = 23
+      Top = 10
+      Width = 110
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Bar (Batang)'
+        'Line (Garis)'
+        'Pie (Lingkaran)'
+        'Area (Wilayah)'
+        'Scatter (Sebar)'
+      )
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'Bar (Batang)'
+      OnChange = cboChartTypeChange
+    end
+    object lblLabelCol: TLabel
+      Left = 195
+      Height = 15
+      Top = 14
+      Width = 90
+      Caption = 'Sumbu X (Label):'
+      ParentColor = False
+    end
+    object cboLabelCol: TComboBox
+      Left = 280
+      Height = 23
+      Top = 10
+      Width = 120
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object lblValueCol: TLabel
+      Left = 410
+      Height = 15
+      Top = 14
+      Width = 86
+      Caption = 'Sumbu Y (Nilai):'
+      ParentColor = False
+    end
+    object cboValueCol: TComboBox
+      Left = 495
+      Height = 23
+      Top = 10
+      Width = 120
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object chkShowLegend: TCheckBox
+      Left = 625
+      Height = 19
+      Top = 12
+      Width = 63
+      Caption = 'Legenda'
+      Checked = True
+      State = cbChecked
+      TabOrder = 3
+    end
+    object chkShowMarks: TCheckBox
+      Left = 698
+      Height = 19
+      Top = 12
+      Width = 73
+      Caption = 'Label Nilai'
+      Checked = True
+      State = cbChecked
+      TabOrder = 4
+    end
+  end
+  object pnlButtons: TPanel
+    Left = 0
+    Height = 36
+    Top = 44
+    Width = 860
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 36
+    ClientWidth = 860
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object lblTitle: TLabel
+      Left = 10
+      Height = 15
+      Top = 10
+      Width = 31
+      Caption = 'Judul:'
+      ParentColor = False
+    end
+    object edtTitle: TEdit
+      Left = 48
+      Height = 23
+      Top = 6
+      Width = 180
+      TabOrder = 0
+    end
+    object lblMaxRows: TLabel
+      Left = 235
+      Height = 15
+      Top = 10
+      Width = 59
+      Caption = 'Maks Baris:'
+      ParentColor = False
+    end
+    object seMaxRows: TSpinEdit
+      Left = 300
+      Height = 23
+      Top = 6
+      Width = 65
+      Increment = 50
+      MaxValue = 5000
+      MinValue = 5
+      TabOrder = 1
+      Value = 100
+    end
+    object btnRenderChart: TBitBtn
+      Left = 375
+      Height = 26
+      Top = 5
+      Width = 120
+      Caption = '📊 Render Grafik'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnRenderChartClick
+    end
+    object btnExportPNG: TSpeedButton
+      Left = 505
+      Height = 26
+      Top = 5
+      Width = 100
+      Caption = '🖼️ Ekspor PNG'
+      OnClick = btnExportPNGClick
+    end
+    object btnExportSVG: TSpeedButton
+      Left = 610
+      Height = 26
+      Top = 5
+      Width = 100
+      Caption = '📐 Ekspor SVG'
+      OnClick = btnExportSVGClick
+    end
+    object btnCopyChart: TSpeedButton
+      Left = 715
+      Height = 26
+      Top = 5
+      Width = 65
+      Caption = '📋 Salin'
+      OnClick = btnCopyChartClick
+    end
+    object btnClearChart: TSpeedButton
+      Left = 785
+      Height = 26
+      Top = 5
+      Width = 65
+      Caption = 'Bersihkan'
+      OnClick = btnClearChartClick
+    end
+  end
+  object pnlChartContainer: TPanel
+    Left = 0
+    Height = 277
+    Top = 80
+    Width = 860
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 277
+    ClientWidth = 860
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object ChartMain: TChart
+      Left = 5
+      Height = 262
+      Top = 5
+      Width = 850
+      AxisList = <      
+        item
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+        end      
+        item
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelBrush.Style = bsClear
+        end>
+      Title.Brush.Style = bsClear
+      Title.Font.Height = -13
+      Title.Font.Style = [fsBold]
+      Title.Text.Strings = (
+        'TAChart'
+      )
+      Align = alClient
+      BorderSpacing.Bottom = 5
+      BorderSpacing.Around = 5
+      Color = clWhite
+    end
+  end
+  object saveDialog: TSaveDialog
+    Left = 400
+    Top = 200
+  end
+end

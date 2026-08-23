@@ -1,0 +1,128 @@
+object FormERDTableEditor: TFormERDTableEditor
+  Left = 450
+  Height = 440
+  Top = 200
+  Width = 560
+  Caption = 'Editor Tabel & Kolom ERD'
+  ClientHeight = 440
+  ClientWidth = 560
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  object pnlHeader: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 560
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 560
+    TabOrder = 0
+    object lblTableName: TLabel
+      Left = 16
+      Height = 50
+      Top = 0
+      Width = 67
+      Align = alLeft
+      BorderSpacing.Left = 16
+      Caption = 'Nama Tabel:'
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtTableName: TEdit
+      Left = 95
+      Height = 23
+      Top = 11
+      Width = 445
+      Anchors = [akTop, akLeft, akRight]
+      TabOrder = 0
+    end
+  end
+  object pnlGridToolbar: TPanel
+    Left = 0
+    Height = 34
+    Top = 50
+    Width = 560
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 560
+    TabOrder = 1
+    object btnAddCol: TSpeedButton
+      Left = 4
+      Height = 26
+      Top = 4
+      Width = 105
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '➕ Tambah Kolom'
+      OnClick = btnAddColClick
+    end
+    object btnDelCol: TSpeedButton
+      Left = 113
+      Height = 26
+      Top = 4
+      Width = 95
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = '🗑️ Hapus Kolom'
+      OnClick = btnDelColClick
+    end
+  end
+  object gridCols: TStringGrid
+    Left = 0
+    Height = 306
+    Top = 84
+    Width = 560
+    Align = alClient
+    AutoFillColumns = True
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goSmoothScroll]
+    RowCount = 1
+    TabOrder = 2
+    ColWidths = (
+      112
+      111
+      111
+      111
+      111
+    )
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 50
+    Top = 390
+    Width = 560
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 560
+    TabOrder = 3
+    object btnOK: TBitBtn
+      Left = 360
+      Height = 32
+      Top = 9
+      Width = 90
+      Anchors = [akTop, akRight]
+      Caption = 'Simpan'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnOKClick
+    end
+    object btnCancel: TBitBtn
+      Left = 458
+      Height = 32
+      Top = 9
+      Width = 90
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = 'Batal'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end

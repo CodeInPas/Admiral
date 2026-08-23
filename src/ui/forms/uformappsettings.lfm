@@ -1,0 +1,570 @@
+object FormAppSettings: TFormAppSettings
+  Left = 380
+  Height = 540
+  Top = 150
+  Width = 840
+  Caption = 'Pusat Pengaturan & Preferensi'
+  ClientHeight = 540
+  ClientWidth = 840
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlSidebar: TPanel
+    Left = 0
+    Height = 490
+    Top = 0
+    Width = 210
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 490
+    ClientWidth = 210
+    TabOrder = 0
+    object tvCategories: TTreeView
+      Left = 0
+      Height = 490
+      Top = 0
+      Width = 210
+      Align = alClient
+      HideSelection = False
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 0
+      OnSelectionChanged = tvCategoriesSelectionChanged
+    end
+  end
+  object splDivider: TSplitter
+    Left = 210
+    Height = 490
+    Top = 0
+    Width = 5
+  end
+  object pnlMain: TPanel
+    Left = 215
+    Height = 490
+    Top = 0
+    Width = 625
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 490
+    ClientWidth = 625
+    TabOrder = 1
+    object pgcSettings: TPageControl
+      Left = 8
+      Height = 474
+      Top = 8
+      Width = 609
+      ActivePage = tabGeneral
+      Align = alClient
+      BorderSpacing.Around = 8
+      TabIndex = 0
+      TabOrder = 0
+      object tabGeneral: TTabSheet
+        Caption = 'Umum'
+        ClientHeight = 446
+        ClientWidth = 601
+        object chkRestoreSession: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 20
+          Width = 335
+          Caption = 'Pulihkan tab kueri dan workspace sesi terakhir saat startup'
+          TabOrder = 0
+        end
+        object chkAutoConnectLast: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 50
+          Width = 345
+          Caption = 'Otomatis hubungkan profil koneksi aktif terakhir saat dibuka'
+          TabOrder = 1
+        end
+        object chkConfirmOnExit: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 80
+          Width = 330
+          Caption = 'Tampilkan konfirmasi sebelum keluar jika kueri berjalan'
+          TabOrder = 2
+        end
+        object lblHistoryDays: TLabel
+          Left = 16
+          Height = 15
+          Top = 120
+          Width = 190
+          Caption = 'Retensi Riwayat SQL (Batas Hari):'
+          ParentColor = False
+        end
+        object seHistoryDays: TSpinEdit
+          Left = 220
+          Height = 28
+          Top = 116
+          Width = 80
+          MaxValue = 365
+          MinValue = 1
+          TabOrder = 3
+          Value = 30
+        end
+      end
+      object tabEditor: TTabSheet
+        Caption = 'Editor'
+        ClientHeight = 446
+        ClientWidth = 601
+        object lblTheme: TLabel
+          Left = 16
+          Height = 15
+          Top = 16
+          Width = 90
+          Caption = 'Tema Antarmuka:'
+          ParentColor = False
+        end
+        object cboTheme: TComboBox
+          Left = 130
+          Height = 28
+          Top = 12
+          Width = 220
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object lblFontName: TLabel
+          Left = 16
+          Height = 15
+          Top = 56
+          Width = 85
+          Caption = 'Jenis Huruf SQL:'
+          ParentColor = False
+        end
+        object cboFontName: TComboBox
+          Left = 130
+          Height = 28
+          Top = 52
+          Width = 220
+          TabOrder = 1
+        end
+        object lblFontSize: TLabel
+          Left = 370
+          Height = 15
+          Top = 56
+          Width = 40
+          Caption = 'Ukuran:'
+          ParentColor = False
+        end
+        object seFontSize: TSpinEdit
+          Left = 420
+          Height = 28
+          Top = 52
+          Width = 60
+          MaxValue = 28
+          MinValue = 8
+          TabOrder = 2
+          Value = 11
+        end
+        object chkShowLineNumbers: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 100
+          Width = 195
+          Caption = 'Tampilkan nomor baris editor'
+          TabOrder = 3
+        end
+        object chkHighlightLine: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 130
+          Width = 210
+          Caption = 'Sorot baris kursor aktif'
+          TabOrder = 4
+        end
+        object chkWordWrap: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 160
+          Width = 190
+          Caption = 'Bungkus teks panjang (Word Wrap)'
+          TabOrder = 5
+        end
+        object lblTabWidth: TLabel
+          Left = 16
+          Height = 15
+          Top = 200
+          Width = 95
+          Caption = 'Lebar Indentasi Tab:'
+          ParentColor = False
+        end
+        object seTabWidth: TSpinEdit
+          Left = 130
+          Height = 28
+          Top = 196
+          Width = 60
+          MaxValue = 8
+          MinValue = 1
+          TabOrder = 6
+          Value = 2
+        end
+        object chkIntelliSenseAuto: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 240
+          Width = 310
+          Caption = 'Picu otomatis autocomplete saat mengetik titik (.)'
+          TabOrder = 7
+        end
+        object chkIntelliSenseCase: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 270
+          Width = 280
+          Caption = 'Pencarian saran sensitif huruf (Case Sensitive)'
+          TabOrder = 8
+        end
+      end
+      object tabDataGrid: TTabSheet
+        Caption = 'Data Grid'
+        ClientHeight = 446
+        ClientWidth = 601
+        object chkGridZebra: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 20
+          Width = 290
+          Caption = 'Aktifkan warna baris selang-seling (Zebra Striping)'
+          TabOrder = 0
+        end
+        object chkGridShowNull: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 50
+          Width = 280
+          Caption = 'Tampilkan teks penanda khusus pada nilai (NULL)'
+          TabOrder = 1
+        end
+        object lblGridDensity: TLabel
+          Left = 16
+          Height = 15
+          Top = 90
+          Width = 125
+          Caption = 'Tinggi & Kerapatan Baris:'
+          ParentColor = False
+        end
+        object cboGridDensity: TComboBox
+          Left = 160
+          Height = 28
+          Top = 86
+          Width = 230
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object chkGridAutoFit: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 130
+          Width = 330
+          Caption = 'Otomatis sesuaikan lebar kolom berdasarkan isi data kueri'
+          TabOrder = 3
+        end
+        object lblDateTimeFmt: TLabel
+          Left = 16
+          Height = 15
+          Top = 170
+          Width = 130
+          Caption = 'Format Tanggal & Waktu:'
+          ParentColor = False
+        end
+        object edtDateTimeFmt: TEdit
+          Left = 160
+          Height = 28
+          Top = 166
+          Width = 230
+          TabOrder = 4
+        end
+        object lblDateFmt: TLabel
+          Left = 16
+          Height = 15
+          Top = 210
+          Width = 85
+          Caption = 'Format Tanggal:'
+          ParentColor = False
+        end
+        object edtDateFmt: TEdit
+          Left = 160
+          Height = 28
+          Top = 206
+          Width = 230
+          TabOrder = 5
+        end
+        object chkGridCopyHeaders: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 250
+          Width = 310
+          Caption = 'Sertakan nama kolom header saat menyalin sel (Ctrl+C)'
+          TabOrder = 6
+        end
+      end
+      object tabDatabase: TTabSheet
+        Caption = 'Database & Safety'
+        ClientHeight = 446
+        ClientWidth = 601
+        object lblSelectLimit: TLabel
+          Left = 16
+          Height = 15
+          Top = 20
+          Width = 155
+          Caption = 'Batas Baris Default (LIMIT):'
+          ParentColor = False
+        end
+        object seSelectLimit: TSpinEdit
+          Left = 190
+          Height = 28
+          Top = 16
+          Width = 110
+          MaxValue = 100000
+          MinValue = 10
+          TabOrder = 0
+          Value = 1000
+        end
+        object lblTimeoutSec: TLabel
+          Left = 16
+          Height = 15
+          Top = 60
+          Width = 160
+          Caption = 'Batas Waktu Kueri (Detik):'
+          ParentColor = False
+        end
+        object seTimeoutSec: TSpinEdit
+          Left = 190
+          Height = 28
+          Top = 56
+          Width = 110
+          MaxValue = 3600
+          MinValue = 5
+          TabOrder = 1
+          Value = 60
+        end
+        object chkSafeMode: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 110
+          Width = 360
+          Caption = 'Aktifkan Safe Mode Guardrails (Cegah DROP/TRUNCATE tak sengaja)'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 2
+        end
+        object chkRequireWhere: TCheckBox
+          Left = 16
+          Height = 19
+          Top = 140
+          Width = 380
+          Caption = 'Wajibkan konfirmasi ekstra untuk UPDATE & DELETE tanpa klausa WHERE'
+          TabOrder = 3
+        end
+      end
+      object tabAI: TTabSheet
+        Caption = 'AI Assistant'
+        ClientHeight = 446
+        ClientWidth = 601
+        object lblAIProvider: TLabel
+          Left = 16
+          Height = 15
+          Top = 20
+          Width = 105
+          Caption = 'Penyedia Layanan AI:'
+          ParentColor = False
+        end
+        object cboAIProvider: TComboBox
+          Left = 140
+          Height = 28
+          Top = 16
+          Width = 240
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object lblAIApiKey: TLabel
+          Left = 16
+          Height = 15
+          Top = 60
+          Width = 85
+          Caption = 'Kunci API (Key):'
+          ParentColor = False
+        end
+        object edtAIApiKey: TEdit
+          Left = 140
+          Height = 28
+          Top = 56
+          Width = 350
+          EchoMode = emPassword
+          PasswordChar = '*'
+          TabOrder = 1
+        end
+        object lblAIModel: TLabel
+          Left = 16
+          Height = 15
+          Top = 100
+          Width = 70
+          Caption = 'Nama Model:'
+          ParentColor = False
+        end
+        object edtAIModel: TEdit
+          Left = 140
+          Height = 28
+          Top = 96
+          Width = 240
+          TabOrder = 2
+        end
+        object lblAITemp: TLabel
+          Left = 16
+          Height = 15
+          Top = 140
+          Width = 70
+          Caption = 'Temperature:'
+          ParentColor = False
+        end
+        object edtAITemp: TEdit
+          Left = 140
+          Height = 28
+          Top = 136
+          Width = 80
+          TabOrder = 3
+        end
+        object lblAILang: TLabel
+          Left = 16
+          Height = 15
+          Top = 180
+          Width = 85
+          Caption = 'Bahasa Respon:'
+          ParentColor = False
+        end
+        object cboAILang: TComboBox
+          Left = 140
+          Height = 28
+          Top = 176
+          Width = 180
+          Style = csDropDownList
+          TabOrder = 4
+        end
+      end
+      object tabNetwork: TTabSheet
+        Caption = 'SSH & Jaringan'
+        ClientHeight = 446
+        ClientWidth = 601
+        object lblSSHPath: TLabel
+          Left = 16
+          Height = 15
+          Top = 20
+          Width = 110
+          Caption = 'Path Executable SSH:'
+          ParentColor = False
+        end
+        object edtSSHPath: TEdit
+          Left = 140
+          Height = 28
+          Top = 16
+          Width = 320
+          TabOrder = 0
+        end
+        object lblSSHTimeout: TLabel
+          Left = 16
+          Height = 15
+          Top = 60
+          Width = 115
+          Caption = 'Timeout Tunnel (Sec):'
+          ParentColor = False
+        end
+        object seSSHTimeout: TSpinEdit
+          Left = 140
+          Height = 28
+          Top = 56
+          Width = 80
+          MaxValue = 60
+          MinValue = 3
+          TabOrder = 1
+          Value = 10
+        end
+      end
+      object tabDataTools: TTabSheet
+        Caption = 'Alat Data'
+        ClientHeight = 446
+        ClientWidth = 601
+        object lblDefaultDelim: TLabel
+          Left = 16
+          Height = 15
+          Top = 20
+          Width = 130
+          Caption = 'Pemisah Ekspor Default:'
+          ParentColor = False
+        end
+        object cboDefaultDelim: TComboBox
+          Left = 160
+          Height = 28
+          Top = 16
+          Width = 200
+          Style = csDropDownList
+          TabOrder = 0
+        end
+        object lblMockBatch: TLabel
+          Left = 16
+          Height = 15
+          Top = 60
+          Width = 135
+          Caption = 'Ukuran Batch Mock Data:'
+          ParentColor = False
+        end
+        object seMockBatch: TSpinEdit
+          Left = 160
+          Height = 28
+          Top = 56
+          Width = 90
+          MaxValue = 5000
+          MinValue = 10
+          TabOrder = 1
+          Value = 100
+        end
+      end
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 50
+    Top = 490
+    Width = 840
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 840
+    TabOrder = 2
+    object btnResetDefaults: TBitBtn
+      Left = 16
+      Height = 32
+      Top = 9
+      Width = 140
+      Caption = 'Reset ke Default'
+      OnClick = btnResetDefaultsClick
+      TabOrder = 0
+    end
+    object btnSave: TBitBtn
+      Left = 632
+      Height = 32
+      Top = 9
+      Width = 95
+      Anchors = [akTop, akRight]
+      Caption = 'Simpan'
+      Font.Style = [fsBold]
+      OnClick = btnSaveClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnCancel: TBitBtn
+      Left = 735
+      Height = 32
+      Top = 9
+      Width = 90
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = 'Batal'
+      ModalResult = 2
+      OnClick = btnCancelClick
+      TabOrder = 2
+    end
+  end
+end

@@ -1,0 +1,366 @@
+object FormRecordView: TFormRecordView
+  Left = 320
+  Height = 620
+  Top = 120
+  Width = 960
+  Caption = 'Form View - Rincian Baris Data'
+  ClientHeight = 620
+  ClientWidth = 960
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object pnlToolbar: TPanel
+    Left = 5
+    Height = 38
+    Top = 5
+    Width = 950
+    Align = alTop
+    BorderSpacing.Around = 5
+    BevelOuter = bvNone
+    ClientHeight = 38
+    ClientWidth = 950
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object btnFirst: TSpeedButton
+      Left = 3
+      Height = 32
+      Top = 3
+      Width = 30
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '|<'
+      OnClick = btnFirstClick
+    end
+    object btnPrior: TSpeedButton
+      Left = 36
+      Height = 32
+      Top = 3
+      Width = 30
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '<'
+      OnClick = btnPriorClick
+    end
+    object lblRecInfo: TLabel
+      Left = 69
+      Height = 26
+      Top = 9
+      Width = 77
+      Align = alLeft
+      BorderSpacing.Top = 6
+      BorderSpacing.Around = 3
+      Caption = 'Row 0 From 0'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnNext: TSpeedButton
+      Left = 149
+      Height = 32
+      Top = 3
+      Width = 30
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '>'
+      OnClick = btnNextClick
+    end
+    object btnLast: TSpeedButton
+      Left = 182
+      Height = 32
+      Top = 3
+      Width = 30
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '>|'
+      OnClick = btnLastClick
+    end
+    object sepNav: TBevel
+      Left = 215
+      Height = 32
+      Top = 3
+      Width = 2
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Shape = bsLeftLine
+    end
+    object btnAddRecord: TSpeedButton
+      Left = 220
+      Height = 32
+      Top = 3
+      Width = 85
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '➕ Add'
+      OnClick = btnAddRecordClick
+    end
+    object btnDeleteRecord: TSpeedButton
+      Left = 308
+      Height = 32
+      Top = 3
+      Width = 80
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '🗑️ Delete'
+      OnClick = btnDeleteRecordClick
+    end
+    object btnPost: TSpeedButton
+      Left = 391
+      Height = 32
+      Top = 3
+      Width = 90
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = '💾 Post'
+      Enabled = False
+      OnClick = btnPostClick
+    end
+    object btnCancelEdit: TSpeedButton
+      Left = 484
+      Height = 32
+      Top = 3
+      Width = 75
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = 'Cancel'
+      Enabled = False
+      OnClick = btnCancelEditClick
+    end
+    object sepEdit: TBevel
+      Left = 562
+      Height = 32
+      Top = 3
+      Width = 2
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Shape = bsLeftLine
+    end
+    object btnRefresh: TSpeedButton
+      Left = 567
+      Height = 32
+      Top = 3
+      Width = 80
+      Align = alLeft
+      BorderSpacing.Around = 3
+      Caption = 'Refresh'
+      OnClick = btnRefreshClick
+    end
+    object btnCopyRecord: TSpeedButton
+      Left = 842
+      Height = 32
+      Top = 3
+      Width = 105
+      Align = alRight
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 3
+      Caption = '📋 Copy Row'
+      OnClick = btnCopyRecordClick
+    end
+  end
+  object pnlMain: TPanel
+    Left = 0
+    Height = 572
+    Top = 48
+    Width = 960
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 572
+    ClientWidth = 960
+    TabOrder = 1
+    object gridFields: TStringGrid
+      Left = 5
+      Height = 290
+      Top = 5
+      Width = 950
+      Align = alClient
+      AutoFillColumns = True
+      BorderSpacing.Around = 5
+      ColCount = 4
+      FixedCols = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+      RowCount = 1
+      TabOrder = 0
+      OnEditingDone = gridFieldsEditingDone
+      OnSelectCell = gridFieldsSelectCell
+      ColWidths = (
+        237
+        237
+        236
+        236
+      )
+    end
+    object splSplitter: TSplitter
+      Cursor = crVSplit
+      Left = 0
+      Height = 5
+      Top = 300
+      Width = 960
+      Align = alBottom
+      ResizeAnchor = akBottom
+    end
+    object pnlDetailEditor: TPanel
+      Left = 0
+      Height = 267
+      Top = 305
+      Width = 960
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 267
+      ClientWidth = 960
+      TabOrder = 1
+      object pnlDetailHeader: TPanel
+        Left = 5
+        Height = 34
+        Top = 5
+        Width = 950
+        Align = alTop
+        BorderSpacing.Around = 5
+        BevelOuter = bvNone
+        ClientHeight = 34
+        ClientWidth = 950
+        Color = clMenuBar
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        object lblActiveFieldName: TLabel
+          Left = 0
+          Height = 29
+          Top = 5
+          Width = 37
+          Align = alLeft
+          BorderSpacing.Top = 5
+          Caption = 'Field: -'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblFieldSize: TLabel
+          Left = 46
+          Height = 29
+          Top = 5
+          Width = 60
+          Align = alLeft
+          BorderSpacing.Left = 9
+          BorderSpacing.Top = 5
+          Caption = 'Ukuran: 0 B'
+          Font.Color = clGrayText
+          Font.Height = -11
+          ParentColor = False
+          ParentFont = False
+        end
+        object btnLoadPicture: TSpeedButton
+          Left = 837
+          Height = 28
+          Top = 3
+          Width = 110
+          Align = alRight
+          Anchors = [akTop, akRight]
+          BorderSpacing.Around = 3
+          Caption = '📁 Load Image ..'
+          Font.Style = [fsBold]
+          Visible = False
+          ParentFont = False
+          OnClick = btnLoadPictureClick
+        end
+        object btnSavePicture: TSpeedButton
+          Left = 544
+          Height = 28
+          Top = 3
+          Width = 115
+          Align = alRight
+          Anchors = [akTop, akRight]
+          BorderSpacing.Around = 3
+          Caption = '💾 Save Image'
+          Visible = False
+          OnClick = btnSavePictureClick
+        end
+        object btnSetNull: TSpeedButton
+          Left = 662
+          Height = 28
+          Top = 3
+          Width = 65
+          Align = alRight
+          Anchors = [akTop, akRight]
+          BorderSpacing.Around = 3
+          Caption = 'Set NULL'
+          OnClick = btnSetNullClick
+        end
+        object btnApplyFieldDetail: TSpeedButton
+          Left = 730
+          Height = 28
+          Top = 3
+          Width = 104
+          Align = alRight
+          Anchors = [akTop, akRight]
+          BorderSpacing.Around = 3
+          Caption = '✔ Post'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = btnApplyFieldDetailClick
+        end
+      end
+      object pnlDetailBody: TPanel
+        Left = 5
+        Height = 218
+        Top = 44
+        Width = 950
+        Align = alClient
+        BorderSpacing.Around = 5
+        BevelOuter = bvNone
+        ClientHeight = 218
+        ClientWidth = 950
+        TabOrder = 1
+        object pnlImageContainer: TPanel
+          Left = 0
+          Height = 218
+          Top = 0
+          Width = 950
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 218
+          ClientWidth = 950
+          Color = clWindow
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+          object imgPreview: TImage
+            Left = 477
+            Height = 218
+            Top = 0
+            Width = 473
+            Align = alClient
+            Center = True
+            Proportional = True
+            Stretch = True
+          end
+          object synValue: TMemo
+            Left = 0
+            Height = 218
+            Top = 0
+            Width = 472
+            Align = alLeft
+            ScrollBars = ssVertical
+            TabOrder = 0
+          end
+          object splDetailSide: TSplitter
+            Left = 472
+            Height = 218
+            Top = 0
+            Width = 5
+          end
+        end
+      end
+    end
+  end
+  object openPicDialog: TOpenDialog
+    Left = 400
+    Top = 200
+  end
+  object savePicDialog: TSaveDialog
+    Left = 480
+    Top = 200
+  end
+end

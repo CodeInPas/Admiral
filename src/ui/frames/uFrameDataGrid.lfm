@@ -1,0 +1,317 @@
+object FrameDataGrid: TFrameDataGrid
+  Left = 0
+  Height = 480
+  Top = 0
+  Width = 1027
+  ClientHeight = 480
+  ClientWidth = 1027
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 320
+  DesignTop = 180
+  object pnlToolbar: TPanel
+    Left = 2
+    Height = 32
+    Top = 2
+    Width = 1019
+    Align = alTop
+    BorderSpacing.Right = 4
+    BorderSpacing.Around = 2
+    BevelOuter = bvNone
+    ClientHeight = 32
+    ClientWidth = 1019
+    TabOrder = 0
+    object btnFirstPage: TSpeedButton
+      Left = 0
+      Height = 28
+      Top = 2
+      Width = 28
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = '|<'
+      Enabled = False
+      OnClick = btnFirstPageClick
+    end
+    object btnPriorPage: TSpeedButton
+      Left = 32
+      Height = 28
+      Top = 2
+      Width = 28
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = '<'
+      Enabled = False
+      OnClick = btnPriorPageClick
+    end
+    object lblPageInfo: TLabel
+      Left = 64
+      Height = 24
+      Top = 6
+      Width = 58
+      Align = alLeft
+      BorderSpacing.Top = 6
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Page 1 of 1'
+      ParentColor = False
+    end
+    object btnNextPage: TSpeedButton
+      Left = 126
+      Height = 28
+      Top = 2
+      Width = 28
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = '>'
+      Enabled = False
+      OnClick = btnNextPageClick
+    end
+    object btnLastPage: TSpeedButton
+      Left = 158
+      Height = 28
+      Top = 2
+      Width = 28
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = '>|'
+      Enabled = False
+      OnClick = btnLastPageClick
+    end
+    object sepTool1: TBevel
+      Left = 190
+      Height = 32
+      Top = 0
+      Width = 2
+      Align = alLeft
+      Shape = bsLeftLine
+    end
+    object btnRefresh: TSpeedButton
+      Left = 192
+      Height = 28
+      Top = 2
+      Width = 75
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Refresh'
+      OnClick = btnRefreshClick
+    end
+    object btnExport: TSpeedButton
+      Left = 271
+      Height = 28
+      Top = 2
+      Width = 75
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Ekspor ▼'
+      OnClick = btnExportClick
+    end
+    object sepTool2: TBevel
+      Left = 350
+      Height = 32
+      Top = 0
+      Width = 2
+      Align = alLeft
+      Shape = bsLeftLine
+    end
+    object edtFilter: TEdit
+      Left = 352
+      Height = 28
+      Top = 2
+      Width = 209
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      TabOrder = 0
+      TextHint = 'Filter cepat (WHERE)...'
+      OnKeyDown = edtFilterKeyDown
+    end
+    object btnFilter: TSpeedButton
+      Left = 565
+      Height = 28
+      Top = 2
+      Width = 45
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Find'
+      OnClick = btnFilterClick
+    end
+    object btnClearFilter: TSpeedButton
+      Left = 614
+      Height = 28
+      Top = 2
+      Width = 45
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Reset'
+      OnClick = btnClearFilterClick
+    end
+    object btnFormView: TButton
+      Left = 663
+      Height = 28
+      Top = 2
+      Width = 75
+      Align = alLeft
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Caption = 'Edit'
+      TabOrder = 1
+      OnClick = btnFormViewClick
+    end
+    object CheckBox1: TCheckBox
+      Left = 742
+      Height = 32
+      Top = 0
+      Width = 103
+      Align = alLeft
+      Caption = 'Autofill Column'
+      Checked = True
+      State = cbChecked
+      TabOrder = 2
+      OnChange = CheckBox1Change
+    end
+  end
+  object pnlFooter: TPanel
+    Left = 0
+    Height = 26
+    Top = 454
+    Width = 1027
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 26
+    ClientWidth = 1027
+    TabOrder = 1
+    object lblRecordCount: TLabel
+      Left = 5
+      Height = 16
+      Top = 5
+      Width = 77
+      Align = alLeft
+      BorderSpacing.Around = 5
+      Caption = 'Tidak ada data'
+      ParentColor = False
+    end
+    object lblExecTime: TLabel
+      Left = 200
+      Height = 1
+      Top = 5
+      Width = 1
+      ParentColor = False
+    end
+    object lblSelectedCell: TLabel
+      Left = 400
+      Height = 1
+      Top = 5
+      Width = 1
+      ParentColor = False
+    end
+  end
+  object dbGrid: TDBGrid
+    Left = 2
+    Height = 416
+    Top = 36
+    Width = 1023
+    Align = alClient
+    AutoFillColumns = True
+    BorderSpacing.Around = 2
+    Color = clWindow
+    Columns = <>
+    DataSource = srcData
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+    TitleFont.Height = -12
+    TitleFont.Style = [fsBold]
+    OnDrawColumnCell = dbGridDrawColumnCell
+    OnTitleClick = dbGridTitleClick
+  end
+  object srcData: TDataSource
+    OnDataChange = srcDataDataChange
+    Left = 80
+    Top = 120
+  end
+  object popGrid: TPopupMenu
+    Left = 160
+    Top = 120
+    object mnuCopyCell: TMenuItem
+      Caption = 'Salin Sel'
+      OnClick = mnuCopyCellClick
+    end
+    object mnuCopyRow: TMenuItem
+      Caption = 'Salin Satu Baris'
+      OnClick = mnuCopyRowClick
+    end
+    object mnuCopyAllCSV: TMenuItem
+      Caption = 'Salin Seluruh Grid (CSV)'
+      OnClick = mnuCopyAllCSVClick
+    end
+    object mnuSep1: TMenuItem
+      Caption = '-'
+    end
+    object mnuFilterByValue: TMenuItem
+      Caption = 'Filter Berdasarkan Nilai Ini'
+      OnClick = mnuFilterByValueClick
+    end
+    object mnuClearFilter: TMenuItem
+      Caption = 'Hapus Filter'
+      OnClick = btnClearFilterClick
+    end
+    object mnuSep2: TMenuItem
+      Caption = '-'
+    end
+    object mnuExportData: TMenuItem
+      Caption = 'Ekspor Data...'
+      OnClick = btnExportClick
+    end
+  end
+  object popExport: TPopupMenu
+    Left = 240
+    Top = 120
+    object mnuExpCSV: TMenuItem
+      Caption = 'Ekspor ke CSV (*.csv)'
+      OnClick = mnuExportOptionClick
+    end
+    object mnuExpJSON: TMenuItem
+      Caption = 'Ekspor ke JSON (*.json)'
+      OnClick = mnuExportOptionClick
+    end
+    object mnuExpSQL: TMenuItem
+      Caption = 'Ekspor ke SQL Insert (*.sql)'
+      OnClick = mnuExportOptionClick
+    end
+    object mnuExpHTML: TMenuItem
+      Caption = 'Ekspor ke HTML (*.html)'
+      OnClick = mnuExportOptionClick
+    end
+    object mnuExpMarkdown: TMenuItem
+      Caption = 'Ekspor ke Markdown (*.md)'
+      OnClick = mnuExportOptionClick
+    end
+    object mnuExpXML: TMenuItem
+      Caption = 'Ekspor ke XML (*.xml)'
+      OnClick = mnuExportOptionClick
+    end
+  end
+  object saveDialog: TSaveDialog
+    Title = 'Simpan Hasil Ekspor'
+    Left = 320
+    Top = 120
+  end
+end

@@ -1,0 +1,198 @@
+object FormCrosstabBuilder: TFormCrosstabBuilder
+  Left = 320
+  Height = 440
+  Top = 150
+  Width = 540
+  BorderStyle = bsDialog
+  Caption = 'Crosstab (Pivot Table) Query Wizard'
+  ClientHeight = 440
+  ClientWidth = 540
+  Position = poScreenCenter
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 60
+    Top = 0
+    Width = 540
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 60
+    ClientWidth = 540
+    Color = clMenuBar
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 18
+      Top = 10
+      Width = 285
+      Caption = '📊 Perancang Crosstab (Pivot Table) Query'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSubtitle: TLabel
+      Left = 16
+      Height = 14
+      Top = 32
+      Width = 470
+      Caption = 'Hasilkan matriks 2D (Pivot) data baris x kolom seperti pada fitur Crosstab Microsoft Access'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pnlBody: TPanel
+    Left = 0
+    Height = 324
+    Top = 60
+    Width = 540
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 324
+    ClientWidth = 540
+    TabOrder = 1
+    object lblTable: TLabel
+      Left = 24
+      Height = 15
+      Top = 18
+      Width = 105
+      Caption = 'Tabel / View Sumber:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboTable: TComboBox
+      Left = 190
+      Height = 23
+      Top = 14
+      Width = 320
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+      OnChange = cboTableChange
+    end
+    object lblRowHeading: TLabel
+      Left = 24
+      Height = 15
+      Top = 62
+      Width = 145
+      Caption = 'Kolom Baris (Row Heading):'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboRowHeading: TComboBox
+      Left = 190
+      Height = 23
+      Top = 58
+      Width = 320
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object lblColHeading: TLabel
+      Left = 24
+      Height = 15
+      Top = 106
+      Width = 158
+      Caption = 'Kolom Header (Col Heading):'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboColHeading: TComboBox
+      Left = 190
+      Height = 23
+      Top = 102
+      Width = 320
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object lblValueField: TLabel
+      Left = 24
+      Height = 15
+      Top = 150
+      Width = 120
+      Caption = 'Kolom Nilai (Value Field):'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboValueField: TComboBox
+      Left = 190
+      Height = 23
+      Top = 146
+      Width = 320
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object lblAggFunc: TLabel
+      Left = 24
+      Height = 15
+      Top = 194
+      Width = 92
+      Caption = 'Fungsi Agregasi:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cboAggFunc: TComboBox
+      Left = 190
+      Height = 23
+      Top = 190
+      Width = 160
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object chkRowTotal: TCheckBox
+      Left = 190
+      Height = 19
+      Top = 230
+      Width = 245
+      Caption = 'Sertakan Kolom Total Horizontal (Row Total)'
+      Checked = True
+      State = cbChecked
+      TabOrder = 5
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 56
+    Top = 384
+    Width = 540
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 56
+    ClientWidth = 540
+    Color = clMenuBar
+    ParentColor = False
+    TabOrder = 2
+    object btnGenerate: TBitBtn
+      Left = 24
+      Height = 36
+      Top = 10
+      Width = 220
+      Caption = '⚡ Hasilkan Crosstab SQL'
+      Font.Style = [fsBold]
+      OnClick = btnGenerateClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object btnCancel: TBitBtn
+      Left = 430
+      Height = 36
+      Top = 10
+      Width = 80
+      Cancel = True
+      Caption = 'Batal'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end

@@ -1,0 +1,376 @@
+object FormGridSettings: TFormGridSettings
+  Left = 320
+  Height = 540
+  Top = 130
+  Width = 590
+  BorderStyle = bsDialog
+  Caption = 'Pengaturan Tampilan Data Grid'
+  ClientHeight = 540
+  ClientWidth = 590
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlMain: TPanel
+    Left = 0
+    Height = 484
+    Top = 0
+    Width = 590
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 484
+    ClientWidth = 590
+    TabOrder = 0
+    object lblMaxColWidth: TLabel
+      Left = 16
+      Height = 15
+      Top = 14
+      Width = 120
+      Caption = 'Lebar kolom maksimal:'
+      ParentColor = False
+    end
+    object seMaxColWidth: TSpinEdit
+      Left = 205
+      Height = 23
+      Top = 10
+      Width = 80
+      MaxValue = 5000
+      MinValue = 50
+      TabOrder = 0
+      Value = 300
+    end
+    object lblRowsPerPage: TLabel
+      Left = 16
+      Height = 15
+      Top = 44
+      Width = 152
+      Caption = 'Baris per halaman dan maks:'
+      ParentColor = False
+    end
+    object seRowsPerPage: TSpinEdit
+      Left = 205
+      Height = 23
+      Top = 40
+      Width = 95
+      Increment = 1000
+      MaxValue = 1000000
+      MinValue = 100
+      TabOrder = 1
+      Value = 20000
+    end
+    object seMaxRowsLimit: TSpinEdit
+      Left = 310
+      Height = 23
+      Top = 40
+      Width = 95
+      Increment = 1000
+      MaxValue = 1000000
+      MinValue = 100
+      TabOrder = 2
+      Value = 20000
+    end
+    object lblTextLinesPerRow: TLabel
+      Left = 16
+      Height = 15
+      Top = 74
+      Width = 180
+      Caption = 'Jumlah baris teks dalam baris grid:'
+      ParentColor = False
+    end
+    object seTextLinesPerRow: TSpinEdit
+      Left = 205
+      Height = 23
+      Top = 70
+      Width = 60
+      MaxValue = 10
+      MinValue = 1
+      TabOrder = 3
+      Value = 1
+    end
+    object lblFont: TLabel
+      Left = 16
+      Height = 15
+      Top = 104
+      Width = 32
+      Caption = 'Huruf:'
+      ParentColor = False
+    end
+    object cboFontName: TComboBox
+      Left = 205
+      Height = 23
+      Top = 100
+      Width = 140
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object seFontSize: TSpinEdit
+      Left = 352
+      Height = 23
+      Top = 100
+      Width = 50
+      MaxValue = 24
+      MinValue = 7
+      TabOrder = 5
+      Value = 10
+    end
+    object lblPt: TLabel
+      Left = 410
+      Height = 15
+      Top = 104
+      Width = 11
+      Caption = 'pt'
+      ParentColor = False
+    end
+    object lblGridTextColor: TLabel
+      Left = 16
+      Height = 15
+      Top = 136
+      Width = 84
+      Caption = 'Warna teks grid:'
+      ParentColor = False
+    end
+    object cboDataTypeChoice: TComboBox
+      Left = 205
+      Height = 23
+      Top = 132
+      Width = 115
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Integer'
+        'Float / Real'
+        'Text / String'
+        'DateTime'
+        'Binary / BLOB'
+      )
+      Style = csDropDownList
+      TabOrder = 6
+      Text = 'Integer'
+      OnChange = cboDataTypeChoiceChange
+    end
+    object cbDataTypeColor: TColorBox
+      Left = 328
+      Height = 22
+      Top = 132
+      Width = 135
+      ItemHeight = 16
+      TabOrder = 7
+      OnChange = cbDataTypeColorChange
+    end
+    object lblNullBg: TLabel
+      Left = 16
+      Height = 15
+      Top = 168
+      Width = 110
+      Caption = 'Latar belakang Null:'
+      ParentColor = False
+    end
+    object chkNullBg: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 166
+      Width = 20
+      TabOrder = 8
+      OnChange = chkNullBgChange
+    end
+    object cbNullBg: TColorBox
+      Left = 230
+      Height = 22
+      Top = 164
+      Width = 140
+      ItemHeight = 16
+      TabOrder = 9
+    end
+    object lblAltRowBg: TLabel
+      Left = 16
+      Height = 15
+      Top = 198
+      Width = 160
+      Caption = 'Latar belakang baris bergantian:'
+      ParentColor = False
+    end
+    object chkAltRowBg: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 196
+      Width = 20
+      Checked = True
+      State = cbChecked
+      TabOrder = 10
+      OnChange = chkAltRowBgChange
+    end
+    object cbAltRow1: TColorBox
+      Left = 230
+      Height = 22
+      Top = 194
+      Width = 115
+      ItemHeight = 16
+      TabOrder = 11
+    end
+    object cbAltRow2: TColorBox
+      Left = 352
+      Height = 22
+      Top = 194
+      Width = 115
+      ItemHeight = 16
+      TabOrder = 12
+    end
+    object lblSameTextBg: TLabel
+      Left = 16
+      Height = 15
+      Top = 228
+      Width = 120
+      Caption = 'Same text background:'
+      ParentColor = False
+    end
+    object chkSameTextBg: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 226
+      Width = 20
+      Checked = True
+      State = cbChecked
+      TabOrder = 13
+      OnChange = chkSameTextBgChange
+    end
+    object cbSameTextBg: TColorBox
+      Left = 230
+      Height = 22
+      Top = 224
+      Width = 140
+      ItemHeight = 16
+      TabOrder = 14
+    end
+    object lblMaxDecimalZeros: TLabel
+      Left = 16
+      Height = 15
+      Top = 258
+      Width = 150
+      Caption = 'Max decimal zeros for floats:'
+      ParentColor = False
+    end
+    object seMaxDecimalZeros: TSpinEdit
+      Left = 205
+      Height = 23
+      Top = 254
+      Width = 60
+      MaxValue = 10
+      MinValue = -1
+      TabOrder = 15
+      Value = 1
+    end
+    object lblMaxDecimalHint: TLabel
+      Left = 275
+      Height = 15
+      Top = 258
+      Width = 135
+      Caption = 'Set to -1 to keep all zeros'
+      Font.Color = clGrayText
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSortWarning: TLabel
+      Left = 16
+      Height = 15
+      Top = 288
+      Width = 130
+      Caption = 'Sort warning on grid rows:'
+      ParentColor = False
+    end
+    object seSortWarning: TSpinEdit
+      Left = 205
+      Height = 23
+      Top = 284
+      Width = 95
+      Increment = 1000
+      MaxValue = 5000000
+      MinValue = 1000
+      TabOrder = 16
+      Value = 10000
+    end
+    object chkLocaleNumber: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 320
+      Width = 140
+      Caption = 'Bentuk angka setempat'
+      Checked = True
+      State = cbChecked
+      TabOrder = 17
+    end
+    object chkLowercaseHex: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 345
+      Width = 140
+      Caption = 'Lowercase hexadecimal'
+      Checked = True
+      State = cbChecked
+      TabOrder = 18
+    end
+    object chkPopupSQLText: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 370
+      Width = 180
+      Caption = 'Pop up SQL text over result tabs'
+      Checked = True
+      State = cbChecked
+      TabOrder = 19
+    end
+    object chkShowRowNumbers: TCheckBox
+      Left = 205
+      Height = 19
+      Top = 395
+      Width = 140
+      Caption = 'Tampilkan nomor baris'
+      Checked = True
+      State = cbChecked
+      TabOrder = 20
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 56
+    Top = 484
+    Width = 590
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 56
+    ClientWidth = 590
+    Color = clMenuBar
+    ParentColor = False
+    TabOrder = 1
+    object btnResetDefault: TBitBtn
+      Left = 16
+      Height = 32
+      Top = 12
+      Width = 140
+      Caption = '🔄 Reset Default'
+      OnClick = btnResetDefaultClick
+      TabOrder = 0
+    end
+    object btnSave: TBitBtn
+      Left = 380
+      Height = 32
+      Top = 12
+      Width = 100
+      Anchors = [akTop, akRight]
+      Caption = '💾 Simpan'
+      Font.Style = [fsBold]
+      OnClick = btnSaveClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnCancel: TBitBtn
+      Left = 490
+      Height = 32
+      Top = 12
+      Width = 85
+      Anchors = [akTop, akRight]
+      Caption = 'Batal'
+      OnClick = btnCancelClick
+      TabOrder = 2
+    end
+  end
+end

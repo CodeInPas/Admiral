@@ -1,0 +1,177 @@
+object FrameTableDDL: TFrameTableDDL
+  Left = 0
+  Height = 355
+  Top = 0
+  Width = 662
+  ClientHeight = 355
+  ClientWidth = 662
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 412
+  DesignTop = 210
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 662
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 36
+    ClientWidth = 662
+    TabOrder = 0
+    object btnCopy: TBitBtn
+      Left = 6
+      Height = 26
+      Top = 5
+      Width = 110
+      Caption = 'Copy DDL'
+      Enabled = False
+      TabOrder = 0
+      OnClick = btnCopyClick
+    end
+    object btnSave: TBitBtn
+      Left = 122
+      Height = 26
+      Top = 5
+      Width = 110
+      Caption = 'Save to File'
+      Enabled = False
+      TabOrder = 1
+      OnClick = btnSaveClick
+    end
+    object btnRefresh: TBitBtn
+      Left = 238
+      Height = 26
+      Top = 5
+      Width = 90
+      Caption = 'Reload'
+      Enabled = False
+      TabOrder = 2
+      OnClick = btnRefreshClick
+    end
+  end
+  object pnlStatus: TPanel
+    Left = 0
+    Height = 24
+    Top = 331
+    Width = 662
+    Align = alBottom
+    Alignment = taLeftJustify
+    BevelOuter = bvLowered
+    ClientHeight = 24
+    ClientWidth = 662
+    TabOrder = 1
+    object lblInfo: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 127
+      Caption = 'No table object selected'
+      ParentColor = False
+    end
+  end
+  inline synEditor: TSynEdit
+    Left = 0
+    Height = 295
+    Top = 36
+    Width = 662
+    Align = alClient
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqCleartype
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    Gutter.Width = 57
+    Gutter.MouseActions = <>
+    RightGutter.Width = 0
+    RightGutter.MouseActions = <>
+    Highlighter = synSQLSyn
+    Keystrokes = <>
+    MouseActions = <>
+    MouseTextActions = <>
+    MouseSelActions = <>
+    VisibleSpecialChars = [vscSpace, vscTabAtLast]
+    ReadOnly = True
+    SelectedColor.BackPriority = 50
+    SelectedColor.ForePriority = 50
+    SelectedColor.FramePriority = 50
+    SelectedColor.BoldPriority = 50
+    SelectedColor.ItalicPriority = 50
+    SelectedColor.UnderlinePriority = 50
+    SelectedColor.StrikeOutPriority = 50
+    BracketHighlightStyle = sbhsBoth
+    BracketMatchColor.Background = clNone
+    BracketMatchColor.Foreground = clNone
+    BracketMatchColor.Style = [fsBold]
+    FoldedCodeColor.Background = clNone
+    FoldedCodeColor.Foreground = clGray
+    FoldedCodeColor.FrameColor = clGray
+    MouseLinkColor.Background = clNone
+    MouseLinkColor.Foreground = clBlue
+    LineHighlightColor.Background = clNone
+    LineHighlightColor.Foreground = clNone
+    inline SynLeftGutterPartList1: TSynGutterPartList
+      object SynGutterMarks1: TSynGutterMarks
+        Width = 24
+        MouseActions = <>
+        MaxExtraMarksColums = 0
+        Options = [sgmoDeDuplicateMarksOnOverflow]
+        MarkupInfo.Background = clBtnFace
+        MarkupInfo.Foreground = clNone
+      end
+      object SynGutterLineNumber1: TSynGutterLineNumber
+        Width = 17
+        MouseActions = <>
+        MarkupInfo.Background = clBtnFace
+        MarkupInfo.Foreground = clNone
+        DigitCount = 2
+        ShowOnlyLineNumbersMultiplesOf = 1
+        ZeroStart = False
+        LeadingZeros = False
+      end
+      object SynGutterChanges1: TSynGutterChanges
+        Width = 4
+        MouseActions = <>
+        ModifiedColor = 59900
+        SavedColor = clGreen
+        MarkupInfo.Background = clNone
+        MarkupInfo.Foreground = clGreen
+        MarkupInfo.FrameColor = 59900
+      end
+      object SynGutterSeparator1: TSynGutterSeparator
+        Width = 2
+        MouseActions = <>
+        MarkupInfo.Background = clWhite
+        MarkupInfo.Foreground = clGray
+      end
+      object SynGutterCodeFolding1: TSynGutterCodeFolding
+        MouseActions = <>
+        MarkupInfo.Background = clNone
+        MarkupInfo.Foreground = clGray
+        MouseActionsExpanded = <>
+        MouseActionsCollapsed = <>
+      end
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
+    CommentAttri.Foreground = clGray
+    DataTypeAttri.Foreground = clTeal
+    KeyAttri.Foreground = clNavy
+    NumberAttri.Foreground = clBlue
+    StringAttri.Foreground = clMaroon
+    SQLDialect = sqlStandard
+    Left = 400
+    Top = 120
+  end
+  object saveDialog: TSaveDialog
+    Title = 'Simpan Definisi DDL Tabel'
+    DefaultExt = '.sql'
+    Filter = 'SQL Files (*.sql)|*.sql|All Files (*.*)|*.*'
+    Left = 472
+    Top = 120
+  end
+end

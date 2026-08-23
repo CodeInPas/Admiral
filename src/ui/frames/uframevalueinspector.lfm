@@ -1,0 +1,466 @@
+object FrameValueInspector: TFrameValueInspector
+  Left = 0
+  Height = 356
+  Top = 0
+  Width = 631
+  ClientHeight = 356
+  ClientWidth = 631
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 320
+  DesignTop = 150
+  object pnlHeader: TPanel
+    Left = 0
+    Height = 44
+    Top = 0
+    Width = 631
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 631
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 47
+      Caption = 'Kolom: -'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblSize: TLabel
+      Left = 8
+      Height = 13
+      Top = 22
+      Width = 60
+      Caption = 'Ukuran: 0 B'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnClose: TSpeedButton
+      Left = 605
+      Height = 22
+      Top = 4
+      Width = 22
+      Anchors = [akTop, akRight]
+      Caption = '✕'
+      Flat = True
+      OnClick = btnCloseClick
+    end
+    object btnCopy: TSpeedButton
+      Left = 557
+      Height = 22
+      Hint = 'Salin Nilai ke Clipboard'
+      Top = 4
+      Width = 22
+      Anchors = [akTop, akRight]
+      Caption = '📋'
+      Flat = True
+      ShowHint = True
+      ParentShowHint = False
+      OnClick = btnCopyClick
+    end
+    object btnSaveFile: TSpeedButton
+      Left = 581
+      Height = 22
+      Hint = 'Simpan Nilai ke Berkas'
+      Top = 4
+      Width = 22
+      Anchors = [akTop, akRight]
+      Caption = '💾'
+      Flat = True
+      ShowHint = True
+      ParentShowHint = False
+      OnClick = btnSaveFileClick
+    end
+    object btnWrap: TSpeedButton
+      Left = 533
+      Height = 22
+      Hint = 'Toggle Word Wrap'
+      Top = 4
+      Width = 22
+      Anchors = [akTop, akRight]
+      Caption = '↵'
+      Flat = True
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object pgcInspector: TPageControl
+    Left = 0
+    Height = 312
+    Top = 44
+    Width = 631
+    ActivePage = tabText
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    object tabText: TTabSheet
+      Caption = 'Teks'
+      ClientHeight = 284
+      ClientWidth = 623
+      object synText: TMemo
+        Left = 0
+        Height = 284
+        Top = 0
+        Width = 623
+        Align = alClient
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+    end
+    object tabJSON: TTabSheet
+      Caption = 'JSON'
+      ClientHeight = 284
+      ClientWidth = 623
+      inline synJSON: TSynEdit
+        Left = 0
+        Height = 284
+        Top = 0
+        Width = 623
+        Align = alClient
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        Gutter.Width = 55
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 15
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+    object tabXML: TTabSheet
+      Caption = 'XML'
+      ClientHeight = 284
+      ClientWidth = 623
+      inline synXML: TSynEdit
+        Left = 0
+        Height = 284
+        Top = 0
+        Width = 623
+        Align = alClient
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        Gutter.Width = 55
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 15
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+    object tabHex: TTabSheet
+      Caption = 'Hex'
+      ClientHeight = 284
+      ClientWidth = 623
+      inline synHex: TSynEdit
+        Left = 0
+        Height = 284
+        Top = 0
+        Width = 623
+        Align = alClient
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        Gutter.Width = 55
+        Gutter.MouseActions = <>
+        RightGutter.Width = 0
+        RightGutter.MouseActions = <>
+        Keystrokes = <>
+        MouseActions = <>
+        MouseTextActions = <>
+        MouseSelActions = <>
+        VisibleSpecialChars = [vscSpace, vscTabAtLast]
+        ReadOnly = True
+        SelectedColor.BackPriority = 50
+        SelectedColor.ForePriority = 50
+        SelectedColor.FramePriority = 50
+        SelectedColor.BoldPriority = 50
+        SelectedColor.ItalicPriority = 50
+        SelectedColor.UnderlinePriority = 50
+        SelectedColor.StrikeOutPriority = 50
+        BracketHighlightStyle = sbhsBoth
+        BracketMatchColor.Background = clNone
+        BracketMatchColor.Foreground = clNone
+        BracketMatchColor.Style = [fsBold]
+        FoldedCodeColor.Background = clNone
+        FoldedCodeColor.Foreground = clGray
+        FoldedCodeColor.FrameColor = clGray
+        MouseLinkColor.Background = clNone
+        MouseLinkColor.Foreground = clBlue
+        LineHighlightColor.Background = clNone
+        LineHighlightColor.Foreground = clNone
+        inline SynLeftGutterPartList1: TSynGutterPartList
+          object SynGutterMarks1: TSynGutterMarks
+            Width = 24
+            MouseActions = <>
+            MaxExtraMarksColums = 0
+            Options = [sgmoDeDuplicateMarksOnOverflow]
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+          end
+          object SynGutterLineNumber1: TSynGutterLineNumber
+            Width = 15
+            MouseActions = <>
+            MarkupInfo.Background = clBtnFace
+            MarkupInfo.Foreground = clNone
+            DigitCount = 2
+            ShowOnlyLineNumbersMultiplesOf = 1
+            ZeroStart = False
+            LeadingZeros = False
+          end
+          object SynGutterChanges1: TSynGutterChanges
+            Width = 4
+            MouseActions = <>
+            ModifiedColor = 59900
+            SavedColor = clGreen
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGreen
+            MarkupInfo.FrameColor = 59900
+          end
+          object SynGutterSeparator1: TSynGutterSeparator
+            Width = 2
+            MouseActions = <>
+            MarkupInfo.Background = clWhite
+            MarkupInfo.Foreground = clGray
+          end
+          object SynGutterCodeFolding1: TSynGutterCodeFolding
+            MouseActions = <>
+            MarkupInfo.Background = clNone
+            MarkupInfo.Foreground = clGray
+            MouseActionsExpanded = <>
+            MouseActionsCollapsed = <>
+          end
+        end
+      end
+    end
+    object tabImage: TTabSheet
+      Caption = 'Gambar'
+      ClientHeight = 284
+      ClientWidth = 623
+      object pnlImageControls: TPanel
+        Left = 0
+        Height = 28
+        Top = 0
+        Width = 623
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 28
+        ClientWidth = 623
+        TabOrder = 0
+        object lblImageInfo: TLabel
+          Left = 6
+          Height = 15
+          Top = 6
+          Width = 5
+          Caption = '-'
+          ParentColor = False
+        end
+        object btnImageFit: TSpeedButton
+          Left = 557
+          Height = 22
+          Top = 3
+          Width = 30
+          Anchors = [akTop, akRight]
+          Caption = 'Fit'
+          OnClick = btnImageFitClick
+        end
+        object btnImageOriginal: TSpeedButton
+          Left = 589
+          Height = 22
+          Top = 3
+          Width = 30
+          Anchors = [akTop, akRight]
+          Caption = '1:1'
+          OnClick = btnImageOriginalClick
+        end
+      end
+      object sbImage: TScrollBox
+        Left = 0
+        Height = 256
+        Top = 28
+        Width = 623
+        HorzScrollBar.Page = 90
+        VertScrollBar.Page = 90
+        Align = alClient
+        ClientHeight = 252
+        ClientWidth = 619
+        TabOrder = 1
+        object imgPreview: TImage
+          Left = 0
+          Height = 252
+          Top = 0
+          Width = 619
+          Align = alClient
+          Center = True
+          Proportional = True
+          Stretch = True
+        end
+      end
+    end
+  end
+  object synXMLSyn: TSynXMLSyn
+    DefaultFilter = 'XML Files (*.xml;*.xsd;*.xsl;*.xslt;*.dtd)|*.xml;*.xsd;*.xsl;*.xslt;*.dtd'
+    Enabled = False
+    ElementAttri.Foreground = clNavy
+    NamespaceAttributeAttri.Foreground = clNavy
+    AttributeValueAttri.Foreground = clBlue
+    ProcessingInstructionAttri.Foreground = clPurple
+    WantBracesParsed = False
+    Left = 140
+    Top = 180
+  end
+  object saveDialog: TSaveDialog
+    Left = 210
+    Top = 180
+  end
+end

@@ -1,0 +1,181 @@
+object FrameSQLLog: TFrameSQLLog
+  Left = 0
+  Height = 180
+  Top = 0
+  Width = 800
+  ClientHeight = 180
+  ClientWidth = 800
+  LCLVersion = '4.4.0.0'
+  TabOrder = 0
+  DesignLeft = 310
+  DesignTop = 160
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 28
+    Top = 0
+    Width = 800
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 800
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblFilter: TLabel
+      Left = 8
+      Height = 15
+      Top = 6
+      Width = 38
+      Caption = 'Saring:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtFilter: TEdit
+      Left = 48
+      Height = 23
+      Top = 3
+      Width = 200
+      TabOrder = 0
+      OnChange = edtFilterChange
+    end
+    object btnClearFilter: TSpeedButton
+      Left = 250
+      Height = 21
+      Top = 3
+      Width = 22
+      Caption = '✕'
+      Flat = True
+      OnClick = btnClearFilterClick
+    end
+    object chkAutoScroll: TCheckBox
+      Left = 285
+      Height = 19
+      Top = 4
+      Width = 77
+      Caption = 'Auto-scroll'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+    end
+    object btnClearLog: TSpeedButton
+      Left = 380
+      Height = 22
+      Top = 3
+      Width = 85
+      Caption = '🗑️ Bersihkan'
+      OnClick = btnClearLogClick
+    end
+    object btnCopyAll: TSpeedButton
+      Left = 470
+      Height = 22
+      Top = 3
+      Width = 70
+      Caption = '📋 Salin'
+      OnClick = btnCopyAllClick
+    end
+    object btnSaveLog: TSpeedButton
+      Left = 545
+      Height = 22
+      Top = 3
+      Width = 80
+      Caption = '💾 Simpan...'
+      OnClick = btnSaveLogClick
+    end
+  end
+  inline synLog: TSynEdit
+    Left = 0
+    Height = 152
+    Top = 28
+    Width = 800
+    Align = alClient
+    Font.Height = -13
+    Font.Name = 'Consolas'
+    Font.Pitch = fpFixed
+    Font.Quality = fqCleartype
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    Gutter.Width = 55
+    Gutter.MouseActions = <>
+    RightGutter.Width = 0
+    RightGutter.MouseActions = <>
+    Keystrokes = <>
+    MouseActions = <>
+    MouseTextActions = <>
+    MouseSelActions = <>
+    VisibleSpecialChars = [vscSpace, vscTabAtLast]
+    ReadOnly = True
+    SelectedColor.BackPriority = 50
+    SelectedColor.ForePriority = 50
+    SelectedColor.FramePriority = 50
+    SelectedColor.BoldPriority = 50
+    SelectedColor.ItalicPriority = 50
+    SelectedColor.UnderlinePriority = 50
+    SelectedColor.StrikeOutPriority = 50
+    BracketHighlightStyle = sbhsBoth
+    BracketMatchColor.Background = clNone
+    BracketMatchColor.Foreground = clNone
+    BracketMatchColor.Style = [fsBold]
+    FoldedCodeColor.Background = clNone
+    FoldedCodeColor.Foreground = clGray
+    FoldedCodeColor.FrameColor = clGray
+    MouseLinkColor.Background = clNone
+    MouseLinkColor.Foreground = clBlue
+    LineHighlightColor.Background = clNone
+    LineHighlightColor.Foreground = clNone
+    inline SynLeftGutterPartList1: TSynGutterPartList
+      object SynGutterMarks1: TSynGutterMarks
+        Width = 24
+        MouseActions = <>
+        MaxExtraMarksColums = 0
+        Options = [sgmoDeDuplicateMarksOnOverflow]
+        MarkupInfo.Background = clBtnFace
+        MarkupInfo.Foreground = clNone
+      end
+      object SynGutterLineNumber1: TSynGutterLineNumber
+        Width = 15
+        MouseActions = <>
+        MarkupInfo.Background = clBtnFace
+        MarkupInfo.Foreground = clNone
+        DigitCount = 2
+        ShowOnlyLineNumbersMultiplesOf = 1
+        ZeroStart = False
+        LeadingZeros = False
+      end
+      object SynGutterChanges1: TSynGutterChanges
+        Width = 4
+        MouseActions = <>
+        ModifiedColor = 59900
+        SavedColor = clGreen
+        MarkupInfo.Background = clNone
+        MarkupInfo.Foreground = clGreen
+        MarkupInfo.FrameColor = 59900
+      end
+      object SynGutterSeparator1: TSynGutterSeparator
+        Width = 2
+        MouseActions = <>
+        MarkupInfo.Background = clWhite
+        MarkupInfo.Foreground = clGray
+      end
+      object SynGutterCodeFolding1: TSynGutterCodeFolding
+        MouseActions = <>
+        MarkupInfo.Background = clNone
+        MarkupInfo.Foreground = clGray
+        MouseActionsExpanded = <>
+        MouseActionsCollapsed = <>
+      end
+    end
+  end
+  object synSQLSyn: TSynSQLSyn
+    DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    SQLDialect = sqlSybase
+    Left = 650
+    Top = 30
+  end
+  object saveDialog: TSaveDialog
+    Left = 710
+    Top = 30
+  end
+end

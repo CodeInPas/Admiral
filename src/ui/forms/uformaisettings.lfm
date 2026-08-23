@@ -1,0 +1,320 @@
+object FormAISettings: TFormAISettings
+  Left = 340
+  Height = 600
+  Top = 130
+  Width = 620
+  BorderStyle = bsDialog
+  Caption = 'Pengaturan Layanan Kecerdasan Buatan (AI Engine)'
+  ClientHeight = 600
+  ClientWidth = 620
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlTop: TPanel
+    Left = 0
+    Height = 55
+    Top = 0
+    Width = 620
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 55
+    ClientWidth = 620
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblHeaderTitle: TLabel
+      Left = 16
+      Height = 20
+      Top = 10
+      Width = 215
+      Caption = 'Konfigurasi Integrasi Model AI'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblHeaderSubtitle: TLabel
+      Left = 16
+      Height = 13
+      Top = 32
+      Width = 451
+      Caption = 'Pilih antara Google Gemini Cloud (Online) atau server lokal llama.cpp (Offline/In-House)'
+      Font.Color = clGrayText
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object gbProvider: TGroupBox
+    Left = 16
+    Height = 55
+    Top = 64
+    Width = 588
+    Caption = ' Provider AI Aktif '
+    ClientHeight = 35
+    ClientWidth = 584
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object rbGemini: TRadioButton
+      Left = 24
+      Height = 19
+      Top = 6
+      Width = 178
+      Caption = 'Google Gemini (Online Cloud)'
+      Checked = True
+      ParentFont = False
+      TabOrder = 0
+      TabStop = True
+      OnChange = rbProviderChange
+    end
+    object rbLlamaCpp: TRadioButton
+      Left = 290
+      Height = 19
+      Top = 6
+      Width = 183
+      Caption = 'llama.cpp Server (Offline Lokal)'
+      ParentFont = False
+      TabOrder = 1
+      OnChange = rbProviderChange
+    end
+  end
+  object gbGemini: TGroupBox
+    Left = 16
+    Height = 125
+    Top = 126
+    Width = 588
+    Caption = ' Konfigurasi Google Gemini '
+    ClientHeight = 105
+    ClientWidth = 584
+    TabOrder = 2
+    object lblGeminiKey: TLabel
+      Left = 16
+      Height = 15
+      Top = 14
+      Width = 84
+      Caption = 'Gemini API Key:'
+      ParentColor = False
+    end
+    object edtGeminiKey: TEdit
+      Left = 120
+      Height = 23
+      Top = 10
+      Width = 415
+      TabOrder = 0
+    end
+    object btnToggleShowKey: TSpeedButton
+      Left = 540
+      Height = 23
+      Top = 10
+      Width = 28
+      Caption = '👁'
+      OnClick = btnToggleShowKeyClick
+    end
+    object lblGeminiModel: TLabel
+      Left = 16
+      Height = 15
+      Top = 54
+      Width = 76
+      Caption = 'Pilihan Model:'
+      ParentColor = False
+    end
+    object cboGeminiModel: TComboBox
+      Left = 120
+      Height = 23
+      Top = 50
+      Width = 240
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'gemini-1.5-flash'
+        'gemini-1.5-pro'
+        'gemini-2.0-flash'
+        'gemini-3-flash-preview'
+      )
+      TabOrder = 1
+      Text = 'gemini-1.5-flash'
+    end
+  end
+  object gbLlamaCpp: TGroupBox
+    Left = 16
+    Height = 145
+    Top = 258
+    Width = 588
+    Caption = ' Konfigurasi llama.cpp Server (OpenAI Compatible) '
+    ClientHeight = 125
+    ClientWidth = 584
+    TabOrder = 3
+    object lblLlamaEndpoint: TLabel
+      Left = 16
+      Height = 15
+      Top = 14
+      Width = 75
+      Caption = 'Endpoint URL:'
+      ParentColor = False
+    end
+    object edtLlamaEndpoint: TEdit
+      Left = 120
+      Height = 23
+      Top = 10
+      Width = 448
+      TabOrder = 0
+      Text = 'http://127.0.0.1:8080/v1/chat/completions'
+    end
+    object lblLlamaModel: TLabel
+      Left = 16
+      Height = 15
+      Top = 50
+      Width = 72
+      Caption = 'Model Name:'
+      ParentColor = False
+    end
+    object edtLlamaModel: TEdit
+      Left = 120
+      Height = 23
+      Top = 46
+      Width = 240
+      TabOrder = 1
+      Text = 'local-model'
+    end
+    object lblLlamaApiKey: TLabel
+      Left = 16
+      Height = 15
+      Top = 86
+      Width = 101
+      Caption = 'API Key (Opsional):'
+      ParentColor = False
+    end
+    object edtLlamaApiKey: TEdit
+      Left = 120
+      Height = 23
+      Top = 82
+      Width = 240
+      TabOrder = 2
+    end
+  end
+  object gbParameters: TGroupBox
+    Left = 16
+    Height = 85
+    Top = 410
+    Width = 588
+    Caption = ' Parameter Generasi '
+    ClientHeight = 65
+    ClientWidth = 584
+    TabOrder = 4
+    object lblTemperature: TLabel
+      Left = 16
+      Height = 15
+      Top = 18
+      Width = 70
+      Caption = 'Temperature:'
+      ParentColor = False
+    end
+    object seTemperature: TFloatSpinEdit
+      Left = 95
+      Height = 23
+      Top = 14
+      Width = 65
+      Increment = 0.05
+      MaxValue = 1
+      TabOrder = 0
+      Value = 0.2
+    end
+    object lblMaxTokens: TLabel
+      Left = 185
+      Height = 15
+      Top = 18
+      Width = 65
+      Caption = 'Max Tokens:'
+      ParentColor = False
+    end
+    object seMaxTokens: TSpinEdit
+      Left = 260
+      Height = 23
+      Top = 14
+      Width = 80
+      Increment = 512
+      MaxValue = 16384
+      MinValue = 256
+      TabOrder = 1
+      Value = 2048
+    end
+    object lblTimeout: TLabel
+      Left = 365
+      Height = 15
+      Top = 18
+      Width = 76
+      Caption = 'Timeout (dtk):'
+      ParentColor = False
+    end
+    object seTimeout: TSpinEdit
+      Left = 445
+      Height = 23
+      Top = 14
+      Width = 60
+      MaxValue = 300
+      MinValue = 5
+      TabOrder = 2
+      Value = 30
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 90
+    Top = 510
+    Width = 620
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 90
+    ClientWidth = 620
+    Color = clMenuBar
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 5
+    object btnTestConnection: TBitBtn
+      Left = 16
+      Height = 32
+      Top = 12
+      Width = 150
+      Caption = '⚡ Uji Koneksi AI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnTestConnectionClick
+    end
+    object lblTestStatus: TLabel
+      Left = 175
+      Height = 15
+      Top = 20
+      Width = 23
+      Caption = 'Siap'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnSave: TBitBtn
+      Left = 390
+      Height = 32
+      Top = 48
+      Width = 125
+      Anchors = [akRight, akBottom]
+      Caption = '💾 Simpan'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnSaveClick
+    end
+    object btnCancel: TBitBtn
+      Left = 525
+      Height = 32
+      Top = 48
+      Width = 80
+      Anchors = [akRight, akBottom]
+      Caption = 'Batal'
+      TabOrder = 2
+      OnClick = btnCancelClick
+    end
+  end
+end

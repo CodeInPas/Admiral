@@ -39,13 +39,6 @@
 * **Two-Way Visual ERD Modeler:** Generate canvas diagrams from active databases and reverse/forward engineer schemas.
 * **Safe Mode Guardrails:** Prevents accidental catastrophic executions (`DROP`, unconditional `DELETE`/`UPDATE`) with confirmation dialogues.
 
----
-
-## 📸 Screenshots
-
-| SQL Workspace & Spatial Map Viewer | Schema Object Tree & View DDL |
-| :---: | :---: |
-| *(Add your screenshot here)* | *(Add your screenshot here)* |
 
 ---
 

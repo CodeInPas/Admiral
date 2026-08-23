@@ -47,7 +47,7 @@
 ## 🚀 Getting Started
 
 ### Prerequisites
-* **Lazarus IDE** (v3.0 or later recommended)
+* **Lazarus IDE** (v4.0 or later recommended)
 * **Free Pascal Compiler (FPC)** (v3.2.2 or later)
 * **Required Lazarus Packages (via Online Package Manager):**
   * `zeosdbo` (Zeos Database Objects)

@@ -54,4 +54,6 @@
   * `synedit` (Standard Lazarus component)
   * `bgracontrols` & `bgrabitmappack`
 
-
+---
+## Download Release
+Here => https://github.com/CodeInPas/Admiral/releases/tag/relelase_v01

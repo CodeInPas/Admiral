@@ -7,6 +7,7 @@ object FormDataTransfer: TFormDataTransfer
   ClientHeight = 620
   ClientWidth = 860
   Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -20,6 +21,7 @@ object FormDataTransfer: TFormDataTransfer
     ClientHeight = 55
     ClientWidth = 860
     Color = clMenuBar
+    ParentBackground = False
     ParentColor = False
     TabOrder = 0
     object lblHeaderTitle: TLabel
@@ -39,8 +41,8 @@ object FormDataTransfer: TFormDataTransfer
       Top = 32
       Width = 475
       Caption = 'Streaming skema struktur dan baris data langsung antar database berbeda secara on-the-fly'
-      Font.Height = -11
       Font.Color = clGrayText
+      Font.Height = -11
       ParentColor = False
       ParentFont = False
     end
@@ -72,7 +74,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 8
         Width = 100
         Caption = 'Koneksi Sumber:'
-        Font.Style = []
         ParentColor = False
         ParentFont = False
       end
@@ -92,7 +93,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 58
         Width = 125
         Caption = 'Pilih Tabel yang Disalin:'
-        Font.Style = []
         ParentColor = False
         ParentFont = False
       end
@@ -102,9 +102,8 @@ object FormDataTransfer: TFormDataTransfer
         Top = 54
         Width = 70
         Caption = 'Pilih Semua'
-        Font.Style = []
-        OnClick = btnSelectAllTablesClick
         ParentFont = False
+        OnClick = btnSelectAllTablesClick
       end
       object btnUnselectAllTables: TSpeedButton
         Left = 315
@@ -112,16 +111,14 @@ object FormDataTransfer: TFormDataTransfer
         Top = 54
         Width = 70
         Caption = 'Hapus Pilihan'
-        Font.Style = []
-        OnClick = btnUnselectAllTablesClick
         ParentFont = False
+        OnClick = btnUnselectAllTablesClick
       end
       object clbSourceTables: TCheckListBox
         Left = 12
         Height = 206
         Top = 76
         Width = 372
-        Font.Style = []
         ItemHeight = 0
         ParentFont = False
         TabOrder = 1
@@ -144,7 +141,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 10
         Width = 90
         Caption = 'Koneksi Tujuan:'
-        Font.Style = []
         ParentColor = False
         ParentFont = False
       end
@@ -176,7 +172,6 @@ object FormDataTransfer: TFormDataTransfer
         Width = 270
         Caption = 'Buat tabel di target jika belum ada (Auto-DDL)'
         Checked = True
-        Font.Style = []
         ParentFont = False
         State = cbChecked
         TabOrder = 0
@@ -187,7 +182,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 38
         Width = 265
         Caption = 'Kosongkan tabel target sebelum transfer data'
-        Font.Style = []
         ParentFont = False
         TabOrder = 1
       end
@@ -198,7 +192,6 @@ object FormDataTransfer: TFormDataTransfer
         Width = 220
         Caption = 'Salin seluruh baris data (Records)'
         Checked = True
-        Font.Style = []
         ParentFont = False
         State = cbChecked
         TabOrder = 2
@@ -209,7 +202,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 94
         Width = 270
         Caption = 'Lanjutkan transfer jika terjadi error pada tabel'
-        Font.Style = []
         ParentFont = False
         TabOrder = 3
       end
@@ -219,7 +211,6 @@ object FormDataTransfer: TFormDataTransfer
         Top = 135
         Width = 145
         Caption = 'Ukuran Batch Commit Baris:'
-        Font.Style = []
         ParentColor = False
         ParentFont = False
       end
@@ -271,10 +262,9 @@ object FormDataTransfer: TFormDataTransfer
         Width = 828
         Align = alBottom
         Anchors = [akTop, akLeft, akRight, akBottom]
-        Color = $00FBFBFB
+        Color = 16514043
         Font.Height = -12
         Font.Name = 'Courier New'
-        ParentColor = False
         ParentFont = False
         ReadOnly = True
         ScrollBars = ssAutoVertical
@@ -292,6 +282,7 @@ object FormDataTransfer: TFormDataTransfer
     ClientHeight = 60
     ClientWidth = 860
     Color = clMenuBar
+    ParentBackground = False
     ParentColor = False
     TabOrder = 2
     object btnStartTransfer: TBitBtn
@@ -301,9 +292,9 @@ object FormDataTransfer: TFormDataTransfer
       Width = 190
       Caption = '⚡ Mulai Transfer Data'
       Font.Style = [fsBold]
-      OnClick = btnStartTransferClick
       ParentFont = False
       TabOrder = 0
+      OnClick = btnStartTransferClick
     end
     object btnCancelTransfer: TBitBtn
       Left = 215
@@ -312,8 +303,8 @@ object FormDataTransfer: TFormDataTransfer
       Width = 110
       Caption = '⛔ Batalkan'
       Enabled = False
-      OnClick = btnCancelTransferClick
       TabOrder = 1
+      OnClick = btnCancelTransferClick
     end
     object btnClose: TBitBtn
       Left = 760
@@ -322,8 +313,8 @@ object FormDataTransfer: TFormDataTransfer
       Width = 84
       Anchors = [akTop, akRight]
       Caption = 'Tutup'
-      OnClick = btnCloseClick
       TabOrder = 2
+      OnClick = btnCloseClick
     end
   end
 end

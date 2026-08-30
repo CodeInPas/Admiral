@@ -12,8 +12,9 @@ uses
 type
   { TFormSplash }
   TFormSplash = class(TForm)
-    pnlContainer: TPanel;
     lblTitle: TLabel;
+    Panel1: TPanel;
+    pnlContainer: TPanel;
     lblSubtitle: TLabel;
     lblVersion: TLabel;
     lblStatus: TLabel;
@@ -52,8 +53,8 @@ begin
   ProgressBar.Min := 0;
   ProgressBar.Max := 100;
   ProgressBar.Position := 0;
-  lblVersion.Caption := 'Versi ' + APP_VERSION + ' (64-bit Native)';
-  lblStatus.Caption := 'Memuat konfigurasi lokal & profil koneksi...';
+  lblVersion.Caption := 'Versi ' + APP_VERSION + ' (32-bit Native)';
+  lblStatus.Caption := 'Loading local configuration & connection profiles...';
   TimerLoader.Interval := 100;
   TimerLoader.Enabled := True;
 end;
@@ -67,13 +68,13 @@ begin
   ProgressBar.Position := FStep;
 
   if FStep < 30 then
-    lblStatus.Caption := 'Memuat konfigurasi lokal & profil koneksi...'
+    lblStatus.Caption := 'Loading local configuration & connection profiles...'
   else if FStep < 60 then
-    lblStatus.Caption := 'Inisialisasi driver DBMS (MySQL, PG, SQLite, Firebird)...'
+    lblStatus.Caption := 'Initializing DBMS drivers (MySQL, PG, SQLite, Firebird)...'
   else if FStep < 90 then
-    lblStatus.Caption := 'Memuat engine AI & modul generator REST API...'
+    lblStatus.Caption := 'Loading AI engine & REST API generator modules...'
   else if FStep < 100 then
-    lblStatus.Caption := 'Mempersiapkan antarmuka utama workspace...'
+    lblStatus.Caption := 'Preparing main workspace interface...'
   else
   begin
     // Selesai: Matikan timer dan tutup Splash Screen

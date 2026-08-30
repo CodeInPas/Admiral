@@ -192,7 +192,7 @@ begin
       end;
     except
       on E: Exception do
-        AppendLog('Gagal membaca tabel sumber: ' + E.Message);
+        AppendLog('Failed to read source table:' + E.Message);
     end;
   finally
     Tables.Free;
@@ -247,13 +247,13 @@ var
 begin
   if (cboSourceConn.ItemIndex < 0) or (cboTargetConn.ItemIndex < 0) then
   begin
-    MessageDlg('Peringatan', 'Pilih profil koneksi Sumber dan Target.', mtWarning, [mbOK], 0);
+    MessageDlg('Waring', 'Please select the Source and Target connection profiles..', mtWarning, [mbOK], 0);
     Exit;
   end;
 
   if cboSourceConn.ItemIndex = cboTargetConn.ItemIndex then
   begin
-    MessageDlg('Peringatan', 'Koneksi sumber dan target tidak boleh sama.', mtWarning, [mbOK], 0);
+    MessageDlg('Waring', 'Source and target connections cannot be the same.', mtWarning, [mbOK], 0);
     Exit;
   end;
 
@@ -265,7 +265,7 @@ begin
 
     if SelectedTables.Count = 0 then
     begin
-      MessageDlg('Peringatan', 'Centang minimal satu tabel yang ingin dimigrasikan.', mtWarning, [mbOK], 0);
+      MessageDlg('Waring', 'Please check at least one table to migrate..', mtWarning, [mbOK], 0);
       Exit;
     end;
 
@@ -279,7 +279,7 @@ begin
     Options.ContinueOnError := chkContinueOnError.Checked;
 
     memTransferLog.Clear;
-    AppendLog(Format('Memulai migrasi dari [%s] ke [%s] (%d tabel)...', [
+    AppendLog(Format('Starting migration from [%s] to [%s] (%d tables)....', [
       SrcProf.ConnectionName, TgtProf.ConnectionName, SelectedTables.Count
     ]));
 
@@ -307,7 +307,7 @@ procedure TFormDataTransfer.btnCancelTransferClick(Sender: TObject);
 begin
   if Assigned(FWorker) then
   begin
-    AppendLog('Membatalkan proses transfer data...');
+    AppendLog('Canceling data transfer process...');
     FWorker.CancelTransfer;
   end;
 end;
@@ -337,20 +337,20 @@ begin
 
   if ASuccess then
   begin
-    lblCurrentStatus.Caption := 'Migrasi Data Selesai Sukses.';
-    AppendLog(Format('Transfer selesai! Total %d baris disalin dalam waktu %d ms.', [
+    lblCurrentStatus.Caption := 'Data migration completed successfully.';
+    AppendLog(Format('Transfer complete! Total %d rows copied in %d ms.', [
       ATotalCopied, AElapsedMS
     ]));
-    MessageDlg('Transfer Data Berhasil',
-      Format('Migrasi selesai dengan sukses!%sTotal baris: %d%sDurasi: %d ms', [
+    MessageDlg('Data transfer successful.',
+      Format('Migration completed successfully!%sTotal rows: %d%sDuration: %d ms', [
         LineEnding, ATotalCopied, LineEnding, AElapsedMS
       ]), mtInformation, [mbOK], 0);
   end
   else
   begin
-    lblCurrentStatus.Caption := 'Migrasi Gagal/Dibatalkan.';
-    AppendLog('Kesalahan: ' + AErrorMsg);
-    MessageDlg('Migrasi Data Gagal', AErrorMsg, mtError, [mbOK], 0);
+    lblCurrentStatus.Caption := 'Migration Failed/Canceled.';
+    AppendLog('Error: ' + AErrorMsg);
+    MessageDlg('Migration Failed/Canceled.', AErrorMsg, mtError, [mbOK], 0);
   end;
 end;
 

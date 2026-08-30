@@ -1440,11 +1440,11 @@ object FormMain: TFormMain
     Width = 1100
     Panels = <    
       item
-        Text = 'Siap.'
+        Text = 'Ready'
         Width = 500
       end    
       item
-        Text = 'Tidak Terhubung'
+        Text = 'Not Connected'
         Width = 300
       end    
       item
@@ -1506,6 +1506,7 @@ object FormMain: TFormMain
       end
       object MenuItem2: TMenuItem
         Caption = 'Eksport Data'
+        OnClick = MenuItem2Click
       end
       object Separator5: TMenuItem
         Caption = '-'

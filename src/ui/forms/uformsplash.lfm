@@ -21,35 +21,18 @@ object FormSplash: TFormSplash
     BevelWidth = 2
     ClientHeight = 260
     ClientWidth = 480
-    Color = 15593702
+    Color = 14410970
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
-    object lblTitle: TLabel
-      Left = 31
-      Height = 40
-      Top = 8
-      Width = 418
-      Align = alTop
-      BorderSpacing.Left = 23
-      BorderSpacing.Right = 23
-      BorderSpacing.Around = 6
-      Caption = 'Admiral'
-      Font.CharSet = ANSI_CHARSET
-      Font.Color = clMenuHighlight
-      Font.Height = -29
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      ParentColor = False
-      ParentFont = False
-    end
     object lblSubtitle: TLabel
       Left = 31
       Height = 15
-      Top = 54
+      Top = 105
       Width = 418
       Align = alTop
       BorderSpacing.Left = 23
+      BorderSpacing.Top = 23
       BorderSpacing.Right = 23
       BorderSpacing.Around = 6
       Caption = 'Multi-DBMS Administration & AI-Powered REST API Studio'
@@ -63,14 +46,14 @@ object FormSplash: TFormSplash
     object lblVersion: TLabel
       Left = 31
       Height = 15
-      Top = 75
+      Top = 126
       Width = 418
       Align = alTop
       Anchors = [akTop, akRight]
       BorderSpacing.Left = 23
       BorderSpacing.Right = 23
       BorderSpacing.Around = 6
-      Caption = 'v1.0.0 (64-bit Native)'
+      Caption = 'v1.0.0 (32-bit Native)'
       Font.CharSet = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -12
@@ -104,6 +87,39 @@ object FormSplash: TFormSplash
       BorderSpacing.Around = 23
       Smooth = True
       TabOrder = 0
+    end
+    object Panel1: TPanel
+      Left = 2
+      Height = 74
+      Top = 2
+      Width = 476
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 74
+      ClientWidth = 476
+      Color = 9998957
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 1
+      object lblTitle: TLabel
+        Left = 29
+        Height = 40
+        Top = 21
+        Width = 418
+        Align = alTop
+        BorderSpacing.Left = 23
+        BorderSpacing.Top = 15
+        BorderSpacing.Right = 23
+        BorderSpacing.Around = 6
+        Caption = 'Admiral'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -29
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
     end
   end
   object TimerLoader: TTimer

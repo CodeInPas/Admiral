@@ -20,9 +20,7 @@ uses
   ActnList,
   Clipbrd,
   ZConnection,
-  BGRASpeedButton,
   ColorSpeedButton,
-  XelPageControl,
   cyPageControl,
   uAppConst,
   uAppTypes,
@@ -179,6 +177,7 @@ type
     procedure actExecuteQueryExecute(Sender: TObject);
     procedure actCancelQueryExecute(Sender: TObject);
     procedure actExplainPlanExecute(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
     procedure mnExitClick(Sender: TObject);
     procedure mnOpenTerminalClick(Sender: TObject);
     procedure mnuDBExtensionsClick(Sender: TObject);
@@ -270,7 +269,7 @@ begin
   FFrameSQLLog.Parent := pnlBottomLog;
   FFrameSQLLog.Align := alClient;
 
-  SQLLogger.LogComment(Format('siadmin v%s dimulai.', [APP_VERSION]));
+  SQLLogger.LogComment(Format('Admiral v%s Started.', [APP_VERSION]));
 
   FFrameObjectTree := TFrameObjectTree.Create(Self);
   FFrameObjectTree.Parent := pnlTreeContainer;
@@ -281,7 +280,7 @@ begin
 
   ReloadConnectionProfiles;
   UpdateActionsState;
-  UpdateStatusBar('Siap.');
+  UpdateStatusBar('Ready.');
 
   InitWelcomeDashboard;
   ShowWelcomeDashboard;
@@ -316,12 +315,12 @@ begin
 
   if Assigned(AProfile) and AProfile.SSHEnabled and (AProfile.DriverType <> dtSQLite) then
   begin
-    UpdateStatusBar(Format('Membuka SSH Tunnel ke %s...', [AProfile.SSHHost]));
+    UpdateStatusBar(Format('Open SSH Tunnel to %s...', [AProfile.SSHHost]));
     Application.ProcessMessages;
 
     FActiveTunnel := TSSHTunnelManager.OpenTunnel(AProfile, SSHErr);
     if not Assigned(FActiveTunnel) then
-      raise Exception.Create('Gagal menginisiasi SSH Tunnel: ' + SSHErr);
+      raise Exception.Create('Failed to initialize SSH tunnel: ' + SSHErr);
   end;
 end;
 
@@ -571,12 +570,12 @@ begin
     else
       SSHInfo := '';
 
-    sbStatus.Panels[1].Text := Format('Koneksi: %s%s', [FCurrentProfile.ConnectionName, SSHInfo]);
+    sbStatus.Panels[1].Text := Format('Connection: %s%s', [FCurrentProfile.ConnectionName, SSHInfo]);
     sbStatus.Panels[2].Text := Format('DBMS: %s', [FCurrentProfile.GetDisplayName]);
   end
   else
   begin
-    sbStatus.Panels[1].Text := 'Tidak Terhubung';
+    sbStatus.Panels[1].Text := 'Not Connected';
     sbStatus.Panels[2].Text := '-';
   end;
 end;
@@ -597,7 +596,7 @@ begin
   else
     TargetName := AProfile.ConnectionName;
 
-  Tab.Caption := Format('Kueri %d (%s)', [FTabCounter, TargetName]);
+  Tab.Caption := Format('Query %d (%s)', [FTabCounter, TargetName]);
   Tab.PopupMenu := popTabs;
 
   Result := TFrameQueryTab.Create(Tab);
@@ -683,14 +682,14 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then Exit;
 
-  if MessageDlg('Konfirmasi Hapus', Format('Hapus profil koneksi "%s"?', [Prof.ConnectionName]),
+  if MessageDlg('Delete Confimation', Format('Delete Connection Profile "%s"?', [Prof.ConnectionName]),
     mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     LocalStorage.DeleteProfile(Prof.ID);
     ReloadConnectionProfiles;
     FFrameObjectTree.Clear;
     FIsConnected := False;
-    UpdateStatusBar('Profil koneksi dihapus.');
+    UpdateStatusBar('Connection Profile Deleted');
     UpdateActionsState;
   end;
 end;
@@ -712,20 +711,20 @@ begin
     mnuDBERDViewerClick(Sender);
     actNewQueryTabExecute(Sender);
 
-    SQLLogger.LogComment(Format('Terhubung ke %s (%s). Host: %s, Database: %s', [
+    SQLLogger.LogComment(Format('Connected  to %s (%s). Host: %s, Database: %s', [
       FCurrentProfile.ConnectionName,
       FCurrentProfile.GetDisplayName,
       FCurrentProfile.Host,
       FCurrentProfile.DatabaseName
     ]));
-    UpdateStatusBar(Format('Terhubung ke %s', [FCurrentProfile.ConnectionName]));
+    UpdateStatusBar(Format('Connected  to %s', [FCurrentProfile.ConnectionName]));
   except
     on E: Exception do
     begin
       StopActiveSSHTunnel;
       FIsConnected := False;
-      UpdateStatusBar('Gagal terhubung.');
-      MessageDlg('Kesalahan Koneksi', E.Message, mtError, [mbOK], 0);
+      UpdateStatusBar('Fail Connected');
+      MessageDlg('Error Connected', E.Message, mtError, [mbOK], 0);
     end;
   end;
   Screen.Cursor := crDefault;
@@ -786,6 +785,11 @@ begin
     QueryFrame.btnExplainClick(Sender);
 end;
 
+procedure TFormMain.MenuItem2Click(Sender: TObject);
+begin
+
+end;
+
 procedure TFormMain.mnExitClick(Sender: TObject);
 begin
   Application.Terminate;
@@ -811,7 +815,7 @@ begin
   FCurrentProfile := GetSelectedProfile;
   FIsConnected := False;
   FFrameObjectTree.Clear;
-  UpdateStatusBar('Siap.');
+  UpdateStatusBar('Ready.');
   UpdateActionsState;
 end;
 
@@ -905,13 +909,13 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu profil koneksi aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active connection profiles first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
   if Prof.DriverType = dtSQLite then
   begin
-    MessageDlg('Informasi', 'SQLite tidak mendukung sistem autentikasi user dan privilege terpusat.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'SQLite does not support a centralized user authentication and privilege system.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -925,13 +929,13 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu profil koneksi aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active connection profiles first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
   if Prof.DriverType = dtSQLite then
   begin
-    MessageDlg('Informasi', 'SQLite beroperasi secara embedded dan tidak memiliki server process list.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'SQLite operates embedded and does not have a server process list.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -945,7 +949,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu profil koneksi aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active connection profiles first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -959,7 +963,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu profil koneksi aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active connection profiles first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -980,7 +984,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu koneksi database aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active database connections first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -994,7 +998,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) then
   begin
-    MessageDlg('Informasi', 'Pilih salah satu koneksi database aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please select one of the active database connections first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1005,7 +1009,7 @@ procedure TFormMain.mnuToolsSchemaDiffClick(Sender: TObject);
 begin
   if not Assigned(FConnections) or (FConnections.Count < 2) then
   begin
-    MessageDlg('Informasi', 'Diperlukan minimal 2 koneksi database yang terdaftar untuk membandingkan skema.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'At least 2 registered database connections are required to compare schemas.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1021,7 +1025,7 @@ procedure TFormMain.mnuToolsDataTransferClick(Sender: TObject);
 begin
   if not Assigned(FConnections) or (FConnections.Count < 2) then
   begin
-    MessageDlg('Informasi', 'Diperlukan minimal 2 profil koneksi database yang terdaftar untuk melakukan transfer data langsung.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'A minimum of 2 registered database connection profiles is required to perform a direct data transfer.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1040,12 +1044,12 @@ end;
 procedure TFormMain.actDisconnectExecute(Sender: TObject);
 begin
   if Assigned(FCurrentProfile) then
-    SQLLogger.LogComment(Format('Koneksi ke %s diputus.', [FCurrentProfile.ConnectionName]));
+    SQLLogger.LogComment(Format('Connection to %s Closed.', [FCurrentProfile.ConnectionName]));
 
   StopActiveSSHTunnel;
   FIsConnected := False;
   FFrameObjectTree.Clear;
-  UpdateStatusBar('Koneksi diputus.');
+  UpdateStatusBar('Connection Closed.');
   UpdateActionsState;
 end;
 
@@ -1053,7 +1057,7 @@ procedure TFormMain.mnuToolsBackupRestoreClick(Sender: TObject);
 begin
   if not Assigned(FConnections) or (FConnections.Count = 0) then
   begin
-    MessageDlg('Informasi', 'Tambahkan profil koneksi database terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please add a database connection profile first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1064,7 +1068,7 @@ procedure TFormMain.mnuDBMetricsDashboardClick(Sender: TObject);
 begin
   if not Assigned(FConnections) or (FConnections.Count = 0) then
   begin
-    MessageDlg('Informasi', 'Tambahkan profil koneksi database terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please add a database connection profile first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1089,7 +1093,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) or not FIsConnected then
   begin
-    MessageDlg('Informasi', 'Sambungkan koneksi database terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please connect to a database first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1107,7 +1111,7 @@ begin
   Prof := GetSelectedProfile;
   if not Assigned(Prof) or not FIsConnected then
   begin
-    MessageDlg('Informasi', 'Sambungkan koneksi database aktif terlebih dahulu.', mtInformation, [mbOK], 0);
+    MessageDlg('Information', 'Please connect to the active database connection first.', mtInformation, [mbOK], 0);
     Exit;
   end;
 
@@ -1121,7 +1125,7 @@ begin
   Profile := GetSelectedProfile;
   if not Assigned(Profile) then
   begin
-    MessageDlg('Peringatan', 'Pilih profil koneksi aktif terlebih dahulu.', mtWarning, [mbOK], 0);
+    MessageDlg('Warning', 'Please select an active connection profile first.', mtWarning, [mbOK], 0);
     Exit;
   end;
 
@@ -1136,7 +1140,7 @@ begin
   Profile := GetSelectedProfile;
   if not Assigned(Profile) or not FIsConnected then
   begin
-    MessageDlg('Peringatan', 'Hubungkan salah satu koneksi database terlebih dahulu.', mtWarning, [mbOK], 0);
+    MessageDlg('Warning', 'Please connect to one of the database connections first.', mtWarning, [mbOK], 0);
     Exit;
   end;
 

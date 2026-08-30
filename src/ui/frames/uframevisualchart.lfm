@@ -11,32 +11,37 @@ object FrameVisualChart: TFrameVisualChart
   DesignTop = 130
   object pnlControl: TPanel
     Left = 0
-    Height = 44
+    Height = 36
     Top = 0
     Width = 860
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 44
+    ClientHeight = 36
     ClientWidth = 860
     Color = clMenuBar
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
     object lblChartType: TLabel
-      Left = 10
-      Height = 15
-      Top = 14
-      Width = 65
-      Caption = 'Tipe Grafik:'
+      Left = 4
+      Height = 23
+      Top = 9
+      Width = 72
+      Align = alLeft
+      BorderSpacing.Top = 5
+      BorderSpacing.Around = 4
+      Caption = 'Graphic Type'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
     end
     object cboChartType: TComboBox
-      Left = 75
+      Left = 281
       Height = 23
-      Top = 10
+      Top = 4
       Width = 110
+      Align = alLeft
+      BorderSpacing.Around = 4
       ItemHeight = 15
       ItemIndex = 0
       Items.Strings = (
@@ -52,55 +57,69 @@ object FrameVisualChart: TFrameVisualChart
       OnChange = cboChartTypeChange
     end
     object lblLabelCol: TLabel
-      Left = 195
-      Height = 15
-      Top = 14
-      Width = 90
-      Caption = 'Sumbu X (Label):'
+      Left = 204
+      Height = 23
+      Top = 9
+      Width = 73
+      Align = alLeft
+      BorderSpacing.Top = 5
+      BorderSpacing.Around = 4
+      Caption = 'X-axis (Label):'
       ParentColor = False
     end
     object cboLabelCol: TComboBox
-      Left = 280
+      Left = 472
       Height = 23
-      Top = 10
+      Top = 4
       Width = 120
+      Align = alLeft
+      BorderSpacing.Around = 4
       ItemHeight = 15
       Style = csDropDownList
       TabOrder = 1
     end
     object lblValueCol: TLabel
-      Left = 410
-      Height = 15
-      Top = 14
-      Width = 86
-      Caption = 'Sumbu Y (Nilai):'
+      Left = 395
+      Height = 23
+      Top = 9
+      Width = 73
+      Align = alLeft
+      BorderSpacing.Top = 5
+      BorderSpacing.Around = 4
+      Caption = 'Y-axis (Label):'
       ParentColor = False
     end
     object cboValueCol: TComboBox
-      Left = 495
+      Left = 80
       Height = 23
-      Top = 10
+      Top = 4
       Width = 120
+      Align = alLeft
+      BorderSpacing.Around = 4
       ItemHeight = 15
       Style = csDropDownList
       TabOrder = 2
     end
     object chkShowLegend: TCheckBox
-      Left = 625
-      Height = 19
-      Top = 12
-      Width = 63
-      Caption = 'Legenda'
+      Left = 596
+      Height = 28
+      Top = 4
+      Width = 57
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Legend'
       Checked = True
       State = cbChecked
       TabOrder = 3
     end
     object chkShowMarks: TCheckBox
-      Left = 698
-      Height = 19
-      Top = 12
-      Width = 73
-      Caption = 'Label Nilai'
+      Left = 657
+      Height = 28
+      Top = 4
+      Width = 78
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Label Value'
       Checked = True
       State = cbChecked
       TabOrder = 4
@@ -109,7 +128,7 @@ object FrameVisualChart: TFrameVisualChart
   object pnlButtons: TPanel
     Left = 0
     Height = 36
-    Top = 44
+    Top = 36
     Width = 860
     Align = alTop
     BevelOuter = bvNone
@@ -123,8 +142,8 @@ object FrameVisualChart: TFrameVisualChart
       Left = 10
       Height = 15
       Top = 10
-      Width = 31
-      Caption = 'Judul:'
+      Width = 23
+      Caption = 'Title'
       ParentColor = False
     end
     object edtTitle: TEdit
@@ -138,8 +157,8 @@ object FrameVisualChart: TFrameVisualChart
       Left = 235
       Height = 15
       Top = 10
-      Width = 59
-      Caption = 'Maks Baris:'
+      Width = 56
+      Caption = 'Max Rows:'
       ParentColor = False
     end
     object seMaxRows: TSpinEdit
@@ -185,7 +204,7 @@ object FrameVisualChart: TFrameVisualChart
       Height = 26
       Top = 5
       Width = 65
-      Caption = '📋 Salin'
+      Caption = 'Copy'
       OnClick = btnCopyChartClick
     end
     object btnClearChart: TSpeedButton
@@ -193,18 +212,18 @@ object FrameVisualChart: TFrameVisualChart
       Height = 26
       Top = 5
       Width = 65
-      Caption = 'Bersihkan'
+      Caption = 'Clear'
       OnClick = btnClearChartClick
     end
   end
   object pnlChartContainer: TPanel
     Left = 0
-    Height = 277
-    Top = 80
+    Height = 285
+    Top = 72
     Width = 860
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 277
+    ClientHeight = 285
     ClientWidth = 860
     Color = clWhite
     ParentBackground = False
@@ -212,7 +231,7 @@ object FrameVisualChart: TFrameVisualChart
     TabOrder = 2
     object ChartMain: TChart
       Left = 5
-      Height = 262
+      Height = 270
       Top = 5
       Width = 850
       AxisList = <      

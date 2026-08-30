@@ -64,7 +64,7 @@ object FrameSQLLog: TFrameSQLLog
       Height = 22
       Top = 3
       Width = 85
-      Caption = '🗑️ Bersihkan'
+      Caption = '🗑️ Clean'
       OnClick = btnClearLogClick
     end
     object btnCopyAll: TSpeedButton
@@ -72,7 +72,7 @@ object FrameSQLLog: TFrameSQLLog
       Height = 22
       Top = 3
       Width = 70
-      Caption = '📋 Salin'
+      Caption = '📋 Copy'
       OnClick = btnCopyAllClick
     end
     object btnSaveLog: TSpeedButton
@@ -80,7 +80,7 @@ object FrameSQLLog: TFrameSQLLog
       Height = 22
       Top = 3
       Width = 80
-      Caption = '💾 Simpan...'
+      Caption = '💾 Saved...'
       OnClick = btnSaveLogClick
     end
   end
@@ -170,6 +170,7 @@ object FrameSQLLog: TFrameSQLLog
   end
   object synSQLSyn: TSynSQLSyn
     DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
     SQLDialect = sqlSybase
     Left = 650
     Top = 30

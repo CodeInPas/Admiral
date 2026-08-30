@@ -160,10 +160,10 @@ begin
   gridExplain.ColCount := 5;
   gridExplain.RowCount := 1;
   gridExplain.Cells[0, 0] := 'ID';
-  gridExplain.Cells[1, 0] := 'Operasi';
-  gridExplain.Cells[2, 0] := 'Objek Target';
-  gridExplain.Cells[3, 0] := 'Estimasi Baris';
-  gridExplain.Cells[4, 0] := 'Detail Tambahan';
+  gridExplain.Cells[1, 0] := 'Operation';
+  gridExplain.Cells[2, 0] := 'Object Targeted';
+  gridExplain.Cells[3, 0] := 'Row Estimation';
+  gridExplain.Cells[4, 0] := 'Additional Details';
   gridExplain.ColWidths[0] := 50;
   gridExplain.ColWidths[1] := 180;
   gridExplain.ColWidths[2] := 120;
@@ -548,7 +548,7 @@ begin
 
   RefreshIntelliSense;
 
-  AppendLogMessage(Format('Tab terhubung ke: %s (%s)', [
+  AppendLogMessage(Format('Tab Connect to: %s (%s)', [
     FProfile.ConnectionName,
     FProfile.GetDisplayName
   ]));
@@ -576,12 +576,12 @@ begin
 
   if FIsExecuting then
   begin
-    lblStatusInfo.Caption := 'Mengeksekusi kueri...';
+    lblStatusInfo.Caption := 'Execute Query...';
     prgExecuting.Style := pbstMarquee;
   end
   else
   begin
-    lblStatusInfo.Caption := 'Siap.';
+    lblStatusInfo.Caption := 'Ready.';
     prgExecuting.Style := pbstNormal;
   end;
 end;
@@ -606,13 +606,13 @@ begin
   CleanSQL := Trim(ASQL);
   if CleanSQL = '' then
   begin
-    AppendLogMessage('Tidak ada teks SQL untuk dieksekusi.', True);
+    AppendLogMessage('No SQL text to execute.', True);
     Exit;
   end;
 
   if FIsExecuting then
   begin
-    AppendLogMessage('Peringatan: Kueri lain sedang berjalan pada sesi tab ini.', True);
+    AppendLogMessage('Warning: Another query is already running in this tab session.', True);
     Exit;
   end;
 
@@ -622,12 +622,12 @@ begin
   begin
     if not TFormSafeModeWarning.PromptConfirmation(Self, Analysis, FDatabaseTarget) then
     begin
-      AppendLogMessage('Eksekusi kueri dibatalkan oleh Safe Mode Guardrail.', True);
-      SQLLogger.LogComment(Format('Eksekusi dicegah oleh Safe Mode Guardrail: %s', [Analysis.Title]));
+      AppendLogMessage('Query execution canceled by Safe Mode Guardrail.', True);
+      SQLLogger.LogComment(Format('Execution prevented by Safe Mode Guardrail: %s', [Analysis.Title]));
       Exit;
     end;
 
-    SQLLogger.LogComment(Format('PERINGATAN: Pengguna mengonfirmasi bypass Safe Mode untuk operasi: %s', [Analysis.AffectedOperation]));
+    SQLLogger.LogComment(Format('WARNING: User confirmed Safe Mode bypass for operation: %s', [Analysis.AffectedOperation]));
   end;
 
   // 2. Bersihkan visual dataset lama (Grid, Chart, dan Map)
@@ -679,7 +679,7 @@ procedure TFrameQueryTab.CancelExecution;
 begin
   if FIsExecuting and Assigned(FWorker) then
   begin
-    AppendLogMessage('Membatalkan eksekusi kueri...');
+    AppendLogMessage('Canceling query execution...');
     FWorker.CancelExecution;
   end;
 end;
@@ -711,7 +711,7 @@ begin
       FMapFrame.SetDataSet(AQuery);
 
     pgcResults.ActivePage := tabData;
-    AppendLogMessage(Format('Kueri SELECT sukses: %d baris diterima (%d ms).', [
+    AppendLogMessage(Format('SELECT query succeeded: %d rows returned (%d ms)."', [
       AResult.RowsAffected,
       AResult.ExecutionTimeMS
     ]));
@@ -725,7 +725,7 @@ begin
       FMapFrame.ClearMap;
 
     pgcResults.ActivePage := tabMessages;
-    AppendLogMessage(Format('Perintah DDL/DML berhasil: %d baris terpengaruh (%d ms).', [
+    AppendLogMessage(Format('DDL/DML statement executed successfully: %d rows affected (%d ms).', [
       AResult.RowsAffected,
       AResult.ExecutionTimeMS
     ]));

@@ -614,7 +614,6 @@ object FrameQueryTab: TFrameQueryTab
         MouseTextActions = <>
         MouseSelActions = <>
         Lines.Strings = (
-          '-- Tulis query SQL di sini'
           'SELECT * FROM '
         )
         VisibleSpecialChars = [vscSpace, vscTabAtLast]
@@ -971,9 +970,9 @@ object FrameQueryTab: TFrameQueryTab
         Height = 299
         Top = 0
         Width = 979
-        ActivePage = tbsSpatialMap
+        ActivePage = tabData
         Align = alClient
-        TabIndex = 3
+        TabIndex = 0
         TabOrder = 0
         object tabData: TTabSheet
           Caption = 'Result Rows'
@@ -1024,11 +1023,11 @@ object FrameQueryTab: TFrameQueryTab
             RowCount = 1
             TabOrder = 0
             ColWidths = (
-              190
-              190
-              190
-              190
-              190
+              194
+              194
+              193
+              193
+              193
             )
           end
         end

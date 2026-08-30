@@ -171,7 +171,7 @@ begin
   if synEditor.Lines.Count > 0 then
   begin
     Clipboard.AsText := synEditor.Lines.Text;
-    SetStatus('DDL berhasil disalin ke clipboard.');
+    SetStatus('DDL successfully copied to the clipboard.');
   end;
 end;
 

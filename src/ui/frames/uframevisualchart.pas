@@ -319,7 +319,7 @@ begin
 
   if (LabelIdx < 0) or (ValueIdx < 0) then
   begin
-    MessageDlg('Peringatan', 'Pilih kolom Label (Sumbu X) dan kolom Nilai (Sumbu Y).', mtWarning, [mbOK], 0);
+    MessageDlg('Warning', 'Please select the Label (X-axis) and Value (Y-axis) columns.', mtWarning, [mbOK], 0);
     Exit;
   end;
 
@@ -397,7 +397,7 @@ begin
       SL.Add(Format('<text x="20" y="30" font-family="Arial" font-size="16" font-weight="bold">%s</text>', [ChartMain.Title.Text.Text]));
       SL.Add('</svg>');
       SL.SaveToFile(SVGFileName);
-      MessageDlg('Ekspor SVG', 'Grafik vektor SVG berhasil disimpan.', mtInformation, [mbOK], 0);
+      MessageDlg('Ekspor SVG', 'Vector SVG chart successfully saved.', mtInformation, [mbOK], 0);
     finally
       SL.Free;
     end;
@@ -413,7 +413,7 @@ begin
     Bmp.SetSize(ChartMain.Width, ChartMain.Height);
     ChartMain.PaintOnCanvas(Bmp.Canvas, Rect(0, 0, ChartMain.Width, ChartMain.Height));
     Clipboard.Assign(Bmp);
-    MessageDlg('Salin Grafik', 'Gambar grafik berhasil disalin ke Clipboard.', mtInformation, [mbOK], 0);
+    MessageDlg('Copy Graphics', 'Chart image successfully copied to the clipboard.', mtInformation, [mbOK], 0);
   finally
     Bmp.Free;
   end;

@@ -143,7 +143,7 @@ begin
   if synLog.Lines.Count > 0 then
   begin
     Clipboard.AsText := synLog.Lines.Text;
-    MessageDlg('Log Tersalin', 'Seluruh isi log SQL berhasil disalin ke Clipboard.', mtInformation, [mbOK], 0);
+    MessageDlg('Log Copied', 'All SQL log contents successfully copied to the clipboard.', mtInformation, [mbOK], 0);
   end;
 end;
 
@@ -156,7 +156,7 @@ begin
   if saveDialog.Execute then
   begin
     FMasterList.SaveToFile(saveDialog.FileName);
-    MessageDlg('Log Tersimpan', Format('Log aktivitas SQL berhasil diekspor ke:%s%s', [LineEnding, saveDialog.FileName]), mtInformation, [mbOK], 0);
+    MessageDlg('Log Saved', Format('SQL activity log exported successfully to:%s%s', [LineEnding, saveDialog.FileName]), mtInformation, [mbOK], 0);
   end;
 end;
 

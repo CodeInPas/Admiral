@@ -120,7 +120,7 @@ begin
   cboLngField.Items.Clear;
   cboLabelField.Items.Clear;
 
-  cboLabelField.Items.Add('(Baris / ID Otomatis)');
+  cboLabelField.Items.Add('(Row / ID Otomatic)');
 
   if not Assigned(FDataSet) or (FDataSet.FieldCount = 0) then Exit;
 
@@ -173,7 +173,7 @@ begin
   if not Assigned(FDataSet) or not FDataSet.Active or FDataSet.IsEmpty then
   begin
     ClearMap;
-    lblStatus.Caption := 'Tidak ada data untuk diplot.';
+    lblStatus.Caption := 'No data to plot.';
     Exit;
   end;
 
@@ -182,7 +182,7 @@ begin
 
   if not Assigned(LatFld) or not Assigned(LngFld) then
   begin
-    lblStatus.Caption := 'Pilih kolom Latitude dan Longitude.';
+    lblStatus.Caption := 'Please select the Latitude and Longitude columns.';
     Exit;
   end;
 
@@ -217,7 +217,7 @@ begin
             if Assigned(LabelFld) and not LabelFld.IsNull then
               MarkerTitle := LabelFld.AsString
             else
-              MarkerTitle := Format('Baris #%d (%.5f, %.5f)', [FDataSet.RecNo, LatVal, LngVal]);
+              MarkerTitle := Format('Row #%d (%.5f, %.5f)', [FDataSet.RecNo, LatVal, LngVal]);
 
             // Buat TGpsPoint dengan parameter (Lon, Lat)
             GpsPt := TGpsPoint.Create(LngVal, LatVal);
@@ -243,7 +243,7 @@ begin
     Screen.Cursor := crDefault;
   end;
 
-  lblStatus.Caption := Format('Total Titik Terplot: %d', [FTotalPlotted]);
+  lblStatus.Caption := Format('Total Plotted Points: %d', [FTotalPlotted]);
 
   if FTotalPlotted > 0 then
     FitMapToBounds;
@@ -280,7 +280,7 @@ procedure TFrameMapViewer.ClearMap;
 begin
   mapView.GPSItems.Clear(0);
   FTotalPlotted := 0;
-  lblStatus.Caption := 'Peta bersih (0 titik).';
+  lblStatus.Caption := 'Clean Map  (0 point).';
   mapView.Invalidate;
 end;
 
